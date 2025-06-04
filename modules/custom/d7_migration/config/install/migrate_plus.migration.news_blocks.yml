@@ -1,0 +1,21 @@
+id: news_blocks
+label: 'News Custom Blocks'
+migration_group: d7_migration_group
+source:
+  plugin: d7_block_custom
+process:
+  id: bid
+  info: info
+  'body/format':
+    plugin: migration_lookup
+    migration: d7_filter_format
+    source: format
+  'body/value': body
+destination:
+  plugin: entity:block_content
+  default_bundle: basic
+  no_stub: true
+migration_dependencies:
+  required:
+    - d7_filter_format
+    - block_content_body_field
