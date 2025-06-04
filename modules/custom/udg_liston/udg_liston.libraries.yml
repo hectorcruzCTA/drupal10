@@ -1,0 +1,49 @@
+udg_liston:
+  version: 1.x
+  css:
+    theme:
+      css/udg_liston.css: {}
+      
+udg_slideshow:
+  version: 1.x
+  css:
+    theme:
+      css/udg_slideshow.css: {}
+  js:
+    js/udg_slideshow.js: {}                       
+    
+    
+udg_media:
+  version: 1.x
+  css:
+    theme:
+      css/dcsns_wall.css: {}
+  js:
+      js/jquery.social.stream.1.6.2.js: {}
+      js/jquery.social.stream.wall.1.8.js: {}
+      js/runmedia.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+   
+boton_share:
+  version: 1.x
+  js:
+    js/boton_share.js: {}       
+    
+udg_banner:
+  version: 1.x
+  css:
+    theme:
+      css/udg_banner.css: {} 
+
+accesibilidadUdg:
+  js:
+    js/accesibilityUdg.js: {}
+  dependencies:
+    - core/jquery
+    - core/once
+    - core/drupal.once
+       
+      
+            

@@ -1,0 +1,10 @@
+name: D7 Migration
+type: module
+description: 'Migraciones desde Drupal 7 (menús, nodos, archivos).'
+core_version_requirement: ^10
+package: Custom
+dependencies:
+  - migrate_plus
+  - migrate_tools
+  - migrate_drupal
+  - migrate_drupal_ui

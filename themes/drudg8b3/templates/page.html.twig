@@ -1,0 +1,118 @@
+{# themes/drudg8b3/templates/page.html.twig #}
+
+{# Agregar la librería global-scripts para cargar scripts.js correctamente #}
+{{ attach_library('drudg8b3/global-scripts') }}
+{{ attach_library('drudg8b3/bootstrap-carrusel') }} {# Asumo que esta es tu librería para el carrusel #}
+
+{# Menú principal UDG (Colapsable) #}
+{% if page.udg_menu_principal %}
+  <div id="udg_menu_principal_ul" class="container-fluid"> {# container-fluid para ancho completo #}
+    <button id="menu-toggle" class="btn btn-primary">Menú Principal UDG</button>
+    <div id="menu-content" class="menu-collapsed">
+      {{ page.udg_menu_principal }}
+    </div>
+  </div>
+{% endif %}
+
+{# Listón UDG (Menú superior) #}
+{% if page.liston %}
+  <div id="liston" class="container-fluid"> {# container-fluid para ancho completo #}
+    {{ page.liston }}
+  </div>
+{% endif %}
+
+{# Agregar la barra de administración si existe #}
+{% if page.toolbar %}
+  <div id="toolbar-administration"> {# Generalmente de ancho completo por defecto #}
+    {{ page.toolbar }}
+  </div>
+{% endif %}
+
+{# Encabezado con logo, título y buscador #}
+<header class="navbar navbar-default" id="navbar">
+  <div id="header-navigation-wrapper" class="container"> {# Contenedor para el contenido del header #}
+    <div class="container header">
+      <div class="header-content">
+        <div id="logo-buscador" class="logo-buscador">
+          <div class="logo">
+            {{ page.logo_udg }}
+          </div>
+          <div class="buscador">
+            {{ page.buscador }}
+          </div>
+        </div>
+        <div id="titulo-cuaad" class="titulo">
+          {{ page.titulo_cuaad }}
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+{# Menú Principal debajo del Listón UDG #}
+{% if page.navigation %}
+  <nav id="menu-principal" class="container-fluid"> {# container-fluid para ancho completo #}
+    <div class="container navigation"> {# Contenedor interno para el contenido del menú #}
+      {{ page.navigation }}
+    </div>
+  </nav>
+{% elseif page.navigation_collapsible %}
+  <nav id="menu-principal" class="container-fluid"> {# container-fluid para ancho completo #}
+    <div class="container navigation"> {# Contenedor interno para el contenido del menú #}
+      {{ page.navigation_collapsible }}
+    </div>
+  </nav>
+{% endif %}
+
+{# --- INICIO DE LA SECCIÓN MODIFICADA --- #}
+{# Secciones Adicionales (Como slideshow, precontent, etc.) #}
+{% set full_width_sections = ['slideshow'] %} {# Define aquí las secciones que quieres de ancho completo #}
+{% set contained_sections = ["precontent2", "precontent3", "content2", "content3", "content5", "content6", "content7", "content8", "content9", "content10", "content11"] %}
+
+{# Renderizar secciones de ancho completo #}
+{% for section_name in full_width_sections %}
+  {% if attribute(page, section_name) %}
+    <div id="{{ section_name | clean_class }}" class="section-{{ section_name | clean_class }}-wrapper full-width-region">
+      {{ attribute(page, section_name) }}
+    </div>
+  {% endif %}
+{% endfor %}
+
+{# Renderizar secciones contenidas #}
+{# El contenido principal (page.content) se manejará después por separado si es necesario #}
+{% for section_name in contained_sections %}
+  {% if attribute(page, section_name) %}
+    <div id="{{ section_name | clean_class }}" class="container section-{{ section_name | clean_class }}-wrapper">
+      <div class="container section-content-inner"> {# O simplemente {{ attribute(page, section_name) }} si no necesitas el div anidado #}
+        {{ attribute(page, section_name) }}
+      </div>
+    </div>
+  {% endif %}
+{% endfor %}
+{# --- FIN DE LA SECCIÓN MODIFICADA --- #}
+
+
+{# Contenido principal del sitio (formulario login, páginas, nodos, etc.) #}
+{# Este es usualmente el contenido principal de la página y debería estar contenido #}
+{% if page.content %}
+  <main id="main-content" class="container"> {# Contenedor para el contenido principal #}
+    <div class="main-content-inner"> {# Div interno opcional para más control #}
+      {{ page.content }} {# Aquí se imprime tu bloque de noticias si está en la región 'content' #}
+    </div>
+  </main>
+{% endif %}
+
+<footer id="footer" class="footer-wrapper">
+  <div id="footer1-wrapper">
+    <div id="footer1-info">
+      {{ page.footer1 }}
+    </div>
+    <div id="footer1-extras">
+      {{ page.redes_sociales }}
+      {{ page.footer_menu }}
+    </div>
+  </div>
+  <div id="footer2-wrapper">
+    {{ page.footer2 }}
+  </div>
+</footer>

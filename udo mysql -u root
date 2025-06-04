@@ -1,0 +1,28 @@
+[0;1;32m●[0m mariadb.service - MariaDB 10.6.18 database server
+     Loaded: loaded (/lib/systemd/system/mariadb.service; enabled; vendor preset: enabled)
+     Active: [0;1;32mactive (running)[0m since Mon 2025-02-17 15:16:20 UTC; 7h ago
+       Docs: man:mariadbd(8)
+             https://mariadb.com/kb/en/library/systemd/
+    Process: 671241 ExecStartPre=/usr/bin/install -m 755 -o mysql -g root -d /var/run/mysqld (code=exited, status=0/SUCCESS)
+    Process: 671244 ExecStartPre=/bin/sh -c systemctl unset-environment _WSREP_START_POSITION (code=exited, status=0/SUCCESS)
+    Process: 671246 ExecStartPre=/bin/sh -c [ ! -e /usr/bin/galera_recovery ] && VAR= ||   VAR=`cd /usr/bin/..; /usr/bin/galera_recovery`; [ $? -eq 0 ]   && systemctl set-environment _WSREP_START_POSITION=$VAR || exit 1 (code=exited, status=0/SUCCESS)
+    Process: 671290 ExecStartPost=/bin/sh -c systemctl unset-environment _WSREP_START_POSITION (code=exited, status=0/SUCCESS)
+    Process: 671292 ExecStartPost=/etc/mysql/debian-start (code=exited, status=0/SUCCESS)
+   Main PID: 671275 (mariadbd)
+     Status: "Taking your SQL requests now..."
+      Tasks: 10 (limit: 61943)
+     Memory: 130.2M
+        CPU: 11.956s
+     CGroup: /system.slice/mariadb.service
+             └─671275 /usr/sbin/mariadbd
+
+feb 17 15:16:21 serverumidrupal10 /etc/mysql/debian-start[671298]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mReading datadir from the MariaDB server failed. Got the following error when executing the 'mysql' command line client[0m
+feb 17 15:16:21 serverumidrupal10 /etc/mysql/debian-start[671298]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)[0m
+feb 17 15:16:21 serverumidrupal10 /etc/mysql/debian-start[671298]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFATAL ERROR: Upgrade failed[0m
+feb 17 15:16:21 serverumidrupal10 /etc/mysql/debian-start[671309]: Checking for insecure root accounts.
+feb 17 15:16:21 serverumidrupal10 mariadbd[671275]: 2025-02-17 15:16:21 4 [Warning] Access denied for user 'root'@'localhost' (using password: NO)
+feb 17 15:16:21 serverumidrupal10 debian-start[671313]: ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
+feb 17 15:16:21 serverumidrupal10 mariadbd[671275]: 2025-02-17 15:16:21 0 [Note] InnoDB: Buffer pool(s) load completed at 250217 15:16:21
+feb 17 15:41:24 serverumidrupal10 mariadbd[671275]: 2025-02-17 15:41:24 21 [Warning] Access denied for user 'root'@'localhost' (using password: NO)
+feb 17 15:43:55 serverumidrupal10 mariadbd[671275]: 2025-02-17 15:43:55 22 [Warning] Access denied for user 'root'@'localhost' (using password: NO)
+feb 17 19:55:46 serverumidrupal10 mariadbd[671275]: 2025-02-17 19:55:46 42 [Warning] Access denied for user 'root'@'localhost' (using password: YES)

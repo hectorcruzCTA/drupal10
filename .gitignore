@@ -1,0 +1,19 @@
+# Dependencias PHP instaladas por composer
+/vendor/
+
+# Núcleo y contrib que composer puede volver a bajar
+/web/core/
+/web/modules/contrib/
+/web/profiles/contrib/
+/web/themes/contrib/
+
+# Archivos generados por Drupal (subidos o privados)
+#/web/sites/*/files/           # descomenta si NO necesitas subir nada de files
+/web/sites/*/private/
+
+# Configuración sensible
+/web/sites/*/settings.php
+
+# Basura de IDE o sistema
+.DS_Store
+.idea/

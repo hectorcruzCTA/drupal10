@@ -1,0 +1,98 @@
+{# Agregar la librería global-scripts para cargar scripts.js correctamente #}
+{{ attach_library('drudg8b3/global-scripts') }}
+{{ attach_library('drudg8b3/global-scripts') }}
+{{ attach_library('drudg8b3/bootstrap-carrusel') }}
+
+
+{# Menú principal UDG (Colapsable) #}
+{% if page.udg_menu_principal %}
+  <div id="udg_menu_principal_ul" class="container-fluid">
+    <button id="menu-toggle" class="btn btn-primary">Menú Principal UDG</button>
+    <div id="menu-content" class="menu-collapsed">
+      {{ page.udg_menu_principal }}
+    </div>
+  </div>
+{% endif %}
+
+{# Listón UDG (Menú superior) #}
+{% if page.liston %}
+  <div id="liston" class="container-fluid">
+    {{ page.liston }}
+  </div>
+{% endif %}
+
+{# Agregar la barra de administración si existe #}
+{% if page.toolbar %}
+  <div id="toolbar-administration">
+    {{ page.toolbar }}
+  </div>
+{% endif %}
+
+{# Encabezado con logo, título y buscador #}
+<header class="navbar navbar-default" id="navbar">
+  <div id="header-navigation-wrapper" class="container">
+    <div class="container header">
+      <div class="header-content">
+        {# Contenedor para Logo y Buscador en un mismo bloque #}
+        <div id="logo-buscador" class="logo-buscador">
+          <div class="logo">
+            {{ page.logo_udg }}
+          </div>
+          <div class="buscador">
+            {{ page.buscador }}
+          </div>
+        </div>
+        {# Bloque de Título CUAAD separado #}
+        <div id="titulo-cuaad" class="titulo">
+          {{ page.titulo_cuaad }}
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+{# Menú Principal debajo del Listón UDG #}
+{% if page.navigation %}
+  <nav id="menu-principal" class="container-fluid">
+    <div class="container navigation">
+      {{ page.navigation }}
+    </div>
+  </nav>
+{% elseif page.navigation_collapsible %}
+  <nav id="menu-principal" class="container-fluid">
+    <div class="container navigation">
+      {{ page.navigation_collapsible }}
+    </div>
+  </nav>
+{% endif %}
+
+{# Contenido principal del sitio (formulario login, páginas, nodos, etc.) #}
+{% if page.content %}
+  <main id="main-content" class="container">
+    <div class="content">
+      {{ page.content }}
+    </div>
+  </main>
+{% endif %}
+
+
+{# Secciones Adicionales #}
+{% for section in ["precontent2", "slideshow", "precontent3", "content2", "content3", "content4", "content5", "content6", "content7", "content8", "content9", "content10", "content11"] %}
+  {% if attribute(page, section) %}
+    <div id="{{ section }}" class="container">
+      <div class="container {{ section }}">
+        {{ attribute(page, section) }}
+      </div>
+    </div>
+  {% endif %}
+{% endfor %}
+
+{# Footer (Pie de página) #}
+{% if page.footer %}
+  <footer id="footer" class="container">
+    <div class="container footer">
+      {{ page.footer }}
+    </div>
+  </footer>
+{% endif %}
+

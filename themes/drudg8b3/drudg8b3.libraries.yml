@@ -1,0 +1,68 @@
+global-styling:
+  css:
+    theme:
+      css/style.css: {}
+      css/noticias.css: {}
+      # Asumiendo que udg_menu es una librería del tema o un subdirectorio:
+      libraries/udg_menu/udg-menu2.css: {}
+Banner:
+  js:
+    libraries/banner.js: {}
+
+Slideshow:
+  js:
+    libraries/slideshow.js: {}
+
+Share:
+  js:
+    libraries/boton_share.js: {}
+
+barraudg:
+  css:
+    theme:
+      libraries/udg_menu/udg-menu2.css: {}
+  js:
+    libraries/udg_menu/udg-menu2.js: {}
+  dependencies:
+    - core/jquery
+
+global-scripts:
+  version: 1.x
+  js:
+    js/scripts.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupal.once
+
+bootstrap:
+  version: 3.4.1
+  css:
+    theme:
+      # Ruta relativa desde themes/drug8b3/ a libraries/bootstrap/
+      ../../libraries/bootstrap/css/bootstrap.min.css: {}
+  js:
+    # Ruta relativa desde themes/drug8b3/ a libraries/bootstrap/
+    ../../libraries/bootstrap/js/bootstrap.min.js: {}
+  dependencies:
+    - core/jquery
+
+Smove:
+  js:
+    libraries/jquery.smoove.min.js: {}
+    libraries/smoveConf.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/once
+
+bootstrap-carousel:
+  version: 1.x
+  js:
+    js/init-carousel.js: {} # ¡ASEGÚRATE DE QUE ESTE ARCHIVO EXISTA en themes/drug8b3/js/!
+  dependencies:
+    - core/jquery
+    - core/once
+    - core/drupal
+    - core/drupalSettings
+    - drudg8b3/bootstrap # Depende de la biblioteca 'bootstrap' de arriba

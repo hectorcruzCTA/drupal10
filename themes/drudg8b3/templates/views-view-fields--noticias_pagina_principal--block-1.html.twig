@@ -1,0 +1,65 @@
+{#
+/**
+ * @file
+ * Custom view template for Bootstrap 3 to display all the fields in a row
+ * for noticias_pagina_principal--block-1.
+ * Differentiates the first (featured) item from subsequent (standard) items.
+ */
+#}
+
+{# --- Configuración de Variables --- #}
+{% set item_url = fields.view_node.content | striptags | trim | default('#') %}
+{% set noticia_title_text = fields.title.content | striptags | raw %}
+{% set noticia_summary = "" %}
+{% if fields.body.content %}
+  {% set noticia_summary = fields.body.content | striptags | raw %}
+{% endif %}
+{% set noticia_fecha = fields.created_1.content | default('') %}
+{% set imagen_content %}
+  {% if fields.field_imagen_noticia.content %}
+    {{ fields.field_imagen_noticia.content }}
+  {% else %}
+    <img src="https://via.placeholder.com/400x300.png?text=Imagen+no+disponible" class="img-responsive" alt="Imagen no disponible">
+  {% endif %}
+{% endset %}
+{# --- Fin Configuración de Variables --- #}
+
+<div class="panel panel-default noticia-panel">
+  <div class="panel-body">
+    {% if view.row_index == 0 %}
+      {# Primer elemento: Destacado (Texto izquierda, Imagen derecha en desktop) #}
+      <article class="noticia-destacada">
+        <div class="row">
+          <div class="col-sm-7 col-md-7 noticia-contenido-col">
+            <h3 class="noticia-titulo"><a href="{{ item_url }}">{{ noticia_title_text }}</a></h3>
+            {% if noticia_summary %}
+              <p class="noticia-resumen">{{ noticia_summary }}</p>
+            {% endif %}
+            <p class="noticia-fecha text-muted small">{{ noticia_fecha }}</p>
+            <a href="{{ item_url }}" class="btn btn-link noticia-leer-mas">LEER MÁS <span class="glyphicon glyphicon-arrow-right"></span></a>
+          </div>
+          <div class="col-sm-5 col-md-5 noticia-imagen-col">
+            <a href="{{ item_url }}">{{ imagen_content }}</a>
+          </div>
+        </div>
+      </article>
+    {% else %}
+      {# Elementos subsiguientes: Estándar (Imagen izquierda, Texto derecha en desktop) #}
+      <article class="noticia-estandar">
+        <div class="row">
+          <div class="col-sm-4 col-md-4 noticia-imagen-col">
+            <a href="{{ item_url }}">{{ imagen_content }}</a>
+          </div>
+          <div class="col-sm-8 col-md-8 noticia-contenido-col">
+            <h4 class="noticia-titulo"><a href="{{ item_url }}">{{ noticia_title_text }}</a></h4>
+            {% if noticia_summary %}
+              <p class="noticia-resumen">{{ noticia_summary }}</p>
+            {% endif %}
+            <p class="noticia-fecha text-muted small">{{ noticia_fecha }}</p>
+            <a href="{{ item_url }}" class="btn btn-link noticia-leer-mas">LEER MÁS <span class="glyphicon glyphicon-arrow-right"></span></a>
+          </div>
+        </div>
+      </article>
+    {% endif %}
+  </div>{# /.panel-body #}
+</div>{# /.panel #}

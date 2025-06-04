@@ -1,0 +1,11 @@
+core_version_requirement: ^8 || ^9 || ^10
+name: UDG Listón
+description: Crea un block administrativo para mostrar los listones.
+package: UDG
+type: module
+dependencies:
+    - block
+    - entity_print
+
+
+  

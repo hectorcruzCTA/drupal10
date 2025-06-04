@@ -1,0 +1,55 @@
+#block-listonudg .campo{
+   position: relative !important;
+   z-index: 5 !important;
+   text-align: center;
+}
+#block-listonudg .campo img{
+   position: relative !important;
+   z-index: 5 !important;
+   display: inline;
+}
+
+.accesibilityTools{
+  /*display: none;*/
+  position: relative;
+  left: -20px;
+  top: 10px;
+  text-align: right;
+  /*height: 0;*/
+}
+
+#liston .empty{
+  padding: 40px;
+}
+
+
+.accesibilityTools a{
+  /*display: none;*/
+  background: rgba(255,255,255, .5);
+  padding: 3px;
+  border-radius: 5px;
+}
+
+
+.accessibility-contrast-image {
+  -webkit-filter: grayscale(100%) contrast(100%);
+  filter: grayscale(100%) contrast(100%);
+}
+.accessibility-invert-image {
+  -webkit-filter: invert(1);
+  filter: invert(1);
+}
+.accessibility-sepia-image {
+  -webkit-filter: sepia(1);
+  filter: sepia(1);
+}
+
+#liston {
+    position: relative !important;
+    z-index: 5 !important;
+}
+
+#udg_menu_principal_ul {
+    position: relative !important;
+    z-index: 1000 !important;
+}

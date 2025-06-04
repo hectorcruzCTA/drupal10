@@ -1,0 +1,31 @@
+id: menu_links
+label: 'Drupal 7 Main Menu Links'
+migration_group: d7_migration_group
+
+source:
+  plugin: d7_menu_link
+  constants:
+    menu_name: main-menu
+  key: drupal7
+  ids:
+    mlid:
+      type: integer
+
+process:
+  menu_name:
+    plugin: default_value
+    default_value: main-menu
+  link_path: link_path
+  link_title: link_title
+  weight: weight
+  parent: parent
+  expanded: expanded
+  enabled: enabled
+
+destination:
+  plugin: menu_link_content
+  default_bundle: menu_link_content
+
+migration_dependencies:
+  required: []
+  optional: []

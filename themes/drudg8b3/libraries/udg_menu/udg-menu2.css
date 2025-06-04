@@ -1,0 +1,294 @@
+/*Menu top udg*/
+
+#udg_menu_principal {
+    width: 100%;
+    background-color: #000;
+    text-align: center;
+    padding: 10px 0;
+}
+
+#udg_menu_principal li ul {
+    display: none;
+    position: absolute;
+    left: 0;
+    transform: translateX(-50%);
+    width: 230px !important;
+    background: #fff; /* Asegura que el fondo sea blanco */
+    padding: 5px 0;
+    z-index: 9999;
+    text-align: left !important;
+    top: 100%;
+    min-width: 230px !important;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+
+
+#udg_menu_principal li ul li a{
+    display: block;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #fff;
+    margin-left: 5px;
+    font-size: 12px;  /* Reduce el tamaño del texto */
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Agrega puntos suspensivos si el texto es muy largo */
+}
+
+#udg_menu_principal li ul li:last-child a{
+    border-bottom: none;
+}
+
+/* Cambio de color al pasar el mouse */
+#udg_menu_principal li ul li:hover {
+    background: #333; /* Color más oscuro al hacer hover */
+}
+
+#udg_menu_principal li ul li a:hover{
+    text-decoration: none;
+}
+
+.udg_menu_titulo{
+    padding: 5px;
+    background: #666666;
+}
+
+#udg_menu_principal{
+    display: none;
+}
+
+.dropdown-menu{
+    background-color: #e7e7e7;
+}
+
+#udg_menu_principal li:hover > ul {
+    display: block !important;  /* Se muestra al hacer hover */
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #000;
+    z-index: 9999;
+    width: 250px;
+    padding: 5px 0;
+}
+
+#udg_menu_principal li ul li {
+    position: relative;
+    display: block;
+    width: 100%;
+    min-height: 30px;
+    min-width: 150px;
+    display: block;
+    align-items: center;
+    padding: 8px 12px;
+    white-space: nowrap;
+    border-bottom: 1px solid #4d4d4d;
+    background: #000; /* Asegurar el fondo negro */
+    text-align: left;
+    color: #fff; /* Asegurar el color del texto */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#udg_menu_principal ul{
+    background: #000;
+    margin: 0;
+}
+
+#udg_menu_principal li ul li ul {
+    right:-140px;
+    top:0px;
+}
+
+#udg_menu_principal_ul, #udg_menu_principal_ul ul {
+    list-style: none;
+}
+
+#udg_menu_principal_ul > li{
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    padding-right: 10px;
+    border-right: solid #fff thin;
+    padding: 10px 15px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    padding-left: 10px;
+    cursor: pointer;
+    border-right: 1px solid #fff;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#udg_menu_principal_ul li:nth-child(4){
+    border: none;
+}
+
+#udg_menu_principal_ul {
+    height: 40px !important;
+    overflow: visible !important;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center !important;
+    background-color: #000 !important;
+    width: 100%;
+    position: absolute !important;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%) !important;
+    z-index: 1000 !important;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#udg_menu_principal li ul li a {
+    width: 100%;
+    text-align: left;
+    padding: 12px 15px;
+    font-weight: bold;
+    display: block;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    border-bottom: 1px solid #fff;
+    margin-left: 2px;
+    color: #fff !important;
+    text-decoration: none !important;
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#udg_menu_principal li ul li a:hover {
+    background: #4d4d4d;
+}
+
+@media (max-width: 768px) {
+    #udg_menu_principal li ul {
+        width: 100% !important;
+        position: relative !important;
+    }
+
+    #udg_menu_principal li ul li {
+        display: block;
+        text-align: left;
+    }
+
+    #udg_menu_principal li ul li a {
+        text-align: center;
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+
+#menu-toggle {
+    background: #337ab7 !important;
+    color: #fff !important;
+    border: 1px solid #2e6da4 !important;
+    padding: 10px 15px;
+    font-size: 14px !important;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    display: none; /* Evitar que ocupe todo el ancho */
+    width: auto !important; /* Corregir el tamaño */
+}
+
+
+/* Cambio de color al pasar el mouse */
+#menu-toggle:hover {
+    background: #286090 !important;
+}
+
+
+/* Submenús ocultos por defecto */
+.submenu {
+    display: none;
+    position: absolute;
+    background: #000;
+    width: 250px;
+    padding: 5px;
+    z-index: 1000;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Mostrar submenús cuando se agrega la clase desde JS */
+.submenu-visible {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    
+}
+
+#udg_menu_principal_ul.active {
+    display: flex !important;
+}
+
+#udg_menu_principal_ul > li:last-child {
+    border-right: none;
+}
+
+
+/* Estilos para los submenús */
+#udg_menu_principal_ul li ul {
+    display: none;
+    position: absolute;
+    background-color: #222;
+    width: 300px;
+    left: 0;
+    top: 100%;
+    list-style: none;
+    padding: 5px 0;
+    border: 1px solid #444;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    text-overflow: ellipsis; /* Agrega "..." si el texto es muy largo */
+}
+
+#udg_menu_principal_ul li:hover > ul {
+    display: block;
+}
+
+#udg_menu_principal_ul li ul li {
+    padding: 10px;
+    text-align: left;
+    white-space: nowrap;
+    border-bottom: 1px solid #333;
+}
+
+#udg_menu_principal_ul li ul li a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+}
+
+#udg_menu_principal_ul li ul li a:hover {
+    background-color: #555;
+}
+
+/* Ajuste para submenús anidados */
+#udg_menu_principal_ul li ul li ul {
+    position: absolute;
+    left: 100%;
+    top: 0;
+    display: none;
+    background-color: #111;
+    width: 400px !important; /* Ajusta según la necesidad */
+}
+
+#udg_menu_principal_ul li ul li:hover > ul {
+    display: block;
+}
+
+

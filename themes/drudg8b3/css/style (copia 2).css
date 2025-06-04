@@ -1,0 +1,2051 @@
+/*-----------------------------------------------------------------------------------
+	Theme Name: DRUDGD8
+	Theme URI: http://udg.mx
+	Author: Gustavo Ogas
+	Version: 1.0
+-----------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------*/
+/*	1.	General styles
+/*-----------------------------------------------------------------------------------*/
+
+@font-face {
+	font-family: "Quicksand Book";
+	src: url("../fonts/Quicksand Book/Quicksand Book.otf");
+}
+@font-face {
+	font-family: "Camber Medium Regular";
+	src: url("../fonts/Quicksand Book/Camber Medium Regular.otf");
+}
+@font-face {
+	font-family: "Camber SemiBold Regular";
+	src: url("../fonts/Camber/Emtype Foundry - Camber SemiBold Regular.otf");
+}
+@font-face {
+  font-family: "Archivo Narrow SemiBold";
+  src: url("../fonts/Archivo_Narrow/ArchivoNarrow-SemiBold.ttf");
+}
+@font-face {
+  font-family: "Archivo Narrow Medium";
+  src: url("../fonts/Archivo_Narrow/ArchivoNarrow-Medium.ttf");
+}
+@font-face {
+  font-family: "Camber Light Regular";
+  src: url("../fonts/Camber/Emtype Foundry - Camber Light Regular.otf");
+}
+
+h1, h2, h3{
+	font-family: "Archivo Narrow Medium";
+  color: #445f77;
+}
+h1{
+	font-size: 34px;
+}
+h2{
+	font-size: 27px;
+}
+h3{
+	font-size: 20px;
+}
+
+body {
+    font-family: "Camber Light Regular";
+    min-width: 300px;
+    overflow: visible !important;
+    padding-top: 40px; /* Para evitar que el contenido se solape con el menú fijo */
+}
+
+/* Agrega estilos en etiquetas Strong y b / Marco Sierra 11/05/2021 */
+strong, b{
+font-family: "Camber SemiBold Regular";
+font-weight: bold;
+}
+
+a{
+	color: #265986;
+}
+a:link, a:selected{
+  color: #265986;
+}
+a.is-active{
+	font-weight: bold;
+}
+dt {
+    font-weight: bold;
+}
+dd {
+    margin: 0 0 1em 2em;
+    padding: 0;
+}
+abbr[title] {
+    text-decoration: underline dotted;
+}
+blockquote {
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+blockquote:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+blockquote p {
+  display: inline;
+}
+.emph_a {
+    background: #B2DBB1;
+    border: thin solid #87BD7F;
+    color: #006600;
+    float: left;
+    margin: 10px 8px 0 !important;
+    max-width: 970px;
+    min-width: 190px;
+    padding: 1.5em;
+}
+.emph_b {
+    background:  #FFCC99;
+    border: thin solid #FFA546;
+    color: #97583F;
+    float: left;
+    margin: 10px 8px 0 !important;
+    max-width: 970px;
+    min-width: 190px;
+    padding: 1.5em;
+}
+.emph_c {
+    background: #FFFFCC;
+    border: thin solid #FFDCAC;
+    color: #97583F;
+    float: left;
+    margin: 10px 8px 0 !important;
+    max-width: 970px;
+    min-width: 190px;
+    padding: 1.5em;
+}
+table{
+  width: 100%;
+}
+.field--label{
+  color: #445f77;
+  font-weight: bold;
+}
+.field--type-file .file{
+  background: #e6e6e6;
+  padding: 10px 10px 5px 10px;
+  margin-bottom: 5px;
+  display: block;
+}
+.file-icon{
+  font-size: 24px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.file-link{
+  margin-left: 20px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.file-size{
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 20px;
+}
+
+
+.navbar-default .navbar-nav > li > a {
+	color: #fff;
+}
+.navbar-default{
+	background: #fff;
+	border: none;
+}
+.navbar{
+  margin-bottom: 0;
+}
+.navbar-collapse{
+	padding: 0;
+}
+#liston{
+	background: #eee;
+}
+
+/*Encabezado*/
+#header.container-fluid{
+    background-color: #00427B;
+    background-image: -moz-linear-gradient(#00427B, #002D4B);
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#00427B), to(#002D4B));
+    background-image: -webkit-linear-gradient(#00427B, #002D4B);
+    background-image: -o-linear-gradient(#00427B, #002D4B);
+    color: #fff;
+    height: 50px;
+}
+#header.container-fluid a{
+    color: #fff;
+}
+.escudo {
+    text-align: center;
+}
+.navbar{
+	border: none;
+}
+.nav>li>a:focus, .nav>li>a:hover{
+  color: #4B4B4B !important;
+  background: #e7e7e7 !important;
+}
+
+
+
+.logog {
+    position: relative;
+    z-index:400;
+    top: 12px;
+    width: 100%;
+    max-width: 468px;
+}
+.escudo{
+	 display: none;
+}
+.escudoch {
+    width: 60%;
+    max-width: 468px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+#navigation{
+	background: #4d4d4d;
+  font-family: "Camber Medium Regular";
+  text-transform: uppercase;
+}
+.sr-only{
+  color: #000;
+}
+#navigation h2{
+  color: #fff;
+}
+/*Titulo de la portada*/
+.path-frontpage h1.page-header{
+  height: 0;
+  overflow: hidden;
+  padding: 0;
+  border: none;
+  margin: 0;
+}
+.region.region-precontent{
+	text-align: center;
+}
+#precontent{
+	background: #666666;
+}
+#content5{
+  background: #EEE;
+}
+.region.region-precontent .name {
+    color: #fff;
+    text-transform: uppercase;
+    padding-top: 16px;
+    font-family: "Camber SemiBold Regular";
+    line-height: 20px;
+    display: inline-block;
+    font-size: 18px;
+}
+.navbar-brand{
+	float: none;
+}
+/*Buscador*/
+.block-search-form-block{
+	margin-top: 12px !important;
+}
+#search-block-form .control-label{
+  color: #fff;
+}
+.block-search-form-block{
+  margin-top: 15px;
+}
+#header div.block-search-form-block div.form-group{
+  margin-bottom: 2px;
+ }
+#header input#edit-keys {
+    height: 25px;
+}
+#header div.block-search-form-block div.form-group button.button.js-form-submit.form-submit.btn-primary.btn.icon-only {
+  height: 25px;
+}
+#header div.block-search-form-block div.form-group button.button.js-form-submit.form-submit.btn-primary.btn.icon-only span.glyphicon{
+  top: 0px;
+  line-height: 0;
+}
+#header .btn-primary{
+  background-color: #002D4B;
+  border:1px solid #002D4B;
+}
+/*menu*/
+nav#block-drudg8b3-main-menu ul.menu.menu--main.nav.navbar-nav li.expanded.dropdown ul.dropdown-menu li a:hover {
+    background-color: #3a8293 !important;  /* Color correcto en hover */
+    color: #ffffff !important;  /* Texto blanco */
+}
+
+
+/*Slideshow*/
+.carousel-caption{
+ text-align: left;
+}
+.carousel-inner>.item>a>img, .carousel-inner>.item>img{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#block-drudg8b3-views-block-slideshow-principal-block-1 .form-group{
+  margin-bottom: 0;
+}
+#block-drudg8b3-views-block-slideshow-principal-block-1 .carousel-caption{
+  background: rgba(77,77,77, .8);
+  padding: 10px;
+}
+#block-drudg8b3-views-block-slideshow-principal-block-1 .view-content a{
+  color: #fff;
+}
+#block-drudg8b3-views-block-slideshow-principal-block-1 #carouselButtonsviews-bootstrap-slideshow-principal-block-1 {
+    margin-left: 100px;
+    position: absolute;
+    bottom: 0px;
+}
+#block-drudg8b3-views-block-slideshow-principal-block-1 .not-show {
+    display: none;
+}
+#slideshow{
+  background: #303131;
+}
+/*Slideshow video custom*/
+#Anuncio1{
+  background: rgba(0, 54, 96 , .8);
+  padding: 10px;
+  border-radius: 5px;
+  text-align: left;
+}
+#Anuncio1 h2 a{
+  color: #fff;
+}
+#Anuncio1 p{
+  display: none;
+}
+#block-slideudgvideo .node-43 .carousel-caption {
+  top: 10px;
+  left: 25%;
+}
+div#Anuncio1 h2{
+  font-family: "Camber Medium Regular";
+}
+
+.contextual-links a {
+	color: #222;
+}
+
+.row-horizon {
+   overflow-x: scroll;
+  white-space: nowrap;
+}
+.row-horizon .card {
+    display: inline-block;
+    float: none;
+}
+/**/h2.block-title{
+	color: #fff;
+	background-color: #4d4d4d;
+	padding: 10px 10px;
+  font-family: "Camber Medium Regular";
+}
+/*Videos portada*/
+#content3 {
+    background: #EEE;
+    position: relative;
+}
+#block-drudg8b3-views-block-videos-block-1{
+    padding-bottom: 30px;
+    font-family: "Camber Medium Regular";
+}
+#block-drudg8b3-views-block-videos-block-1 div.views-field.views-field-field-video-galeria iframe {
+    width: 100%;
+}
+#block-drudg8b3-views-block-videos-block-1 .views-row .views-field.views-field-title {
+    font-size: 24px;
+    font-family: "Camber Medium Regular";
+}
+#block-drudg8b3-views-block-videos-block-2{
+  font-family: "Camber Medium Regular" !important;
+}
+
+#block-drudg8b3-views-block-videos-block-2 .views-row{
+    padding: 5px;
+    padding-left: 20px;
+    padding-bottom: 1px;
+    clear: both;
+}
+
+#block-drudg8b3-views-block-videos-block-2 .views-row .views-field.views-field-field-video-galeria {
+    display: inline-block;
+    margin-right: 15px;
+    float: left;
+}
+#block-drudg8b3-views-block-videos-block-2 .views-row .views-field.views-field-title {
+  font-family: "Camber Medium Regular";
+    font-size: 21px;
+    line-height: 25px;
+    color: #174f77;
+}
+#block-drudg8b3-views-block-videos-block-2 .views-row .views-field.views-field-field-fecha-galeria-videos {
+    display: inline-block;
+}
+
+#block-galeriadevideos h2.block-title{
+  color: #000;
+    padding: 10px 5px;
+    background-color: #EEE;
+}
+/*Banner
+
+
+
+/*Agenda*/
+#block-views-block-agenda-contenido-block-1 .views-field-title{
+  font-family: 'Archivo Narrow SemiBold';
+  font-size: 20px;
+  /*background: url('../images/ico_evento_titulo.png') no-repeat left top;*/
+  padding-left: 40px;
+}
+#block-views-block-agenda-contenido-block-1 .views-field-field-sitio-de-interes{
+  background: #164d73;
+  padding: 10px;
+  margin-top: 10px;
+  text-align: center;
+  color: #fff;
+}
+#block-views-block-agenda-contenido-block-1 .views-field-field-sitio-de-interes a{
+  color: #fff;
+}
+#block-views-block-agenda-contenido-block-1 input{
+  width: 40px;
+  height: 40px;
+  background:  url('../images/ico_evento_fecha.png') no-repeat center;
+  text-indent: 50px;
+  border: #fff solid 1px;
+}
+#block-views-block-agenda-contenido-block-1 input:hover{
+  background: #cecece url('../images/ico_evento_fecha_over.png') no-repeat center;
+}
+#block-views-block-agenda-contenido-block-1 .views-field-udg-liston-views-field{
+  display: inline-block;
+  vertical-align: top;
+  border-bottom: 1px dashed #a5a5a5;
+}
+#block-views-block-agenda-contenido-block-1 .views-field-field-fecha-agenda{
+  display: inline-block;
+  padding-left: 20px;
+  width: 100%;
+  max-width: 320px;
+  border-bottom: 1px dashed #a5a5a5;
+}
+#block-views-block-agenda-contenido-block-1 .views-field-field-lugar-1 a{
+  width: 40px;
+  height: 40px;
+  text-indent: 50px;
+  overflow: hidden;
+  line-height: 50px;
+  background:  url('../images/ico_evento_lugar.png') no-repeat 10px center;
+  display: block;
+  color: #fff;
+}
+#block-views-block-agenda-contenido-block-1 .views-field-field-lugar-1 a:hover{
+  background: #cecece url('../images/ico_evento_lugar_over.png') no-repeat 10px center;
+}
+#block-views-block-agenda-contenido-block-1 .views-field-field-lugar-1 {
+  display: inline-block;
+  vertical-align: top;
+}
+#block-views-block-agenda-contenido-block-1 .views-field-field-lugar{
+  display: inline-block;
+  padding-left: 20px;
+   width: 100%;
+  max-width: 320px
+}
+#block-views-block-agenda-contenido-block-1 .content-group{
+  border: solid 3px #EEE;
+  margin: 10px 0;
+  padding: 5px;
+}
+.masonry-column {
+  padding: 0 1px;
+}
+.masonry-grid > div .thumbnail {
+  margin: 5px 1px;
+}
+/*Agenda nodo*/
+#block-contenidofield-4{
+  margin-bottom: 20px;
+}
+#block-contenidofield-4 .field a{
+  display: inline-block;
+}
+#block-contenidofield-4 .field{
+  text-align: center;
+}
+#block-views-block-agenda-contenido-block-2 .views-field-field-sitio-de-interes{
+  background: #164d73;
+  padding: 10px;
+  margin-top: 10px;
+  text-align: center;
+}
+#block-views-block-agenda-contenido-block-2 .views-field-field-sitio-de-interes a{
+  color: #fff;
+}
+#block-views-block-agenda-contenido-block-2 input{
+  width: 40px;
+  height: 40px;
+  background:  url('../images/ico_evento_fecha.png') no-repeat center;
+  text-indent: 50px;
+  border: #fff solid 1px;
+}
+#block-views-block-agenda-contenido-block-2 input:hover{
+  background: #cecece url('../images/ico_evento_fecha_over.png') no-repeat center;
+}
+
+#block-views-block-agenda-contenido-block-2 .views-field-udg-liston-views-field{
+  display: inline-block;
+  vertical-align: top;
+}
+#block-views-block-agenda-contenido-block-2 .views-field-field-fecha-agenda{
+  display: inline-block;
+  padding-left: 20px;
+  width: 100%;
+  max-width: 93%;
+}
+#block-views-block-agenda-contenido-block-2 .views-field-field-lugar-1 a{
+  width: 40px;
+  height: 40px;
+  text-indent: 50px;
+  overflow: hidden;
+  line-height: 50px;
+  background:  url('../images/ico_evento_lugar.png') no-repeat 10px center;
+  display: block;
+  color: #fff;
+}
+#block-views-block-agenda-contenido-block-2 .views-field-field-lugar-1 a:hover{
+  background: #cecece url('../images/ico_evento_lugar_over.png') no-repeat 10px center;
+}
+
+#block-views-block-agenda-contenido-block-2 .views-field-field-lugar-1 {
+  display: inline-block;
+  vertical-align: top;
+}
+
+#block-views-block-agenda-contenido-block-2 .views-field-field-lugar{
+  display: inline-block;
+  padding-left: 20px;
+   width: 100%;
+  max-width: 93%;
+}
+#block-views-block-agenda-contenido-block-2 .content-group{
+  border: solid 3px #EEE;
+  margin: 10px 0;
+  padding: 5px;
+}
+.evento-de-agenda {
+  clear: both;
+}
+/*Pagina basica*/
+#block-contenidofield-3 .field {
+  text-align: center;
+}
+#block-contenidofield-3 .field img{
+  display: inline-block;
+}
+/*Pagina agenda*/
+.view.view-agenda-contenido-.view-id-agenda_contenido_.view-display-id-page_1 .views-field-field-sitio-de-interes{
+  background: #164d73;
+  padding: 10px;
+  margin-top: 10px;
+  text-align: center;
+}
+.view.view-agenda-contenido-.view-id-agenda_contenido_.view-display-id-page_1 .views-field-field-sitio-de-interes a{
+  color: #fff;
+}
+.view.view-agenda-contenido-.view-id-agenda_contenido_.view-display-id-page_1 .views-field-title{
+  font-family: 'Archivo Narrow SemiBold';
+  font-size: 20px;
+  /*background: url('../images/ico_evento_titulo.png') no-repeat left top;*/
+  padding-left: 40px;
+}
+.view.view-agenda-contenido-.view-id-agenda_contenido_.view-display-id-page_1 input{
+  width: 40px;
+  height: 40px;
+  background:  url('../images/ico_evento_fecha.png') no-repeat center;
+  text-indent: 50px;
+border: #fff solid 1px;
+}
+.view.view-agenda-contenido-.view-id-agenda_contenido_.view-display-id-page_1 input:hover{
+  background: #cecece url('../images/ico_evento_fecha_over.png') no-repeat center;
+}
+
+ .view.view-agenda-contenido-.view-id-agenda_contenido_.view-display-id-page_1 .views-field-field-fecha-agenda{
+    display: inline-block;
+    padding-left: 20px;
+    width: 88%;
+}
+.view.view-agenda-contenido-.view-id-agenda_contenido_.view-display-id-page_1 .views-field-udg-liston-views-field{
+    display: inline-block;
+    vertical-align: top;
+}
+.view.view-agenda-contenido-.view-id-agenda_contenido_.view-display-id-page_1 .views-field-field-lugar{
+    display: inline-block;
+    vertical-align: top;
+}
+.view.view-agenda-contenido-.view-id-agenda_contenido_.view-display-id-page_1 .views-field-field-lugar-1{
+  display: inline-block;
+  width: 88%;
+   padding-left: 20px;
+}
+.view.view-agenda-contenido-.view-id-agenda_contenido_.view-display-id-page_1 .views-row{
+  border: solid 3px #EEE;
+  margin: 10px 0;
+  padding: 20px;
+}
+.view.view-agenda-contenido-.view-id-agenda_contenido_.view-display-id-page_1 .views-field-field-lugar a{
+  width: 40px;
+  height: 40px;
+  text-indent: 50px;
+  overflow: hidden;
+  line-height: 50px;
+  background:  url('../images/ico_evento_lugar.png') no-repeat 10px center;
+  display: block;
+  color: #fff;
+}
+.view.view-agenda-contenido-.view-id-agenda_contenido_.view-display-id-page_1 .views-field-field-lugar a:hover{
+  background: #cecece url('../images/ico_evento_lugar_over.png') no-repeat 10px center;
+}
+
+
+/*Pagina de noticias*/
+
+#block-contenidofield .field--item{
+  text-align: left;
+  font-family:"Camber Light Regular";
+  font-size: 18px;
+  border-bottom: 1px dashed;
+}
+#block-contenidofield .field--item:hover{
+  background: #E7E7E7;
+}
+#block-contenidofield .field--item:hover a{
+  text-decoration: none;
+  color: #4B4B4B;
+}
+#block-contenidofield .field--item{
+  padding: 5px 15px;
+}
+#block-contenidofield-2 .field--item{
+  text-align: left;
+  font-family: "Camber Light Regular";
+  font-size: 18px;
+  border-bottom: 1px dashed;
+}
+#block-contenidofield-2 .field--item:hover{
+  background: #E7E7E7;
+}
+#block-contenidofield-2 .field--item:hover a{
+  text-decoration: none;
+  color: #4B4B4B;
+}
+#block-contenidofield-2 .field--item{
+  padding: 5px 15px;
+}
+/*Bloques que estan en pagina de noticias*/
+section#block-contenidofield h2.block-title, section#block-contenidofield-2 h2.block-title{
+  font-family: "Camber Light Regular";
+  font-size: 18px !important;
+}
+/*Directorio*/
+.view-directorio.view-id-directorio.view-display-id-page_1 .views-label {
+  float: left;
+  margin-right: 5px;
+}
+.view-directorio.view-id-directorio.view-display-id-page_1 .view-content > div{
+  clear: both;
+}
+.view-directorio.view-id-directorio.view-display-id-page_1 .view-content > h3{
+  clear: both;
+}
+.view-directorio.view-id-directorio.view-display-id-page_1 .piso-2{
+    float: left;
+    margin: 10px 0 0 30px;
+}
+.view-directorio.view-id-directorio.view-display-id-page_1 .peso-2 {
+    
+    margin: 10px 0 0 30px;
+}
+.view-directorio.view-id-directorio.view-display-id-page_1 .piso-3{
+    float: left;
+    margin: 10px 0 0 60px;
+}
+.view-directorio.view-id-directorio.view-display-id-page_1 .peso-3 {
+    
+    margin: 10px 0 0 60px;
+}
+.view-directorio.view-id-directorio.view-display-id-page_1 .piso-4 {
+    float: left;
+    margin: 10px 0 0 90px;
+}
+.view-directorio.view-id-directorio.view-display-id-page_1 .peso-4 {
+    
+    margin: 10px 0 0 90px;
+}
+.view-directorio.view-id-directorio.view-display-id-page_1 .piso-5 {
+    float: left;
+    margin: 10px 0 0 120px;
+}
+.view-directorio.view-id-directorio.view-display-id-page_1 .peso-5 {
+    
+    margin: 10px 0 0 120px;
+}
+.view-directorio.view-id-directorio.view-display-id-page_1 .views-field-field-fotografia{
+  float: left;
+  margin: 4px 10px 20px 10px;
+}
+/*Carrousel nodo noticia*/
+ol.carousel-indicators {
+    position: relative;
+    bottom: 0px;
+    /* width: 59%; */
+  }
+  .carousel-indicators {
+    position: absolute;
+    bottom: 10px;
+    left: unset;
+    z-index: 15;
+    width: unset;
+    padding-left: 0;
+    margin-left: unset;
+    text-align: center;
+    list-style: none;
+}
+.carousel-indicators li {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    margin-left: 10px;
+    margin-top: 5px;
+    text-indent: -999px;
+    cursor: pointer;
+    background-color: rgba(0,0,0,0);
+    border: 1px solid #fff;
+    border-radius: 10px;
+}
+.carousel-indicators .active {
+    width: 100px;
+    height: 100px;
+    margin: 0;
+    background-color: #fff;
+    margin-right: 0px;
+}
+/*Menú secondary node noticia*/
+div.region.region-sidebar-second nav#block-mainnavigation h2#block-mainnavigation-menu {
+    background-color: #666666;
+    color: #fff;
+    padding: 5px;
+    margin-top: 50px;
+    font-family: "Camber Light Regular";
+    font-size: 18px;
+
+}
+div.region.region-sidebar-second nav#block-mainnavigation ul.menu.menu--main.nav.navbar-nav li{
+  display: block;
+  float: none;
+  width: 100%;
+  text-align: left;
+  font-family: "Camber Light Regular";
+  line-height: 30px;
+  border-bottom: 1px dashed;
+}
+/*Redes sociales*/
+.stream li a{
+  color: #0c536d;
+}
+/*Section redes sociales nodo noticia*/
+#block-mailtoudg {
+  background-color: #4B4B4B;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  color: #ffffff;
+  font-weight: bold;
+}
+#block-mailtoudg a {
+  margin-left: 15px;
+}
+#block-mailtoudg iframe {
+    display: inline-block;
+    width: 115px;
+    height: 35px;
+    vertical-align: bottom;
+    border: none;
+    margin-left: 15px;
+    padding-top: 10px;
+}
+#block-mailtoudg .block-title{
+    height: 0;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+}
+.img_face{
+  width: 35px;
+  height: 35px;
+}
+.img_twitter{
+  width: 35px;
+  height: 35px;
+}
+/*Galería de imagenes*/
+.view.view-galeria-de-imagenes.view-id-galeria_de_imagenes.view-display-id-page_1 .view-content img{
+  display: inline-block;
+  vertical-align: top;
+}
+.view.view-galeria-de-imagenes.view-id-galeria_de_imagenes.view-display-id-page_1 .views-row{
+  border-bottom: thin dotted #DDD;
+  padding: 10px 0;
+  margin: 0;
+}
+#block-views-block-galeria-de-imagenes-block-2 .views-field{
+  text-align: left;
+  font-family: Camber Medium Regular;
+  font-size: 22px;
+  line-height: 30px;
+  border-bottom: 2px dashed;
+}
+#block-views-block-galeria-de-imagenes-block-2 .views-field:hover{
+  background: #E7E7E7;
+}
+#block-views-block-galeria-de-imagenes-block-2 .views-field:hover a{
+  text-decoration: none;
+  color: #4B4B4B;
+}
+#block-views-block-galeria-de-imagenes-block-2 .views-field{
+  padding: 5px 15px;
+}
+/*Galeria de videos*/
+#block-views-block-videos-block-3 .views-field{
+  text-align: left;
+  font-family: Camber Medium Regular;
+  font-size: 22px;
+  line-height: 30px;
+  border-bottom: 2px dashed;
+}
+#block-views-block-videos-block-3 .views-field:hover{
+  background: #E7E7E7;
+}
+#block-views-block-videos-block-3 .views-field:hover a{
+  text-decoration: none;
+  color: #4B4B4B;
+}
+#block-views-block-videos-block-3 .views-field{
+  padding: 5px 15px;
+}
+
+/*Enlaces de interes*/
+#block-bannerudg h2.block-title{
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+}
+/*Paginas basicas font*/
+div.page, h1.page-header{
+  font-family: "Camber Medium Regular" !important;
+}
+div.page{
+  font-family: "Camber Light Regular" !important;
+}
+.foot_direccion{
+  padding-left: 10px;
+}
+span.file.file--mime-application-pdf.file--application-pdf.icon-before span.file-link a{
+  font-family: "Archivo Narrow Medium";
+  font-size: 18px;
+}
+
+
+.Informativo {
+    min-height: 30px;
+    padding: 26px 15px 20px 80px;
+    background: url("../images/informativo.png") no-repeat 6px 2px;
+}
+
+.Obituario {
+    min-height: 30px;
+    padding: 26px 15px 20px 80px;
+    background: url("../images/obituario.png") no-repeat 6px 5px;
+    -webkit-box-shadow: inset 0 0 12px 0 rgba(0,0,0,0.4);
+    box-shadow: inset 0 0 12px 0 rgba(0,0,0,0.4);
+}
+
+.Aviso {
+    min-height: 30px;
+    padding: 26px 15px 20px 80px;
+    background: url("../images/aviso.png") no-repeat 6px 10px;
+    border: solid 2px #FFBF00;
+}
+
+/*OCULTAR REGION PRECONTENT2 de FRONTPAGE* 25/03/2021 MARCO SIERRA*/
+/*body.path-frontpage #precontent2{
+	display:none;
+}*/
+
+
+
+/*-----------------------------------------------------------------------------------*/
+/*  2.  adjustments for max width of 767 px
+/*-----------------------------------------------------------------------------------*/
+  
+/*-----------------------------------------------------------------------------------*/
+/*  3.  adjustments for min width of 768 px
+/*-----------------------------------------------------------------------------------*/
+@media (min-width: 768px) {
+  body{
+    margin: 0;
+  }
+  .escudo {
+    display: inline-block;
+    height: 50px;
+  }
+  .escudoch {
+    display: none;
+  }
+  .region.region-precontent .name {
+     min-height: auto;
+  }
+  .navbar-nav > li{
+    width: 14%;
+      text-align: center;
+      box-sizing: border-box;
+      border-left: solid thin #757575;
+  }
+  ul.navbar-nav{
+    float:none;
+  }
+  .navbar-nav > li > a{
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  #Anuncio1{
+    left: 0;
+    width: 30%;
+  }
+   .view.view-agenda-contenido-.view-id-agenda_contenido_.view-display-id-page_1 .views-field-field-fecha-agenda{
+    width: 93%;
+  }
+  .view.view-agenda-contenido-.view-id-agenda_contenido_.view-display-id-page_1 .views-field-field-lugar-1{
+    width: 93%;
+  }
+}
+/*-----------------------------------------------------------------------------------*/
+/*  4.  adjustments for min width of 768 px and max width of 991
+/*-----------------------------------------------------------------------------------*/
+  
+
+
+/*-----------------------------------------------------------------------------------*/
+/*  6.  adjustments for min width of 960 px
+/*-----------------------------------------------------------------------------------*/
+@media (min-width: 960px) {
+}
+
+
+/* Ajustar la estructura interna del menú */
+#container.navigation {
+  width: 100%;
+  max-width: 100%; /* Mantener un ancho máximo adecuado */
+  display: flex;
+  justify-content: center;
+  display: flex;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =======================
+   Corrección del Espaciado con el Listón UDG
+   ======================= */
+   
+
+#liston, .campo {
+    position: relative !important;
+    margin-top: 20px !important; /* Empuja el listón hacia abajo, debajo del menú */
+    z-index: 5 !important;
+}
+
+.campo img {
+    position: relative !important;
+    z-index: 4 !important;
+}
+
+
+
+#udg_menu_red_universidad {
+    z-index: 9999 !important;
+}
+
+
+
+/* Estilos para los submenús */
+.dropdown-menu {
+    background-color: #000 !important; /* Cambiar el color del fondo de los submenús */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    display: block; /* Ocultar por defecto */
+    z-index: 999;
+}
+
+
+/* =======================
+   Ajuste en Pantallas Pequeñas
+   ======================= */
+@media (max-width: 768px) {
+  #carouselBanner {
+    height: 40px !important; /* Mantiene la altura en móviles */
+  }
+}
+
+
+/* =======================
+   Asegurar que no se superpongan los elementos
+   ======================= */
+
+/* Asegurar que el listón esté detrás */
+#liston {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    border-top: none !important;
+    position: relative;
+    z-index: 10; /* Menor que el menú */
+}
+#titulo-cuaad, #liston {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+
+
+.menu li ul,
+.dropdown-menu {
+    background-color: #13445A !important;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    display: block;
+}
+   
+
+/* Estilo de los enlaces dentro de los submenús */
+.menu li ul li a,
+.dropdown-menu li a {
+    background-color: #13445A !important;
+    color: #FFFFFF !important;
+    padding: 8px 12px;
+    display: block;
+}
+
+/* Submenú cuando el mouse está encima */
+.menu li ul li a:hover,
+.dropdown-menu li a:hover {
+    background-color: #3a8293 !important; /* Color de selección en submenús */
+    color: #FFFFFF !important;
+}
+
+/* =======================
+   Ajustes de posición de los submenús
+   ======================= */
+.menu li ul {
+    display: block; /* Ocultar submenús por defecto */
+    position: absolute;
+    top: 100%; /* Colocar el submenú debajo del padre */
+    left: 0; /* Mantener alineación izquierda */
+    min-width: 200px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Mostrar submenús cuando el mouse está encima */
+.menu li:hover > ul,
+.menu li:hover > .dropdown-menu {
+    display: block;
+}
+
+/* Asegurar que los submenús secundarios se desplieguen a la derecha */
+.menu li ul li {
+    position: relative;
+}
+
+/* Hace que el submenú se despliegue a la derecha */
+.menu li ul li ul {
+    top: 0;
+    left: 100%;
+    margin-left: 10px;
+}
+
+/* Cambiar dirección si el menú está cerca del borde derecho */
+@media (max-width: 1024px) {
+    .menu li ul li ul {
+        left: auto;
+        right: 100%;
+    }
+}
+/* =======================
+   Alinear título y menú correctamente
+   ======================= */
+/* Asegurar que el header y el menú se alineen correctamente */
+#navbar, #header-navigation-wrapper, #menu-principal {
+    width: 100vw;
+    max-width: 100%; /* Ajusta según el diseño */
+    margin: 0 auto; /* Centra el bloque */
+    display: flex;
+    justify-content: center; /* Centra los elementos */
+    align-items: center;
+    padding: 0;
+    margin: 0 auto;
+}
+
+
+
+#header-navigation-wrapper {
+    width: 100vw;
+    top: 0;   
+    max-width: 100%; /* Igual que el menú */ 
+    margin: 0 auto !important; /* Centra el contenido */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important; /* Asegura que el menú quede pegado */
+    position: relative;
+    padding: 0;   
+}
+
+/* Ajuste del contenedor para mantener alineación */
+.container {
+    max-width: 100% !important; /* Ajustar según el diseño original */
+    margin: 0 auto !important;
+    padding: 0 !important; /* Evitar pegado a los extremos */
+}
+
+/* Mantener la estructura de flexbox en el navbar */
+#navbar, #header-navigation-wrapper {
+    display: flex !important;
+    justify-content: center; /* Centrar elementos */
+    align-items: center;
+    border: none !important;
+}
+
+.navbar, #header-navigation-wrapper {
+    display: flex !important;
+    justify-content: center;  /* Centrar elementos */
+    align-items: center;
+    border: none !important;
+}
+
+.container {
+    max-width: 1200px; /* Asegurar alineación */
+    margin: 0 auto;
+    padding: 0 15px; /* Evitar pegado a los extremos */
+}
+/* Eliminar cualquier margen superior que cause separación */
+#navbar {
+    margin-top: 0 !important;
+}
+
+/* Evitar separación no deseada */
+#header-navigation-wrapper {
+    position: relative;
+    top: 0 !important;
+}
+
+
+/*=======================
+
+/* Contenedor de logo y título */
+.logo-texto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex-grow: 1;
+    background-color: #970747; /* Fondo del título */
+    padding: 10px;
+}
+
+.logo-texto img {
+    max-width: 180px;
+}
+
+
+.content-title {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding-top: 5px;
+}
+/* Ajuste del menú */
+.container.navigation {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Asegurar que el menú abarque todo el ancho */
+.menu {
+    background-color: #13445A !important;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+/* Ajustes generales del menú */
+.menu li a {
+    background-color: #13445A !important;
+    color: #FFFFFF !important;
+    padding: 15px 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    display: block;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Color cuando el menú está en hover o seleccionado */
+.menu li a:hover,
+.menu li a:focus,
+.menu li.active > a {
+    background-color: #3a8293 !important;
+    color: #FFFFFF !important;
+}
+
+
+
+
+
+/* Asegurar que el contenedor del menú ocupe todo el ancho */
+.menu-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Asegurar distribución uniforme de los elementos del menú */
+.menu.navbar-nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+/* Ajustar tamaño y evitar cortes de palabras */
+.menu.navbar-nav li {
+    flex-grow: 1;
+    text-align: center;
+    min-width: 150px;
+}
+
+.menu.navbar-nav li a {
+    display: block;
+    padding: 12px 15px;
+    font-size: 18px;
+    text-transform: uppercase;
+    white-space: nowrap; /* Evita cortes en palabras */
+}
+
+/* Buscador */
+.buscador {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.buscador input {
+    height: 30px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.buscador button {
+    height: 30px;
+    margin-left: 5px;
+    background-color: #00427B;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Ajustes para el bloque Título CUAAD */
+/* Asegurar que el bloque "Título CUAAD" cubra toda la pantalla */
+.titulo {
+    background-color: #970747 !important; /* Color de fondo */
+    color: white !important; /* Color del texto */
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    width: 100vw !important; /* Para que cubra toda la pantalla */
+    height: 60px; /* Ajusta la altura para que sea la misma que el menú */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centra el texto verticalmente */
+    padding: 0;
+    margin: 0 !important;
+    box-sizing: border-box;
+}
+/* Asegurar que el contenedor padre también cubra todo el ancho */
+.header-content {
+    width: 100vw !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+/* Eliminar restricciones de ancho del contenedor principal */
+.header {
+    width: 100vw !important;
+    padding: 0;
+    margin: 0;
+    display: block;
+}
+
+
+/* Forzar que los bloques se adhieran completamente al ancho */
+#titulo-cuaad {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw !important;
+    height: 40px; /* Igualar altura del menú */
+    max-width: 100% !important;
+    background-color: #970747 !important;
+    color: white !important;
+    text-align: center;
+    padding: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;    
+    box-sizing: border-box;
+    text-align: center;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+
+
+/* Asegurar que el contenedor padre no limite el ancho */
+.container.header {
+    width: 100vw !important;
+    max-width: 100% !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+
+#titulo-cuaad {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px; /* Ajusta a la altura del menú */
+    background-color: #970747 !important;
+    color: white !important;
+    text-align: center;
+    padding: 15px 0;
+}
+
+#toolbar-administration {
+  position: relative !important;
+  z-index: 100 !important;
+  height: auto !important;
+  overflow: visible !important;
+  pointer-events: auto !important;
+}
+
+
+#block-menududgprincipal h2.block-title {
+    display: none;
+}
+
+h2.block-title {
+    display: none !important;
+}
+
+
+/* =======================
+   MENÚ PRINCIPAL
+   ======================= */
+
+/* Contenedor principal del menú */
+#menu-principal {
+  width: 100vw;                      /* Ocupa el 100% del ancho de la ventana */
+  max-width: 100%;
+  background-color: #13445A !important; /* Color de fondo */
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+  position: relative;                /* Para posicionar los submenús */
+  padding-top: 0px !important;
+  margin: 0 auto;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  margin-top: -5px !important; /* Ajuste fino */
+}
+ 
+
+
+/* Si existe un contenedor interno (opcional) */
+#menu-principal .container.navigation {
+  width: 100vw;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Lista principal del menú */
+#menu-principal ul.menu {
+  list-style: none;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  height: 40px;                      /* Altura definida para alinear los elementos */
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+/* Elementos de la lista del menú */
+#menu-principal ul.menu li {
+  flex-grow: 1;                      /* Cada elemento se expande para ocupar espacio uniforme */
+  text-align: center;
+  padding: 0 10px;
+  height: 100%;
+  min-width: 180px;                  /* Evita que se encojan demasiado */
+  white-space: nowrap;               /* Evita saltos de línea */
+  position: relative;                /* Necesario para posicionar los submenús */
+}
+
+/* Enlaces del menú principal */
+#menu-principal ul.menu li a {
+  height: 100%;                      /* Ocupa la altura total del li */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 0 20px;
+  line-height: 40px;                 /* Alinea verticalmente el texto */
+  color: #fff;                       /* Color de texto por defecto */
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* Estado hover y activo en enlaces del menú */
+#menu-principal ul.menu li a:hover,
+#menu-principal ul.menu li.active > a {
+  background-color: #3a8293 !important;
+}
+
+/* =======================
+   SUBMENÚS (NIVEL 1)
+   ======================= */
+
+/* Contenedor de submenú (oculto por defecto) */
+#menu-principal ul.menu li ul {
+  display: none;                     /* Oculto hasta que se haga hover */
+  position: absolute;
+  top: 100%;                         /* Se sitúa justo debajo del li padre */
+  left: 0;
+  min-width: 230px;
+  max-width: 250px;
+  background-color: #003366;         /* Color de fondo del submenú */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  z-index: 1000;
+}
+
+/* Mostrar el submenú al hacer hover sobre el li padre */
+#menu-principal ul.menu li:hover > ul {
+  display: block;
+}
+
+/* Elementos del submenú */
+#menu-principal ul.menu li ul li {
+  display: block;
+  min-height: 25px;
+  padding: 4px 5px;
+  margin: 0;
+}
+
+/* Enlaces del submenú */
+#menu-principal ul.menu li ul li a {
+  display: block;
+  font-size: 12px;                   /* Tamaño de fuente reducido */
+  padding: 6px 12px;
+  text-align: left;
+  color: #ffffff !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Hover en los enlaces del submenú */
+#menu-principal ul.menu li ul li a:hover {
+  background-color: #006699 !important;
+}
+
+/* =======================
+   SUBMENÚS ANIDADOS (NIVEL 2)
+   ======================= */
+
+#menu-principal ul.menu li ul li ul {
+  top: 0;
+  left: 100%;                       /* Se despliega a la derecha del submenú padre */
+  margin-left: 10px;
+  min-width: 230px;
+  max-width: 250px;
+}
+
+/* =======================
+   RESPONSIVIDAD
+   ======================= */
+
+@media (max-width: 768px) {
+  /* En móviles se puede optar por un menú en columna */
+  #menu-principal {
+    flex-direction: column;
+  }
+  #menu-principal ul.menu {
+    flex-direction: column;
+    height: auto;
+  }
+  #menu-principal ul.menu li {
+    width: 100%;
+    min-width: auto;
+  }
+}
+
+.accessibilityTools.container {
+    position: absolute !important; /* O fixed si quieres que permanezca en la pantalla */
+    top: 20px !important; /* Ajusta la posición en la parte superior */
+    right: 20px !important; /* O usa left si lo quieres a la izquierda */
+    z-index: 9999 !important; /* Asegura que esté por encima de otros elementos */
+    background: white; /* O cualquier color de fondo */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#carouselBanner .carousel-inner .item {
+  display: none;
+  transition: opacity 0.5s ease-in-out;
+}
+
+#carouselBanner .carousel-inner .item.active {
+  display: block;
+}
+
+/* ... (todo tu CSS existente) ... */
+
+/*-----------------------------------------------------------------------------------*/
+/*  X. Estilos del Carrusel de Banners Multi-Item
+/*-----------------------------------------------------------------------------------*/
+/* Intenta con esto por ahora para la altura */
+.drudg8b3-carousel-multi-item .carousel-inner > .item.row > div[class*="col-"] {
+    margin-bottom: 15px; /* Opcional, para espacio vertical */
+    /* Asegúrate de que no haya 'display: flex' aquí por ahora */
+}
+/* Y para que el caption no use posicionamiento absoluto que lo saque del flujo de altura: */
+.drudg8b3-carousel-multi-item .carousel-inner .carousel-caption {
+    position: relative !important; /* Forzar que salga del posicionamiento absoluto por defecto de BS3 */
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    text-align: left;       /* Ya tenías esto globalmente, pero lo reforzamos */
+    padding-top: 10px;      /* Espacio entre imagen y caption */
+    padding-bottom: 20px;   /* Espacio debajo del caption */
+    background: none;       /* O el color de fondo que desees */
+    color: #333;            /* Color de texto que prefieras para el caption */
+    text-shadow: none;      /* Quita la sombra de texto por defecto si no la quieres */
+}
+/* Adicionalmente, para asegurar que el .item (slide) tenga suficiente altura: */
+.drudg8b3-carousel-multi-item .carousel-inner > .item {
+    /* min-height: 450px; */ /* Podrías necesitar esto si el problema es la altura del slide completo. Ajusta el valor. */
+}
+
+.drudg8b3-carousel-multi-item .carousel-inner > .item.row > div[class*="col-"] img {
+    /* Asegurar que la imagen no exceda su contenedor, aunque ya tiene width/height */
+    max-width: 100%;
+    height: auto; /* Comentado porque tus imágenes ya tienen altura fija. Si no, esto mantiene la proporción. */
+}
+
+/* Para los botones personalizados de Play/Pause si los necesitas */
+.carousel-custom-controls {
+    text-align: center; /* O donde los quieras posicionar */
+    margin-top: 10px;
+}
+
+.drudg8b3-carousel-multi-item .carousel-inner > .item.row {
+    min-height: 430px; /* AJUSTA ESTE VALOR.
+                          Inspecciona la altura del slide más alto (probablemente el primero)
+                          y usa un valor un poco mayor que ese.
+                          Puedes usar las herramientas de desarrollador para encontrar esta altura. */
+   /* background-color: rgba(255,0,0,0.1); */ /* Temporal para ver los límites */
+}
+
+.drudg8b3-carousel-multi-item .carousel-inner img.img-responsive {
+    max-width: 100%;
+    height: auto; /* Permite que la altura se ajuste si max-width reduce la imagen */
+}
+
+/* Eliminar cualquier sombra o fondo degradado vertical en el contenedor del carrusel */
+.drudg8b3-carousel-multi-item,
+.drudg8b3-carousel-multi-item .carousel-inner,
+.drudg8b3-carousel-multi-item .carousel-inner > .item.row {
+  background: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Si hay sombras aplicadas por Bootstrap al bloque general */
+#carouselBanner,
+#carouselBanner .carousel-inner {
+  background: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Asegurarse de que las imágenes no tengan sombra */
+.drudg8b3-carousel-multi-item img {
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Si las sombras vienen desde transiciones o animaciones */
+.carousel-inner .item,
+.carousel-inner .item.active {
+  filter: none !important;
+  backdrop-filter: none !important;
+}
+
+/* Quitar el sombreado lateral (gradiente) de los controles izquierdo y derecho */
+.carousel-control.left,
+.carousel-control.right {
+  background-image: none !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+/* Reposicionar las flechas por fuera del carrusel */
+.drudg8b3-carousel-multi-item .carousel-control.left {
+  left: -50px !important;
+}
+
+.drudg8b3-carousel-multi-item .carousel-control.right {
+  right: -50px !important;
+}
+
+/* Asegurar que las flechas estén centradas verticalmente */
+.drudg8b3-carousel-multi-item .carousel-control.left,
+.drudg8b3-carousel-multi-item .carousel-control.right {
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  opacity: 1 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  z-index: 1000;
+}
+
+.carousel-control .glyphicon {
+  font-size: 30px;
+  color: #000 !important; /* O blanco según fondo */
+}
+
+
+/* === Ajustes Responsivos para Bootstrap 3 (col-xs-*) === */
+@media (max-width: 767px) {
+  /* Para el destacado, si la imagen está después del texto en HTML (col-sm-5),
+     en móvil se apilará debajo. Si quieres la imagen arriba en el destacado en móvil,
+     necesitarías cambiar el orden de las columnas col-sm-7 y col-sm-5 en la plantilla Twig
+     para la condición view.row_index == 0, y luego usar push/pull de Bootstrap 3
+     para reordenarlas en desktop. O la solución más simple es tener la imagen primero en HTML.
+     Asumiremos el orden actual de la plantilla Twig. */
+
+}
+
+#menu-content.menu-collapsed {
+  display: block !important;
+  height: auto !important; /* Si usa height para colapsar */
+  overflow: visible !important; /* Si usa overflow para colapsar */
+}
+
+/* ==========================================================================
+   Estilos Globales para Pie de Página de Vistas y Enlaces "More"
+   ========================================================================== */
+
+.view-footer,
+.more-link {
+  /* Estilos para el CONTENEDOR del enlace/botón */
+  margin-bottom: 15px;
+  text-align: right; /* Alineación por defecto a la derecha para el CONTENEDOR.
+                        Puede ser sobreescrito por CSS más específico si es necesario
+                        (ej. en noticias.css para centrar en móvil). */
+  clear: both;     /* Buena práctica si hay elementos flotantes antes. */
+}
+
+.view-footer a,
+.more-link a {
+  /* Estilos para el ENLACE/BOTÓN en sí */
+  display: inline-block;     /* Necesario para aplicar padding y otras propiedades de bloque */
+  background-color: #174f77; /* TU COLOR AZUL OSCURO DESEADO */
+  color: white !important;   /* Forzar color de texto blanco */
+  font-family: "Camber Medium Regular", sans-serif; /* Tu fuente deseada */
+  font-size: 12px;           /* AJUSTA ESTE VALOR para el grosor deseado (ej. 12px o 13px) */
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 7px 22px;         /* AJUSTA ESTE PADDING para el grosor y ancho deseado
+                                 (ej. 7px para padding vertical, 22px para padding horizontal) */
+  line-height: 1.45;         /* AJUSTA ESTE VALOR para el centrado vertical del texto */
+  border-radius: 20px;       /* ESQUINAS REDONDEADAS (ej. 20px para muy redondeado, 4px para poco) */
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2); /* SOMBRA SUTIL */
+  transition: background-color 0.2s ease, box-shadow 0.2s ease; /* Transición suave */
+  text-decoration: none !important; /* Quitar subrayado */
+  border: none;                /* Quitar borde por defecto si lo tuviera */
+  cursor: pointer;             /* Indicar que es clickeable */
+}
+
+.view-footer a:hover,
+.view-footer a:focus,
+.more-link a:hover,
+.more-link a:focus {
+  background-color: #113c5b; /* TU COLOR AZUL MÁS OSCURO PARA HOVER/FOCUS */
+  color: white !important;   /* Mantener texto blanco */
+  text-decoration: none !important; /* Mantener sin subrayado */
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3); /* Sombra un poco más pronunciada en hover/focus */
+}
+
+/* === FOOTER GENERAL === */
+#footer {
+  padding-top: 20px;
+  color: #fff;
+}
+
+#footer h1, #footer h2, #footer h3, #footer h4, #footer h5, #footer h6 {
+  color: #fff;
+}
+
+#footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Ocultar encabezados de bloques visualmente */
+#block-drudg8b3-footer h2,
+#block-drudg8b3-footer1 h2.block-title,
+#block-drudg8b3-footer2 h2.block-title,
+#block-redessociales h2.block-title,
+#block-drudg8b3-footer-menu h2.block-title {
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  font-size: 0;
+  margin: 0;
+}
+
+#block-drudg8b3-pie-de-pagina h2.block-title {
+  height: 0;
+  padding: 0;
+  margin: 0;
+  font-size: 0;
+  overflow: hidden;
+}
+
+
+
+/* === FOOTER WRAPPER === */
+.footer-wrapper {
+  width: 100%;
+  margin-top: 20px;
+  padding: 0;
+}
+
+/* === FOOTER 1 === */
+#footer1-wrapper {
+  background-color: #13445A;
+  padding: 20px 40px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+#footer1-info {
+  flex: 2;
+  min-width: 300px;
+}
+
+#footer1-extras {
+  flex: 1;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 15px;
+}
+
+/* Redes sociales */
+#block-redessociales img {
+  width: 30px;
+  height: auto;
+  margin: 5px;
+  border-radius: 50%;
+  background: #4A9FDC;
+}
+
+/* Menú vertical */
+#block-drudg8b3-footer-menu ul.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: block;
+  flex-direction: column;
+}
+
+#block-drudg8b3-footer-menu ul.menu li {
+  margin-bottom: 10px;
+  text-align: right;
+}
+
+#block-drudg8b3-footer-menu ul.menu li a {
+  color: white !important;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 6px 12px;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+
+#block-drudg8b3-footer-menu ul.menu li a:hover {
+  background-color: #a53f74;
+  border-radius: 4px;
+}
+
+/* === FOOTER 2 === */
+#footer2-wrapper {
+  background-color: #970747;
+  width: 100%;
+  padding: 10px 40px;
+  color: #fff;
+  text-align: center;
+  font-size: 0.9em;
+}
+
+#footer2-wrapper .field {
+  text-align: center;
+}
+
+#footer2-wrapper a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* Forzar menú del bloque 'pie de página' a vertical */
+#block-drudg8b3-pie-de-pagina ul.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+  width: 100% !important;
+}
+
+/* Ajuste de los elementos del menú */
+#block-drudg8b3-pie-de-pagina ul.menu li {
+  display: block !important;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+/* Enlaces */
+#block-drudg8b3-pie-de-pagina ul.menu li a {
+  display: block;
+  color: white !important;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 6px 12px;
+  transition: background-color 0.3s;
+}
+
+#block-drudg8b3-pie-de-pagina ul.menu li a:hover {
+  background-color: #a53f74;
+  border-radius: 4px;
+}
+
+/* Forzar menú en bloque "piedepagina-menu" a mostrarse vertical */
+#block-drudg8b3-piedepagina-menu ul.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+  width: 100% !important;
+}
+
+#block-drudg8b3-piedepagina-menu ul.menu li {
+  display: block !important;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+#block-drudg8b3-piedepagina-menu ul.menu li a {
+  display: block;
+  color: white !important;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 6px 12px;
+  transition: background-color 0.3s;
+}
+
+#block-drudg8b3-piedepagina-menu ul.menu li a:hover {
+  background-color: #a53f74;
+  border-radius: 4px;
+}
+
+/* Ocultar el título automáticamente generado del bloque */
+#block-drudg8b3-piedepagina-menu h2 {
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  font-size: 0;
+  margin: 0;
+}
+
+/* --- MENÚ PIE DE PÁGINA VERTICAL --- */
+#block-drudg8b3-piedepagina ul.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: block !important;
+  flex-direction: column !important;
+  width: 100%;
+}
+
+#block-drudg8b3-piedepagina ul.menu li {
+  margin-bottom: 10px;
+  display: block !important;
+  text-align: left;
+}
+
+#block-drudg8b3-piedepagina ul.menu li a {
+  display: block;
+  color: white !important;
+  font-size: 16px;
+  padding: 6px 12px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+#block-drudg8b3-piedepagina ul.menu li a:hover {
+  background-color: #a53f74;
+  border-radius: 4px;
+}
+
+#footer1-wrapper > div:last-child {
+  max-width: 250px;
+}
+/* Espaciado a la derecha para el menú del footer y redes */
+#block-drudg8b3-piedepagina,
+#block-redessociales {
+  padding-right: 30px;
+  margin-right: 10px;
+  align-items: flex-end;
+}
+
+/* ======================
+   BLOQUE CIRCULARES
+   ====================== */
+
+/* 1) Estilo para el <h2 class="bloque-titulo">Circulares</h2> */
+#block-views-block-noticias-2-block-circulares h2.bloque-titulo {
+  display: inline-block;              /* Ajusta el ancho al texto exacto */
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 24px;                     /* Mismo tamaño que “NOTICIAS” */
+  font-weight: 700;                    /* Mismo grosor (bold) que “NOTICIAS” */
+  letter-spacing: 0.5px;               /* Mismo espaciado entre letras */
+  color: #242424;                      /* Negro muy oscuro, igual que “NOTICIAS” */
+  text-transform: uppercase;
+  margin-bottom: 15px;                 /* Separación igual a la de “NOTICIAS” */
+  border-bottom: 3px solid #800040;    /* Línea púrpura de 3px (como “NOTICIAS”) */
+  padding-bottom: 5px;                 /* Espacio entre texto y línea */
+}
+
+/* 2) Cada fila (.views-row) con borde claro y sombra suave */
+#block-views-block-noticias-2-block-circulares .view-content .views-row {
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+/* 3) Texto de la noticia en negro por defecto */
+#block-views-block-noticias-2-block-circulares .views-field-title .field-content a {
+  color: #000000;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* 4) Efecto hover: cuando pases el mouse sobre el título */
+#block-views-block-noticias-2-block-circulares .views-field-title .field-content a:hover {
+  color: #970747;             /* Púrpura intenso al pasar el cursor */
+  text-decoration: underline;
+}
+
+/* 5) Fecha en gris oscuro, tamaño medio */
+#block-views-block-noticias-2-block-circulares .views-field-created {
+  color: #2c2c2c;
+  font-size: 14px;
+  margin-top: 5px;
+}

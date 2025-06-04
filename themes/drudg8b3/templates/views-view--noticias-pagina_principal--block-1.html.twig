@@ -1,0 +1,79 @@
+{#
+/**
+ * @file
+ * Plantilla principal para la vista noticias_pagina_principal, display block_1.
+ * Añade un div.container y el título.
+ */
+#}
+{%
+  set classes = [
+    dom_id ? 'js-view-dom-id-' ~ dom_id,
+    'view-id-' ~ id,
+    'view-display-id-' ~ display_id,
+  ]
+%}
+<div{{ attributes.addClass(classes) }}> {# Este es el div principal de la vista #}
+  <div class="container"> {# <<< NUESTRO CONTENEDOR BOOTSTRAP 3 >>> #}
+    {{ title_prefix }}
+    {# No necesitamos imprimir view.title si lo ponemos manualmente abajo #}
+    {# {% if title %}
+      <h3>{{ title }}</h3>
+    {% endif %} #}
+    {{ title_suffix }}
+
+    {# Ponemos nuestro título personalizado aquí DENTRO del container #}
+    {% if rows or empty or header or footer %} {# Mostrar título si hay algo que mostrar #}
+      <h2 class="titulo-seccion-noticias">NOTICIAS</h2>
+    {% endif %}
+
+    {% if header %}
+      <div class="view-header section">
+        {{ header }} {# El contenido del "Global: Área de texto" del encabezado de la vista se imprime aquí #}
+      </div>
+    {% endif %}
+
+    {% if exposed %}
+      <div class="view-filters section">
+        {{ exposed }}
+      </div>
+    {% endif %}
+
+    {% if attachment_before %}
+      <div class="attachment attachment-before section">
+        {{ attachment_before }}
+      </div>
+    {% endif %}
+
+    {% if rows %}
+      <div class="view-content section">
+        {{ rows }} {# AQUÍ ES DONDE SE RENDERIZAN TUS FILAS, CADA UNA USANDO views-view-fields--noticias_pagina_principal--block-1.html.twig #}
+      </div>
+    {% elseif empty %}
+      <div class="view-empty section">
+        {{ empty }}
+      </div>
+    {% endif %}
+
+    {% if pager %}
+      {{ pager }}
+    {% endif %}
+
+    {% if attachment_after %}
+      <div class="attachment attachment-after section">
+        {{ attachment_after }}
+      </div>
+    {% endif %}
+
+    {% if more %}
+      {{ more }}
+    {% endif %}
+
+    {% if footer %}
+      <div class="view-footer section">
+         {# El contenido del "Global: Área de texto" del pie de la vista (botón "Ver todas") se imprime aquí #}
+        {{ footer }}
+      </div>
+    {% endif %}
+
+  </div> {# <<< CIERRE DE NUESTRO CONTENEDOR BOOTSTRAP 3 >>> #}
+</div>

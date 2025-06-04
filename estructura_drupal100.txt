@@ -1,0 +1,712 @@
+/var/www/html/drupal100/
+├── autoload.php
+├── composer.json
+├── composer.json.bak
+├── composer.lock
+├── core
+│   ├── assets
+│   │   ├── scaffold
+│   │   ├── schemas
+│   │   └── vendor
+│   ├── authorize.php
+│   ├── CHANGELOG.txt
+│   ├── composer.json
+│   ├── config
+│   │   ├── install
+│   │   └── schema
+│   ├── COPYRIGHT.txt
+│   ├── core.api.php
+│   ├── core.field_type_categories.yml
+│   ├── core.libraries.yml
+│   ├── core.link_relation_types.yml
+│   ├── core.services.yml
+│   ├── drupalci.yml
+│   ├── globals.api.php
+│   ├── includes
+│   │   ├── batch.inc
+│   │   ├── bootstrap.inc
+│   │   ├── common.inc
+│   │   ├── errors.inc
+│   │   ├── form.inc
+│   │   ├── install.core.inc
+│   │   ├── install.inc
+│   │   ├── module.inc
+│   │   ├── theme.inc
+│   │   ├── theme.maintenance.inc
+│   │   ├── update.inc
+│   │   └── utility.inc
+│   ├── INSTALL.mysql.txt
+│   ├── INSTALL.pgsql.txt
+│   ├── install.php
+│   ├── INSTALL.sqlite.txt
+│   ├── INSTALL.txt
+│   ├── lib
+│   │   ├── Drupal
+│   │   ├── Drupal.php
+│   │   └── README.txt
+│   ├── LICENSE.txt
+│   ├── MAINTAINERS.txt
+│   ├── misc
+│   │   ├── active-link.js
+│   │   ├── ajax.js
+│   │   ├── announce.js
+│   │   ├── autocomplete.js
+│   │   ├── batch.js
+│   │   ├── checkbox.js
+│   │   ├── components
+│   │   ├── cspell
+│   │   ├── debounce.js
+│   │   ├── details-aria.js
+│   │   ├── details.js
+│   │   ├── details-summarized-content.js
+│   │   ├── dialog
+│   │   ├── displace.js
+│   │   ├── dropbutton
+│   │   ├── drupal.init.js
+│   │   ├── drupal.js
+│   │   ├── drupalSettingsLoader.js
+│   │   ├── druplicon.png
+│   │   ├── entity-form.js
+│   │   ├── favicon.ico
+│   │   ├── feed.svg
+│   │   ├── field-list-keyboard-navigation.js
+│   │   ├── form.js
+│   │   ├── help.png
+│   │   ├── icons
+│   │   ├── jquery.form.js
+│   │   ├── jquery.tabbable.shim.js
+│   │   ├── loading.gif
+│   │   ├── loading-small.gif
+│   │   ├── logo
+│   │   ├── machine-name.js
+│   │   ├── menu-collapsed.png
+│   │   ├── menu-collapsed-rtl.png
+│   │   ├── menu-expanded.png
+│   │   ├── message.js
+│   │   ├── position.js
+│   │   ├── print.css
+│   │   ├── progress.js
+│   │   ├── states.js
+│   │   ├── tabbingmanager.js
+│   │   ├── tabledrag-ajax.js
+│   │   ├── tabledrag.js
+│   │   ├── tableresponsive.js
+│   │   ├── tableselect.js
+│   │   ├── throbber-active.gif
+│   │   ├── throbber-inactive.png
+│   │   ├── time-diff.js
+│   │   ├── timezone.js
+│   │   ├── touchevents-test.js
+│   │   ├── tree-bottom.png
+│   │   ├── tree.png
+│   │   ├── vertical-tabs.css
+│   │   └── vertical-tabs.js
+│   ├── modules
+│   │   ├── action
+│   │   ├── announcements_feed
+│   │   ├── automated_cron
+│   │   ├── ban
+│   │   ├── basic_auth
+│   │   ├── big_pipe
+│   │   ├── block
+│   │   ├── block_content
+│   │   ├── book
+│   │   ├── breakpoint
+│   │   ├── ckeditor5
+│   │   ├── comment
+│   │   ├── config
+│   │   ├── config_translation
+│   │   ├── contact
+│   │   ├── content_moderation
+│   │   ├── content_translation
+│   │   ├── contextual
+│   │   ├── datetime
+│   │   ├── datetime_range
+│   │   ├── dblog
+│   │   ├── dynamic_page_cache
+│   │   ├── editor
+│   │   ├── field
+│   │   ├── field_layout
+│   │   ├── field_ui
+│   │   ├── file
+│   │   ├── filter
+│   │   ├── forum
+│   │   ├── help
+│   │   ├── help_topics
+│   │   ├── history
+│   │   ├── image
+│   │   ├── inline_form_errors
+│   │   ├── jsonapi
+│   │   ├── language
+│   │   ├── layout_builder
+│   │   ├── layout_discovery
+│   │   ├── link
+│   │   ├── locale
+│   │   ├── media
+│   │   ├── media_library
+│   │   ├── menu_link_content
+│   │   ├── menu_ui
+│   │   ├── migrate
+│   │   ├── migrate_drupal
+│   │   ├── migrate_drupal_ui
+│   │   ├── mysql
+│   │   ├── navigation
+│   │   ├── node
+│   │   ├── options
+│   │   ├── page_cache
+│   │   ├── path
+│   │   ├── path_alias
+│   │   ├── pgsql
+│   │   ├── phpass
+│   │   ├── responsive_image
+│   │   ├── rest
+│   │   ├── sdc
+│   │   ├── search
+│   │   ├── serialization
+│   │   ├── settings_tray
+│   │   ├── shortcut
+│   │   ├── sqlite
+│   │   ├── statistics
+│   │   ├── syslog
+│   │   ├── system
+│   │   ├── taxonomy
+│   │   ├── telephone
+│   │   ├── text
+│   │   ├── toolbar
+│   │   ├── tour
+│   │   ├── tracker
+│   │   ├── update
+│   │   ├── user
+│   │   ├── views
+│   │   ├── views_ui
+│   │   ├── workflows
+│   │   └── workspaces
+│   ├── package.json
+│   ├── phpcs.xml.dist
+│   ├── phpstan.neon.dist
+│   ├── phpstan-partial.neon
+│   ├── phpunit.xml.dist
+│   ├── profiles
+│   │   ├── demo_umami
+│   │   ├── minimal
+│   │   ├── nightwatch_a11y_testing
+│   │   ├── nightwatch_testing
+│   │   ├── standard
+│   │   ├── testing
+│   │   ├── testing_config_import
+│   │   ├── testing_config_overrides
+│   │   ├── testing_install_profile_all_dependencies
+│   │   ├── testing_install_profile_dependencies
+│   │   ├── testing_missing_dependencies
+│   │   ├── testing_multilingual
+│   │   ├── testing_multilingual_with_english
+│   │   ├── testing_requirements
+│   │   ├── testing_site_config
+│   │   ├── testing_themes_blocks
+│   │   └── test_language_negotiation
+│   ├── rebuild.php
+│   ├── recipes
+│   │   ├── administrator_role
+│   │   ├── article_comment
+│   │   ├── article_content_type
+│   │   ├── article_tags
+│   │   ├── audio_media_type
+│   │   ├── basic_block_type
+│   │   ├── basic_html_format_editor
+│   │   ├── basic_shortcuts
+│   │   ├── comment_base
+│   │   ├── content_editor_role
+│   │   ├── content_search
+│   │   ├── core_recommended_admin_theme
+│   │   ├── core_recommended_front_end_theme
+│   │   ├── core_recommended_maintenance
+│   │   ├── core_recommended_performance
+│   │   ├── document_media_type
+│   │   ├── editorial_workflow
+│   │   ├── example
+│   │   ├── feedback_contact_form
+│   │   ├── full_html_format_editor
+│   │   ├── image_media_type
+│   │   ├── local_video_media_type
+│   │   ├── page_content_type
+│   │   ├── remote_video_media_type
+│   │   ├── restricted_html_format
+│   │   ├── standard
+│   │   ├── standard_responsive_images
+│   │   ├── tags_taxonomy
+│   │   └── user_picture
+│   ├── scripts
+│   │   ├── cron-curl.sh
+│   │   ├── cron-lynx.sh
+│   │   ├── css
+│   │   ├── db-tools.php
+│   │   ├── dev
+│   │   ├── drupal
+│   │   ├── drupal.sh
+│   │   ├── dump-database-d6.sh
+│   │   ├── dump-database-d7.sh
+│   │   ├── dump-database-d8-mysql.php
+│   │   ├── generate-d6-content.sh
+│   │   ├── generate-d7-content.sh
+│   │   ├── generate-proxy-class.php
+│   │   ├── js
+│   │   ├── password-hash.sh
+│   │   ├── rebuild_token_calculator.sh
+│   │   ├── run-tests.sh
+│   │   ├── test-site.php
+│   │   └── update-countries.sh
+│   ├── tests
+│   │   ├── bootstrap.php
+│   │   ├── Drupal
+│   │   ├── fixtures
+│   │   ├── README.md
+│   │   └── TestSuites
+│   ├── themes
+│   │   ├── claro
+│   │   ├── engines
+│   │   ├── olivero
+│   │   ├── stable9
+│   │   ├── stark
+│   │   └── starterkit_theme
+│   ├── UPDATE.txt
+│   ├── USAGE.txt
+│   └── yarn.lock
+├── drush
+│   └── sites
+│       └── aliases.drushrc.php
+├── estructura_drupal100.txt
+├── example.gitignore
+├── found
+├── index.php
+├── INSTALL.txt
+├── LICENSE.txt
+├── modules
+│   ├── contrib
+│   │   ├── admin_toolbar
+│   │   ├── animated_gif
+│   │   ├── backup_migrate
+│   │   ├── better_social_sharing_buttons
+│   │   ├── bootstrap_library
+│   │   ├── captcha
+│   │   ├── ctools
+│   │   ├── date_popup
+│   │   ├── devel
+│   │   ├── easy_breadcrumb
+│   │   ├── entity_print
+│   │   ├── fieldblock
+│   │   ├── google_analytics
+│   │   ├── jquery_ui
+│   │   ├── jquery_ui_draggable
+│   │   ├── jquery_ui_resizable
+│   │   ├── menu_block
+│   │   ├── pathauto
+│   │   ├── phpmailer_smtp
+│   │   ├── select2
+│   │   ├── smtp
+│   │   ├── taxonomy_term_depth
+│   │   ├── token
+│   │   ├── transliterate_filenames
+│   │   ├── twig_tweak
+│   │   ├── upgrade_status
+│   │   ├── video
+│   │   ├── views_bootstrap
+│   │   └── webform
+│   ├── custom
+│   │   └── udg_liston
+│   ├── README.txt
+│   ├── select2
+│   │   ├── composer.json
+│   │   ├── config
+│   │   ├── css
+│   │   ├── js
+│   │   ├── LICENSE.txt
+│   │   ├── modules
+│   │   ├── package.json
+│   │   ├── package-lock.json
+│   │   ├── phpcs.xml.dist
+│   │   ├── phpstan.neon
+│   │   ├── postcss.config.js
+│   │   ├── README.md
+│   │   ├── sass
+│   │   ├── select2.info.yml
+│   │   ├── select2.install
+│   │   ├── select2.libraries.yml
+│   │   ├── select2.module
+│   │   ├── select2.routing.yml
+│   │   ├── select2.services.yml
+│   │   ├── src
+│   │   └── tests
+│   └── webform
+│       ├── composer.json
+│       ├── composer.libraries.json
+│       ├── config
+│       ├── cspell
+│       ├── css
+│       ├── docs
+│       ├── drupalci.yml
+│       ├── drush.services.yml
+│       ├── icons
+│       ├── images
+│       ├── includes
+│       ├── js
+│       ├── LICENSE.txt
+│       ├── modules
+│       ├── phpcs.xml.dist
+│       ├── README.md
+│       ├── reports
+│       ├── src
+│       ├── templates
+│       ├── tests
+│       ├── third_party_settings
+│       ├── webform.api.php
+│       ├── webform.config_translation.yml
+│       ├── webform.info.yml
+│       ├── webform.install
+│       ├── webform.libraries.yml
+│       ├── webform.links.action.yml
+│       ├── webform.links.contextual.yml
+│       ├── webform.links.menu.yml
+│       ├── webform.links.task.yml
+│       ├── webform.module
+│       ├── webform.permissions.yml
+│       ├── webform.post_update.php
+│       ├── webform.routing.yml
+│       ├── webform.services.yml
+│       └── webform.tokens.inc
+├── phpinfo.php
+├── private
+├── profiles
+│   └── README.txt
+├── README.md
+├── robots.txt
+├── satisfiable
+├── sites
+│   ├── default
+│   │   ├── default.services.yml
+│   │   ├── default.settings.php
+│   │   ├── files
+│   │   └── settings.php
+│   ├── development.services.yml
+│   ├── example.settings.local.php
+│   ├── example.sites.php
+│   └── README.txt
+├── themes
+│   ├── adminimal_theme
+│   │   ├── adminimal_theme.info.yml
+│   │   ├── adminimal_theme.libraries.yml
+│   │   ├── adminimal_theme.settings.yml
+│   │   ├── adminimal_theme.theme
+│   │   ├── composer.json
+│   │   ├── config
+│   │   ├── css
+│   │   ├── images
+│   │   ├── LICENSE.txt
+│   │   ├── screenshot.png
+│   │   └── templates
+│   ├── bootstrap
+│   │   ├── autoload-fix.php
+│   │   ├── bootstrap.api.php
+│   │   ├── bootstrap.breakpoints.yml
+│   │   ├── bootstrap.info.yml
+│   │   ├── bootstrap.libraries.yml
+│   │   ├── bootstrap.theme
+│   │   ├── composer.json
+│   │   ├── config
+│   │   ├── deprecated.php
+│   │   ├── docs
+│   │   ├── favicon.ico
+│   │   ├── icons.inc
+│   │   ├── js
+│   │   ├── LICENSE.txt
+│   │   ├── logo.svg
+│   │   ├── README.md
+│   │   ├── screenshot.png
+│   │   ├── scripts
+│   │   ├── src
+│   │   ├── starterkits
+│   │   ├── templates
+│   │   └── update_dialog_ajax_for_input_tag.patch
+│   ├── contrib
+│   │   ├── adminimal_theme
+│   │   ├── bootstrap
+│   │   ├── seven
+│   │   └── tara
+│   ├── drudg8b3
+│   │   ├── backup_20250212_153723
+│   │   ├── config
+│   │   ├── css
+│   │   ├── drudg8b3.info.yml
+│   │   ├── drudg8b3.libraries.yml
+│   │   ├── drudg8b3.theme
+│   │   ├── favicon.ico
+│   │   ├── fonts
+│   │   ├── images
+│   │   ├── js
+│   │   ├── libraries
+│   │   ├── logo.svg
+│   │   ├── README.md
+│   │   ├── screenshot.png
+│   │   └── templates
+│   ├── README.txt
+│   ├── seven
+│   │   ├── config
+│   │   ├── css
+│   │   ├── images
+│   │   ├── js
+│   │   ├── LICENSE.txt
+│   │   ├── logo.svg
+│   │   ├── README.txt
+│   │   ├── screenshot.png
+│   │   ├── seven.breakpoints.yml
+│   │   ├── seven.info.yml
+│   │   ├── seven.libraries.yml
+│   │   ├── seven.theme
+│   │   ├── templates
+│   │   └── tests
+│   └── tara
+│       ├── config
+│       ├── credit.txt
+│       ├── css
+│       ├── favicon.ico
+│       ├── fonts
+│       ├── images
+│       ├── js
+│       ├── LICENSE.txt
+│       ├── logo.svg
+│       ├── README.md
+│       ├── README.txt
+│       ├── screenshot.png
+│       ├── tara.breakpoints.yml
+│       ├── tara.info.yml
+│       ├── tara.libraries.yml
+│       ├── tara.theme
+│       ├── templates
+│       ├── Theme_Changelog.txt
+│       ├── theme-settings.php
+│       ├── webfonts5
+│       └── webfonts6
+├── update.php
+├── vendor
+│   ├── asm89
+│   │   └── stack-cors
+│   ├── autoload.php
+│   ├── bin
+│   │   ├── dcg
+│   │   ├── drush
+│   │   ├── patch-type-declarations
+│   │   ├── php-parse
+│   │   ├── phpstan
+│   │   ├── phpstan.phar
+│   │   ├── psysh
+│   │   ├── release
+│   │   ├── robo
+│   │   ├── var-dump-server
+│   │   ├── yaml-cli
+│   │   └── yaml-lint
+│   ├── chi-teck
+│   │   └── drupal-code-generator
+│   ├── composer
+│   │   ├── autoload_classmap.php
+│   │   ├── autoload_files.php
+│   │   ├── autoload_namespaces.php
+│   │   ├── autoload_psr4.php
+│   │   ├── autoload_real.php
+│   │   ├── autoload_static.php
+│   │   ├── ClassLoader.php
+│   │   ├── include_paths.php
+│   │   ├── installed.json
+│   │   ├── installed.php
+│   │   ├── InstalledVersions.php
+│   │   ├── installers
+│   │   ├── LICENSE
+│   │   ├── platform_check.php
+│   │   └── semver
+│   ├── consolidation
+│   │   ├── annotated-command
+│   │   ├── config
+│   │   ├── filter-via-dot-access-data
+│   │   ├── log
+│   │   ├── output-formatters
+│   │   ├── robo
+│   │   ├── self-update
+│   │   ├── site-alias
+│   │   └── site-process
+│   ├── cweagans
+│   │   └── composer-patches
+│   ├── dekor
+│   │   └── php-array-table
+│   ├── dflydev
+│   │   └── dot-access-data
+│   ├── doctrine
+│   │   ├── annotations
+│   │   ├── common
+│   │   ├── deprecations
+│   │   ├── event-manager
+│   │   ├── lexer
+│   │   └── persistence
+│   ├── dompdf
+│   │   └── dompdf
+│   ├── drupal
+│   │   ├── core-composer-scaffold
+│   │   ├── core-project-message
+│   │   └── core-vendor-hardening
+│   ├── drush
+│   │   └── drush
+│   ├── egulias
+│   │   └── email-validator
+│   ├── grasmash
+│   │   ├── expander
+│   │   └── yaml-cli
+│   ├── guzzlehttp
+│   │   ├── guzzle
+│   │   ├── promises
+│   │   └── psr7
+│   ├── league
+│   │   └── container
+│   ├── masterminds
+│   │   └── html5
+│   ├── mck89
+│   │   └── peast
+│   ├── mglaman
+│   │   └── phpstan-drupal
+│   ├── nikic
+│   │   └── php-parser
+│   ├── pear
+│   │   ├── archive_tar
+│   │   ├── console_getopt
+│   │   ├── pear-core-minimal
+│   │   └── pear_exception
+│   ├── phenx
+│   │   ├── php-font-lib
+│   │   └── php-svg-lib
+│   ├── phootwork
+│   │   ├── collection
+│   │   └── lang
+│   ├── phpmailer
+│   │   └── phpmailer
+│   ├── phpowermove
+│   │   └── docblock
+│   ├── phpstan
+│   │   ├── phpstan
+│   │   └── phpstan-deprecation-rules
+│   ├── phpstan (1)
+│   │   ├── phpstan
+│   │   └── phpstan-deprecation-rules
+│   ├── psr
+│   │   ├── cache
+│   │   ├── container
+│   │   ├── event-dispatcher
+│   │   ├── http-client
+│   │   ├── http-factory
+│   │   ├── http-message
+│   │   └── log
+│   ├── psy
+│   │   └── psysh
+│   ├── ralouphie
+│   │   └── getallheaders
+│   ├── ralouphie (1)
+│   │   └── getallheaders
+│   ├── sabberworm
+│   │   └── php-css-parser
+│   ├── sebastian
+│   │   └── diff
+│   ├── symfony
+│   │   ├── console
+│   │   ├── dependency-injection
+│   │   ├── deprecation-contracts
+│   │   ├── error-handler
+│   │   ├── event-dispatcher
+│   │   ├── event-dispatcher-contracts
+│   │   ├── filesystem
+│   │   ├── finder
+│   │   ├── http-foundation
+│   │   ├── http-kernel
+│   │   ├── mailer
+│   │   ├── mime
+│   │   ├── polyfill-ctype
+│   │   ├── polyfill-iconv
+│   │   ├── polyfill-intl-grapheme
+│   │   ├── polyfill-intl-idn
+│   │   ├── polyfill-intl-normalizer
+│   │   ├── polyfill-mbstring
+│   │   ├── polyfill-php72
+│   │   ├── polyfill-php80
+│   │   ├── polyfill-php81
+│   │   ├── polyfill-php83
+│   │   ├── process
+│   │   ├── psr-http-message-bridge
+│   │   ├── routing
+│   │   ├── serializer
+│   │   ├── service-contracts
+│   │   ├── string
+│   │   ├── translation-contracts
+│   │   ├── validator
+│   │   ├── var-dumper
+│   │   ├── var-exporter
+│   │   └── yaml
+│   ├── twbs
+│   │   └── bootstrap
+│   ├── twig
+│   │   └── twig
+│   ├── web.config
+│   └── webflo
+│       └── drupal-finder
+├── web
+│   ├── autoload.php
+│   ├── core
+│   │   ├── assets
+│   │   ├── authorize.php
+│   │   ├── CHANGELOG.txt
+│   │   ├── composer.json
+│   │   ├── config
+│   │   ├── COPYRIGHT.txt
+│   │   ├── core.api.php
+│   │   ├── core.libraries.yml
+│   │   ├── core.link_relation_types.yml
+│   │   ├── core.services.yml
+│   │   ├── drupalci.yml
+│   │   ├── globals.api.php
+│   │   ├── includes
+│   │   ├── INSTALL.mysql.txt
+│   │   ├── INSTALL.pgsql.txt
+│   │   ├── install.php
+│   │   ├── INSTALL.sqlite.txt
+│   │   ├── INSTALL.txt
+│   │   ├── lib
+│   │   ├── LICENSE.txt
+│   │   ├── MAINTAINERS.txt
+│   │   ├── misc
+│   │   ├── modules
+│   │   ├── package.json
+│   │   ├── phpcs.xml.dist
+│   │   ├── phpunit.xml.dist
+│   │   ├── profiles
+│   │   ├── rebuild.php
+│   │   ├── scripts
+│   │   ├── tests
+│   │   ├── themes
+│   │   ├── UPDATE.txt
+│   │   ├── USAGE.txt
+│   │   └── yarn.lock
+│   ├── example.gitignore
+│   ├── index.php
+│   ├── INSTALL.txt
+│   ├── modules
+│   │   └── README.txt
+│   ├── profiles
+│   │   └── README.txt
+│   ├── README.md
+│   ├── robots.txt
+│   ├── sites
+│   │   ├── default
+│   │   ├── development.services.yml
+│   │   ├── example.settings.local.php
+│   │   ├── example.sites.php
+│   │   └── README.txt
+│   ├── themes
+│   │   └── README.txt
+│   ├── update.php
+│   └── web.config
+└── web.config
+
+423 directories, 286 files

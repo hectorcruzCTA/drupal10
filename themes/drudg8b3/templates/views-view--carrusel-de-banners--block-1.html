@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 7.3.7.2 (Linux)"/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changed" content="2025-05-11T09:06:51.979011963"/>
+	<style type="text/css">
+		@page { size: 21cm 29.7cm; margin: 2cm }
+		p { line-height: 115%; margin-bottom: 0.25cm; background: transparent }
+		pre { background: transparent }
+		pre.western { font-family: "Liberation Mono", monospace; font-size: 10pt }
+		pre.cjk { font-family: "Noto Sans Mono CJK SC", monospace; font-size: 10pt }
+		pre.ctl { font-family: "Liberation Mono", monospace; font-size: 10pt }
+	</style>
+</head>
+<body lang="es-ES" link="#000080" vlink="#800000" dir="ltr"><pre class="western">{# CUSTOM TWIG OUTPUT FROM CARRUSEL DE BANNERS #}
+
+{#
+/**
+ * @file
+ * Default theme implementation for main view template.
+ */
+#}
+{%
+  set classes = [
+    'view',
+    'view-' ~ id|clean_class,
+    'view-id-' ~ id,
+    'view-display-id-' ~ display_id,
+    dom_id ? 'js-view-dom-id-' ~ dom_id,
+  ]
+%}
+&lt;div{{ attributes.addClass(classes) }}&gt;
+  {{ title_prefix }}
+  {% if title %}
+    &lt;h2&gt;{{ title }}&lt;/h2&gt;
+  {% endif %}
+  {{ title_suffix }}
+
+  {% if header %}
+    &lt;div class=&quot;view-header&quot;&gt;
+      {{ header }}
+    &lt;/div&gt;
+  {% endif %}
+
+  {% if exposed %}
+    &lt;div class=&quot;view-filters form-group&quot;&gt;
+      {{ exposed }}
+    &lt;/div&gt;
+  {% endif %}
+
+  {% if attachment_before %}
+    &lt;div class=&quot;attachment attachment-before&quot;&gt;
+      {{ attachment_before }}
+    &lt;/div&gt;
+  {% endif %}
+
+  {% if rows %}
+    &lt;div class=&quot;view-content col-xs-12 col-centered&quot;&gt;
+      &lt;div id=&quot;carouselBanner&quot; class=&quot;carousel slide&quot; data-ride=&quot;carousel&quot; data-type=&quot;multi&quot; data-interval=&quot;5000&quot; data-pause=&quot;hover&quot; data-wrap=&quot;1&quot;&gt;
+        &lt;div class=&quot;carousel-inner&quot;&gt;
+          &lt;div class=&quot;item active&quot;&gt;
+            &lt;div class=&quot;row&quot;&gt;
+              {% for row in rows %}
+                &lt;div class=&quot;col-md-3 col-sm-4 col-xs-6&quot;&gt;
+                  {{ row }}
+                &lt;/div&gt;
+                {% if loop.index is divisible by(4) %}
+                  &lt;/div&gt;&lt;div class=&quot;item&quot;&gt;&lt;div class=&quot;row&quot;&gt;
+                {% endif %}
+              {% endfor %}
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;!-- Controls --&gt;
+        &lt;a class=&quot;left carousel-control&quot; href=&quot;#carouselBanner&quot; role=&quot;button&quot; data-slide=&quot;prev&quot;&gt;
+          &lt;span class=&quot;glyphicon glyphicon-chevron-left&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+          &lt;span class=&quot;sr-only&quot;&gt;Previous&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;a class=&quot;right carousel-control&quot; href=&quot;#carouselBanner&quot; role=&quot;button&quot; data-slide=&quot;next&quot;&gt;
+          &lt;span class=&quot;glyphicon glyphicon-chevron-right&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+          &lt;span class=&quot;sr-only&quot;&gt;Next&lt;/span&gt;
+        &lt;/a&gt;
+
+        &lt;div id=&quot;carouselButtons{{ id }}&quot;&gt;
+          &lt;button id=&quot;playButton{{ id }}&quot; type=&quot;button&quot; class=&quot;btn btn-default btn-xs&quot;&gt;
+            &lt;span class=&quot;glyphicon glyphicon-play&quot;&gt; Reproducir&lt;/span&gt;
+          &lt;/button&gt;
+          &lt;button id=&quot;pauseButton{{ id }}&quot; type=&quot;button&quot; class=&quot;btn btn-default btn-xs&quot;&gt;
+            &lt;span class=&quot;glyphicon glyphicon-pause&quot;&gt; Detener&lt;/span&gt;
+          &lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  {% elseif empty %}
+    &lt;div class=&quot;view-empty&quot;&gt;
+      {{ empty }}
+    &lt;/div&gt;
+  {% endif %}
+
+  {% if pager %}
+    {{ pager }}
+  {% endif %}
+
+  {% if attachment_after %}
+    &lt;div class=&quot;attachment attachment-after&quot;&gt;
+      {{ attachment_after }}
+    &lt;/div&gt;
+  {% endif %}
+
+  {% if more %}
+    {{ more }}
+  {% endif %}
+
+  {% if footer %}
+    &lt;div class=&quot;view-footer&quot;&gt;
+      {{ footer }}
+    &lt;/div&gt;
+  {% endif %}
+
+  {% if feed_icons %}
+    &lt;div class=&quot;feed-icons&quot;&gt;
+      {{ feed_icons }}
+    &lt;/div&gt;
+  {% endif %}
+&lt;/div&gt;
+</pre>
+</body>
+</html>

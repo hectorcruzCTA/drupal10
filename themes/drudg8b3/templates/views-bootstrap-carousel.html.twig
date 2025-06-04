@@ -1,0 +1,82 @@
+{# themes/drudg8b3/templates/views-bootstrap-carousel.html.twig - PARA BOOTSTRAP 3, MULTI-ITEM #}
+{#
+/**
+ * @file
+ * Default theme implementation for displaying a view as a bootstrap carousel.
+ * Esta plantilla maneja múltiples columnas por slide.
+ *
+ * Available variables:
+ * - view: The view object.
+ * - rows: A list of the view's row items. Cada 'row_content' es un banner individual.
+ * - id: A valid HTML ID and guaranteed to be unique.
+ * - interval: The amount of time to delay between automatically cycling a
+ *   slide item. If false, carousel will not automatically cycle.
+ * - pause: Pauses the cycling of the carousel on mouseenter and
+ *   resumes the cycling of the carousel on mouseleave.
+ * - wrap: Whether the carousel should cycle continuously or have
+ *   hard stops.
+ * - columns: The amount of columns in a single slide (configurado en la Vista).
+ * - breakpoints: The min-width of the multicolumn view (configurado en la Vista, ej. 'sm', 'md', 'lg').
+ * - indicators: Booleano.
+ * - navigation: Booleano.
+ * - row_content.image: El campo de imagen mapeado.
+ * - row_content.title: El campo de título mapeado.
+ * - row_content.description: El campo de descripción mapeado.
+ */#}
+{{ attach_library('views_bootstrap/components') }} {# Puede ser necesario o no #}
+
+{% if rows is not empty %}
+  <div id="{{ id }}" class="carousel slide drudg8b3-carousel-multi-item" data-ride="carousel" {% if interval %}data-interval="{{ interval }}"{% endif %} {% if pause %}data-pause="{{ pause }}"{% endif %} {% if wrap is not null %}data-wrap="{{ wrap ? 'true' : 'false' }}"{% endif %}>
+
+    {# Carousel indicators: Se calculan basados en el número total de slides, no de items individuales #}
+    {% if indicators and rows|length > columns %} {# Mostrar solo si hay más items que columnas (más de 1 slide) #}
+      <ol class="carousel-indicators">
+        {# El número de indicadores es el número total de items dividido por columnas, redondeado hacia arriba #}
+        {% for i in 0..((rows|length - 1) / columns)|round(0, 'floor') %}
+          <li data-target="#{{ id }}" data-slide-to="{{ i }}" class="{{ loop.first ? 'active' }}"></li>
+        {% endfor %}
+      </ol>
+    {% endif %}
+
+    {# Carousel rows (slides) #}
+    <div class="carousel-inner" role="listbox">
+      {% for row_content in rows %} {# row_content es cada banner individual #}
+        {# Abre un nuevo div.item.row cada vez que se inicia un nuevo slide (basado en el número de columnas) #}
+        {% if (loop.index0 % columns) == 0 %}
+          <div class="item row{% if loop.first %} active{% endif %}">
+        {% endif %}
+
+        {# Renderiza cada banner en su propia columna Bootstrap #}
+        {# El '12 / columns' calcula el tamaño de la columna, ej. 12/4 = 3 -> col-md-3 #}
+        <div class="col-{{ breakpoints|default('md') }}-{{ (12 / columns)|round(0, 'floor') }}">
+          {% if row_content.image %}
+            {{ row_content.image }}
+          {% endif %}
+        </div>
+
+        {# Cierra el div.item.row si hemos completado las columnas para este slide o si es el último item #}
+        {% if (loop.index % columns) == 0 or loop.last %}
+          </div> {# Cierra div.item.row #}
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    {# Carousel navigation #}
+    {% if navigation and rows|length > columns %} {# Mostrar solo si hay más items que columnas (más de 1 slide) #}
+      <a class="left carousel-control" href="#{{ id }}" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">{{ 'Previous'|t }}</span>
+      </a>
+      <a class="right carousel-control" href="#{{ id }}" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">{{ 'Next'|t }}</span>
+      </a>
+    {% endif %}
+
+    {# Botones Play/Pause (necesitarán JS para funcionar) #}
+    <div id="carouselButtons{{ id|clean_id }}" class="carousel-custom-controls">
+        {# ... tus botones play/pause aquí si los quieres ... #}
+    </div>
+
+  </div>
+{% endif %}

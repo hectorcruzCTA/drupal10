@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * @file
+ * Bootstrap sub-theme.
+ *
+ * Se encarga de adjuntar las librerías personalizadas.
+ */
+
+use Drupal\Core\Template\Attribute;
+
+function drudg8b3_preprocess_html(array &$variables) {
+  // Adjuntar la librería personalizada del menú
+  $variables['#attached']['library'][] = 'drudg8b3/barraUdg';
+}
