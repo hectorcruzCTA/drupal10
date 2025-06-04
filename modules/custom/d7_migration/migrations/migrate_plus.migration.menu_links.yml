@@ -1,31 +1,54 @@
 id: menu_links
-label: 'Drupal 7 Main Menu Links'
+label: 'Drupal 7 Menu Links'
 migration_group: d7_migration_group
-
 source:
-  plugin: d7_menu_link
+  plugin: menu_link
   constants:
-    menu_name: main-menu
-  key: drupal7
-  ids:
-    mlid:
-      type: integer
-
+    bundle: menu_link_content
 process:
-  menu_name:
+  id: mlid
+  langcode:
     plugin: default_value
-    default_value: main-menu
-  link_path: link_path
-  link_title: link_title
+    source: language
+    default_value: und
+  bundle: 'constants/bundle'
+  title: link_title
+  description: description
+  menu_name:
+    - plugin: migration_lookup
+      migration: d7_menu
+      source: menu_name
+    - plugin: skip_on_empty
+      method: row
+  'link/uri':
+    plugin: link_uri
+    source: link_path
+  'link/options': options
+  route:
+    plugin: route
+    source:
+      - link_path
+      - options
+  route_name: '@route/route_name'
+  route_parameters: '@route/route_parameters'
+  url: '@route/url'
+  options: '@route/options'
+  external: external
   weight: weight
-  parent: parent
   expanded: expanded
   enabled: enabled
-
+  parent:
+    plugin: menu_link_parent
+    source:
+      - plid
+      - '@menu_name'
+      - parent_link_path
+  changed: updated
 destination:
-  plugin: menu_link_content
-  default_bundle: menu_link_content
-
+  plugin: entity:menu_link_content
+  no_stub: true
 migration_dependencies:
-  required: []
-  optional: []
+  required:
+    - d7_menu
+  optional:
+    - d7_node
