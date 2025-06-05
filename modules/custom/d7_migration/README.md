@@ -21,4 +21,22 @@ drush en migrate_plus migrate_tools migrate_drupal migrate_drupal_ui d7_migratio
 
 ## Configuration
 
-Add a database connection named `drupal7` in your `settings.php` pointing to the source Drupal 7 database.
+Add a database connection named `drupal7` in your `settings.php` pointing to the source Drupal 7 database. Ensure this connection is configured before running any migrations.
+
+## Resetting migrations
+
+If migration map tables are missing, reset the migration status and re-import:
+
+```
+drush migrate:reset-status <migration_id>
+drush migrate:import <migration_id>
+```
+
+## Uninstallation
+
+Remove all migration configuration and uninstall this module:
+
+```
+drush pm:uninstall d7_migration -y
+drush config:delete migrate_plus.migration.*
+```
