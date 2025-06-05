@@ -897,16 +897,20 @@ $databases['default']['default'] = array(
 $databases['drupal7_copy']['default'] = [
   'database' => 'drupal7_copy',
   'username' => 'migrator',
-  'password' => 'M1grac10n*',
+  'password' => 'MIgrac10n*',
   'host' => 'localhost',
-  'port' => '3306',
+  'port' => '3606',
   'driver' => 'mysql',
   'prefix' => '',
-  'collation' => 'utf8mb4_general_ci',
 ];
 
 // Alias necesario para migraciones core que esperan key "drupal7"
 $databases['drupal7']['default'] = $databases['drupal7_copy']['default'];
+
+// Alias for migrations expecting the "migrate" connection.
+$databases['migrate']['default'] = $databases['drupal7_copy']['default'];
+
+$settings['migrate_source_connection'] = 'drupal7';
 
 
 $settings['config_sync_directory'] = 'sites/default/files/config_M7LZ7_yVEcWmA-FWlhNHe2nYiAFVwRJrHqcb50LCyg9WKz4_sAFP9T96ReF9SOMDQhuRP7TrhA/sync';

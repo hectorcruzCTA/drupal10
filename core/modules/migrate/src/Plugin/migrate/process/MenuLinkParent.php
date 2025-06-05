@@ -134,7 +134,11 @@ class MenuLinkParent extends ProcessPluginBase implements ContainerFactoryPlugin
    * Find the parent link GUID.
    */
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
+    if (!is_array($value)) {
+      $value = [$value];
+    }
     $parent_id = array_shift($value);
+
 
     // Handle root elements of a menu.
     if (!$parent_id) {
@@ -175,7 +179,8 @@ class MenuLinkParent extends ProcessPluginBase implements ContainerFactoryPlugin
     }
 
     // Parent could not be determined.
-    throw new MigrateSkipRowException(sprintf("No parent link found for plid '%d' in menu '%s'.", $parent_id, $value[0]));
+        $menu_label = $value[0] ?? '';
+    throw new MigrateSkipRowException(sprintf("No parent link found for plid '%d' in menu '%s'.", $parent_id, $menu_label));
   }
 
 }

@@ -4,7 +4,10 @@ description: 'Migrations from Drupal 7'
 source_type: 'Drupal 7'
 shared_configuration:
   source:
+    plugin: menu_link
     key: drupal7
+    menu_name: main-menu
+
 dependencies:
   enforced:
     module:
