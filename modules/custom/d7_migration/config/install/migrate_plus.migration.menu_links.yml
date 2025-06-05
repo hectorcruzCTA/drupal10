@@ -1,4 +1,4 @@
-id: menu_links
+id: d7_menu_links
 label: 'Drupal 7 Menu Links'
 migration_group: d7_migration_group
 source:
