@@ -134,9 +134,6 @@ class MenuLinkParent extends ProcessPluginBase implements ContainerFactoryPlugin
    * Find the parent link GUID.
    */
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
-    if (!is_array($value)) {
-      $value = [$value];
-    }
     $parent_id = array_shift($value);
 
     // Handle root elements of a menu.
