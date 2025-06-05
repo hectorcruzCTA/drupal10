@@ -1,0 +1,19 @@
+id: d7_menu_links_menu-menu-maestria-en-ergonomia
+label: 'Menu links: menu-menu-maestria-en-ergonomia'
+migration_group: d7_migration_group
+source:
+  plugin: menu_link
+  key: drupal7
+  menu_name: menu-menu-maestria-en-ergonomia
+process:
+  menu_name: menu_name
+  link_path: link_path
+  link_title: link_title
+  weight: weight
+  parent: parent
+  options: options
+destination:
+  plugin: entity:menu_link_content
+migration_dependencies:
+  required: { }
+  optional: { }
