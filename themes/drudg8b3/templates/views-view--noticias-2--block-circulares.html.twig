@@ -1,24 +1,74 @@
-<div class="views-view--noticias-2--block-circulares container">
-  <div class="bloque-circulares-wrapper">
-    <h2 class="bloque-titulo">Circulares</h2>
-    <div class="linea-decorativa"></div>
+{#
+/**
+ * @file
+ * Plantilla principal y genérica para Vistas.
+ * CORRECCIONES:
+ * - Se eliminaron todos los títulos escritos directamente en el código.
+ * - Se usa el código estándar '{{ title }}' para imprimir el título que se
+ *   configura en la interfaz de "Diseño de bloques", dándole el control a Drupal.
+ */
+#}
+{%
+  set classes = [
+    dom_id ? 'js-view-dom-id-' ~ dom_id,
+    'view-id-' ~ id,
+    'view-display-id-' ~ display_id,
+  ]
+%}
+<div{{ attributes.addClass(classes) }}>
+  
+  {# El único título que se imprime es el que viene del bloque #}
+  {{ title_prefix }}
+  {% if title %}
+    {{ title }}
+  {% endif %}
+  {{ title_suffix }}
 
-    <div class="row">
-      {% for row in rows %}
-        <div class="col-md-6 mb-4">
-          <div class="panel panel-default h-100 shadow-sm">
-            <div class="panel-body">
-              <small class="text-muted d-block mb-1">
-                {{ row.content['field_fecha_de_autoria'] }}
-              </small>
-              <h4 class="mt-2">
-                {{ row.content['field_titulo'] }}
-              </h4>
-              <a href="#" class="btn btn-link mt-2">Leer más</a>
-            </div>
-          </div>
-        </div>
-      {% endfor %}
+  {% if header %}
+    <div class="view-header">
+      {{ header }}
     </div>
-  </div>
+  {% endif %}
+
+  {% if exposed %}
+    <div class="view-filters">
+      {{ exposed }}
+    </div>
+  {% endif %}
+
+  {% if attachment_before %}
+    <div class="attachment attachment-before">
+      {{ attachment_before }}
+    </div>
+  {% endif %}
+
+  {% if rows %}
+    <div class="view-content">
+      {{ rows }}
+    </div>
+  {% elseif empty %}
+    <div class="view-empty">
+      {{ empty }}
+    </div>
+  {% endif %}
+
+  {% if pager %}
+    {{ pager }}
+  {% endif %}
+
+  {% if attachment_after %}
+    <div class="attachment attachment-after">
+      {{ attachment_after }}
+    </div>
+  {% endif %}
+
+  {% if more %}
+    {{ more }}
+  {% endif %}
+
+  {% if footer %}
+    <div class="view-footer">
+      {{ footer }}
+    </div>
+  {% endif %}
 </div>

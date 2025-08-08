@@ -1,0 +1,21 @@
+<?php
+
+use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\Core\Field\BaseFieldDefinition;
+
+/**
+ * Implements hook_entity_base_field_info().
+ */
+function taxonomy_tree_entity_base_field_info(EntityTypeInterface $entity_type) {
+  if ($entity_type->id() === 'taxonomy_term')  {
+    $fields['taxonomy_tree'] = BaseFieldDefinition::create('taxonomy_tree')
+      ->setLabel('taxonomy tree')
+      ->setTranslatable(FALSE)
+      ->setDisplayOptions('view', ['region' => 'hidden'])
+      ->setDisplayOptions('form', ['region' => 'hidden'])
+      ->setDisplayConfigurable('view', FALSE)
+      ->setDisplayConfigurable('form', FALSE)
+      ->setProvider('taxonomy_tree');
+    return $fields;
+  }
+}

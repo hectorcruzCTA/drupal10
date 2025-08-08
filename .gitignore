@@ -17,3 +17,4 @@
 # Basura de IDE o sistema
 .DS_Store
 .idea/
+/sites/default/files/

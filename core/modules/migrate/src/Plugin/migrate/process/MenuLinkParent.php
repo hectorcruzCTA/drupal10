@@ -92,7 +92,7 @@ class MenuLinkParent extends ProcessPluginBase implements ContainerFactoryPlugin
    * @param array $configuration
    *   A configuration array containing information about the plugin instance.
    * @param string $plugin_id
-   *   The plugin_id for the plugin instance.
+   *   The plugin ID for the plugin instance.
    * @param mixed $plugin_definition
    *   The plugin implementation definition.
    * @param \Drupal\migrate\MigrateLookupInterface $migrate_lookup
@@ -134,11 +134,7 @@ class MenuLinkParent extends ProcessPluginBase implements ContainerFactoryPlugin
    * Find the parent link GUID.
    */
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
-    if (!is_array($value)) {
-      $value = [$value];
-    }
     $parent_id = array_shift($value);
-
 
     // Handle root elements of a menu.
     if (!$parent_id) {
@@ -179,9 +175,7 @@ class MenuLinkParent extends ProcessPluginBase implements ContainerFactoryPlugin
     }
 
     // Parent could not be determined.
-    $menu_label = $value[0] ?? '';
-    throw new MigrateSkipRowException(sprintf("No parent link found for plid '%d' in menu '%s'.", $parent_id, $menu_label));
-
+    throw new MigrateSkipRowException(sprintf("No parent link found for plid '%d' in menu '%s'.", $parent_id, $value[0]));
   }
 
 }

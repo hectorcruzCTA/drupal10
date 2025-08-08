@@ -1,0 +1,8 @@
+name: 'Migración Noticias CSV'
+type: module
+description: 'Importa noticias desde CSV'
+core_version_requirement: ^10
+package: Migraciones
+dependencies:
+  - migrate_plus
+  - migrate_tools

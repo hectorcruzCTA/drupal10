@@ -1,0 +1,46 @@
+<?php
+
+use Drupal\Core\Batch\BatchBuilder;
+use Drupal\taxonomy\TermInterface;
+
+function taxonomy_tree_install() {
+  batch_set((new BatchBuilder())
+    ->setFile(\Drupal::service('extension.list.module')->getPath('taxonomy_tree') . '/' . basename(__FILE__))
+    ->addOperation('_taxonomy_tree_install_step')
+    ->toArray());
+}
+
+function _taxonomy_tree_install_step(&$context) {
+  $sandbox = &$context['sandbox'];
+  _taxonomy_tree_install_step_do($sandbox);
+  $context['finished'] = $sandbox['#finished'];
+}
+
+function _taxonomy_tree_install_step_do(&$sandbox) {
+  $storage = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
+  if (!isset($sandbox['max'])) {
+    $sandbox['max'] = $storage->getQuery()
+      ->accessCheck(FALSE)
+      ->count()
+      ->execute();
+    $sandbox['progress'] = 0;
+  }
+  if (empty($sandbox['max'])) {
+    $sandbox['#finished'] = 1;
+    return;
+  }
+  $current_run = min($sandbox['progress'] + 100, $sandbox['max']);
+  while ($sandbox['progress'] < $current_run) {
+    $query = $storage->getQuery()
+      ->accessCheck(FALSE)
+      ->notExists('taxonomy_tree');
+    $condition_group = $query->orConditionGroup()
+      ->condition('parent', 0)
+      ->exists('parent.entity.taxonomy_tree');
+    $query->condition($condition_group);
+    $tids = $query->execute();
+    array_map(fn(TermInterface $term) => $term->save(), $storage->loadMultiple($tids));
+    $sandbox['progress']++;
+  }
+  $sandbox['#finished'] = $sandbox['progress'] / $sandbox['max'];
+}

@@ -21,8 +21,8 @@ regions:
   highlighted: 'Highlighted'
   help: 'Help'
   content: 'Content'
-  sidebar_first: 'Primary'
-  sidebar_second: 'Secondary'
+  sidebar_first: 'barra lateral izquierda'
+  sidebar_second: 'barra lateral derecha'
   footer1: 'Footer 1'
   footer2: 'Footer 2'
   footer_menu: 'Menú del Footer'
@@ -49,3 +49,5 @@ libraries:
   - drudg8b3/Smove
   - drudg8b3/bootstrap
   - drudg8b3/barraudg
+  - drudg8b3/menu_toggle
+  

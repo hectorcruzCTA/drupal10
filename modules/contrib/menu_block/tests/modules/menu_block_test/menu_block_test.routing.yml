@@ -46,4 +46,3 @@ menu_test.hierarchy.parent_2:
     _controller: '\Drupal\menu_block_test\Controller\MenuBlockTestController::menuBlockTestCallback'
   requirements:
     _access: 'TRUE'
-

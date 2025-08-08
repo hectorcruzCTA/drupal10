@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\menu_block\Functional;
 
 use Drupal\menu_block\Plugin\Block\MenuBlock;
@@ -737,4 +739,5 @@ class MenuBlockTest extends BrowserTestBase {
     $this->assertSession()->pageTextNotContains('child-1-1 menu item');
     $this->assertSession()->pageTextNotContains('child-2 menu item');
   }
+
 }

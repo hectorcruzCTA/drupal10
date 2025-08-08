@@ -887,19 +887,19 @@ $databases['default']['default'] = array(
   'password' => 'cta2023?*',
   'prefix' => '',
   'host' => 'localhost',
-  'port' => '3606',
+  'port' => '3306',
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'driver' => 'mysql',
 );
 /**
  * Conexión a la base de datos importada desde Drupal 7
- */
+
 $databases['drupal7_copy']['default'] = [
   'database' => 'drupal7_copy',
   'username' => 'migrator',
   'password' => 'MIgrac10n*',
   'host' => 'localhost',
-  'port' => '3606',
+  'port' => '3306',
   'driver' => 'mysql',
   'prefix' => '',
 ];
@@ -909,11 +909,10 @@ $databases['drupal7']['default'] = $databases['drupal7_copy']['default'];
 
 // Alias for migrations expecting the "migrate" connection.
 $databases['migrate']['default'] = $databases['drupal7_copy']['default'];
-
 $settings['migrate_source_connection'] = 'drupal7';
+ */
 
-
-$settings['config_sync_directory'] = 'sites/default/files/config_M7LZ7_yVEcWmA-FWlhNHe2nYiAFVwRJrHqcb50LCyg9WKz4_sAFP9T96ReF9SOMDQhuRP7TrhA/sync';
+//$settings['config_sync_directory'] = 'sites/default/files/config_lk_8_Z32W3L81zdDgDTEBmluU3_pCzpI7Zbas1hhPORGGQBE4sWN2iLj9RpXUyJI6q2VfUdFwg/sync/';
 
 $settings['update_free_access'] = TRUE;
 
@@ -931,3 +930,6 @@ $settings['trusted_host_patterns'] = [
 
 $config['entity_print.settings']['pdf_engine'] = 'wkhtmltopdf';
 $config['entity_print.settings']['pdf_engine_binary'] = '/usr/bin/wkhtmltopdf';
+
+// Define la carpeta de sincronización de configuración:
+$settings['config_sync_directory'] = 'sites/default/files/config_sync';

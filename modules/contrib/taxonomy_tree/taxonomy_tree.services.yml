@@ -1,0 +1,5 @@
+services:
+  taxonomy_tree.update:
+    class: Drupal\taxonomy_tree\TaxonomyTreeUpdateService
+    arguments: ['@entity_type.manager', '@database', '@current_route_match']
+

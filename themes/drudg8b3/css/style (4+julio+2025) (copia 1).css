@@ -1,0 +1,203 @@
+/* ==========================================================================
+   1. FUNDAMENTOS Y VARIABLES GLOBALES
+   ========================================================================== */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;500;700&display=swap");
+
+:root {
+  /* Estrategia de fuentes */
+  --font-heading: "Montserrat", Arial, sans-serif;
+  --font-body: "Poppins", Arial, sans-serif;
+
+  /* Paleta de colores */
+  --color-dark: #13445A;
+  --color-midtone: #3a8293;
+  --color-light-cream: #fceddb; 
+  --color-accent: #970747;
+  --color-white: #ffffff;
+  --color-gray: #f0f0f0;
+  --color-light-gray: #e9e9e9;
+
+  /* Asignación semántica */
+  --color-background: var(--color-white);
+  --color-text: var(--color-dark);
+  --color-heading: var(--color-dark);
+  --color-link: var(--color-accent);
+  --color-decorative-border: var(--color-midtone);
+  --line-height-base: 1.6;
+}
+
+/* ==========================================================================
+   2. ESTILOS BASE (RESET Y TIPOGRAFÍA)
+   ========================================================================== */
+html { font-size: 112.5%; }
+body { margin: 0; font-family: var(--font-body); font-size: 1rem; line-height: var(--line-height-base); color: var(--color-text); background-color: var(--color-background); }
+h1, h2, h3, h4, h5, h6 { margin: 1.5em 0 0.5em; font-family: var(--font-heading); font-weight: 600; line-height: 1.2; color: var(--color-heading); }
+h1, .h1 { font-size: 2.125rem; font-weight: 700; }
+h2, .h2 { font-size: 1.6875rem; }
+h3, .h3 { font-size: 1.25rem; }
+h4, .h4 { font-size: 1.125rem; }
+h5, .h5 { font-size: 1rem; }
+h6, .h6 { font-size: .875rem; }
+p, ul, ol { margin-top: 0; margin-bottom: 1.25rem; }
+ul, ol { padding-left: 1.5rem; }
+a, a:link, a:visited { color: var(--color-link); font-weight: 500; text-decoration: none; transition: all 0.2s ease-in-out; }
+a:hover, a:focus { text-decoration: underline; color: var(--color-text); }
+strong, b, dt { font-weight: 700; color: var(--color-heading); }
+dd { margin: 0 0 1rem 1.5rem; }
+blockquote { margin: 1.5em 0; padding: 1em 1.5em; border-left: 5px solid var(--color-decorative-border); background-color: var(--color-gray); font-style: italic; color: var(--color-text); }
+code, pre { font-family: Menlo, Consolas, monospace; font-size: .875rem; background-color: var(--color-gray); padding: .1em .3em; border-radius: 4px; }
+
+/* ==========================================================================
+   3. MAQUETACIÓN Y COMPONENTES DE DRUPAL
+   ========================================================================== */
+#titulo-cuaad { 
+  width: 100vw !important; max-width: 100vw !important; margin-left: calc(-50vw + 50%); margin-right: calc(-50vw + 50%); 
+  box-sizing: border-box; display: flex; align-items: center; justify-content: center; height: 54px;
+  background-color: var(--color-accent) !important; color: var(--color-white) !important; 
+  font-family: var(--font-heading); font-weight: 600; text-transform: uppercase; font-size: 1.25rem;
+}
+#menu-principal {
+  width: 100vw !important; max-width: 100vw !important; margin-left: calc(-50vw + 50%); margin-right: calc(-50vw + 50%);
+  box-sizing: border-box; background-color: var(--color-dark) !important;
+  display: flex; justify-content: center; align-items: center; height: 54px;
+}
+#menu-principal ul.menu { display: flex; align-items: center; list-style: none; padding: 0; margin: 0; height: 100%; }
+#menu-principal ul.menu li { display: flex; align-items: stretch; height: 100%; }
+#menu-principal ul.menu li a { 
+  display: flex; align-items: center; justify-content: center; height: 100%; padding: 0 1rem;
+  text-align: center; line-height: 1.3; font-family: var(--font-heading); font-weight: 500; 
+  color: var(--color-white) !important; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.5px; 
+  transition: background-color 0.2s ease;
+}
+#menu-principal ul.menu li a:hover, #menu-principal ul.menu li.active > a { background-color: var(--color-midtone) !important; }
+#menu-principal .dropdown-menu, #menu-principal ul.menu li ul { background-color: var(--color-dark) !important; }
+#menu-principal .dropdown-menu li a, #menu-principal ul.menu li ul li a { color: var(--color-white) !important; font-family: var(--font-body); font-weight: 400; text-transform: none; padding: 0.5rem 1rem; height: auto; }
+#menu-principal .dropdown-menu li a:hover, #menu-principal ul.menu li ul li a:hover { background-color: var(--color-midtone) !important; }
+.titulo-oculto h2.block-title { display: none !important; }
+.titulo-con-linea h2.block-title { font-family: var(--font-heading); font-size: 1.6rem; font-weight: 700; color: var(--color-heading); margin-bottom: 2rem; display: flex; flex-direction: column; align-items: flex-start; text-align: left; border-bottom: none; padding-bottom: 0; }
+.titulo-con-linea h2.block-title::after { content: ''; display: block; width: 200px; height: 3px; margin-top: 0.75rem; background: linear-gradient(to right, var(--color-accent), transparent); }
+
+/* --- Footer --- */
+#footer1-wrapper {
+  background-color: var(--color-dark); color: var(--color-white); padding: 2rem 1.5rem;
+  display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;
+}
+#footer1-wrapper #footer1-info { flex: 2; min-width: 320px; padding-right: 2rem; }
+#footer1-wrapper #footer1-extras { flex: 1; min-width: 280px; text-align: right; }
+#footer1-wrapper #footer1-info img { max-height: 45px; margin-bottom: 1rem; }
+#footer1-wrapper #footer1-info p { font-size: 0.8rem; line-height: 1.5; font-weight: 400; margin-bottom: 0.75rem; }
+#footer1-wrapper #footer1-extras ul { list-style: none; padding: 0; margin: 0; }
+#footer1-wrapper #footer1-extras .region-redes-sociales ul { margin-bottom: 1rem; }
+#footer1-wrapper #footer1-extras .region-redes-sociales li { display: inline-block; margin-left: 0.7rem; }
+#footer1-wrapper #footer1-extras .region-redes-sociales li a { font-size: 1.2rem; }
+#footer1-wrapper #footer1-extras .menu a { font-size: 0.85rem; font-weight: 400; padding: 0.15rem 0; display: block; }
+#footer2-wrapper { background-color: var(--color-accent); color: var(--color-white); text-align: center; font-size: 0.85rem; line-height: 1.4; display: flex; align-items: center; justify-content: center; padding: 0.8rem 1.5rem; }
+#footer a { color: var(--color-white); }
+#footer h1, #footer h2, #footer h3, #footer h4, #footer h5, #footer h6 { color: var(--color-white); font-family: var(--font-heading); }
+
+/* --- Ajustes Finales --- */
+#header, #navbar, #header-navigation-wrapper, #titulo-cuaad, #menu-principal { margin: 0 !important; padding: 0 !important; border: none !important; box-shadow: none !important; }
+#header .container, #navbar .container, #navbar .container-fluid { width: 100% !important; max-width: 100% !important; padding: 0 !important; margin: 0 !important; }
+#titulo-cuaad p, #titulo-cuaad div, #footer2-wrapper .block, #footer2-wrapper p { margin-top: 0 !important; margin-bottom: 0 !important; }
+
+/* --- Circulares --- */
+.circulares-block .view-content { border-top: 1px solid var(--color-light-gray); }
+.circulares-block .views-row { position: relative; padding: 1.5rem 1.5rem 1.5rem 2.5rem; border-bottom: 1px solid var(--color-light-gray); transition: background-color 0.3s ease; }
+.circulares-block .views-row::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 6px; background-color: var(--color-light-gray); transition: background-color 0.3s ease; }
+.circulares-block .views-row:hover { background-color: var(--color-gray); }
+.circulares-block .views-row:hover::before { background-color: var(--color-accent); }
+.circulares-block .views-field-title a { font-family: var(--font-heading); font-size: 1.1rem; font-weight: 600; color: var(--color-text); text-decoration: none; transition: color 0.3s ease; }
+.circulares-block .views-row:hover .views-field-title a { color: var(--color-accent); }
+.circulares-block .views-field-created { font-family: var(--font-body); font-size: 0.9rem; color: var(--color-midtone); margin-top: 0.25rem; display: block; }
+
+/* --- Banners de Interés --- */
+.bloque-banners-interes .views-field { display: block; background-color: var(--color-white); border: 1px solid var(--color-light-gray); border-radius: 8px; box-shadow: 0 4px 8px rgba(19, 68, 90, 0.08); overflow: hidden; text-decoration: none !important; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+.bloque-banners-interes .views-field:hover { transform: translateY(-6px); border-color: var(--color-accent); box-shadow: 0 10px 20px rgba(19, 68, 90, 0.15); }
+.bloque-banners-interes .views-field img { display: block; width: 100%; height: auto; transition: transform 0.3s ease-out; }
+.bloque-banners-interes .views-field:hover img { transform: scale(1.05); }
+
+/*
+ * ==========================================================================
+ *   ESTILOS FINALES Y DEFINITIVOS PARA CARRUSEL
+ *   Selectores corregidos según la estructura del archivo .html.twig
+ * ==========================================================================
+*/
+
+/* 
+ * El espaciado entre tarjetas lo manejan las columnas de Bootstrap (.col-md-3),
+ * por lo que aplicamos los estilos a la tarjeta 'a' que vive DENTRO de esa columna.
+*/
+
+/* Hacemos que la "tarjeta" sea el propio enlace 'a' */
+.carrusel-tarjetas .item .views-field a {
+  display: block; /* Para que ocupe todo el espacio y podamos darle dimensiones */
+  border: 2px solid transparent; /* Borde invisible que se coloreará con el hover */
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(19, 68, 90, 0.1);
+  transition: all 0.3s ease-in-out;
+  text-decoration: none !important;
+}
+
+/* Efecto al pasar el ratón por encima del enlace (la tarjeta) */
+.carrusel-tarjetas .item .views-field a:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-accent);
+  box-shadow: 0 12px 25px rgba(19, 68, 90, 0.2);
+}
+
+/* Estilo para la imagen para asegurar consistencia de altura */
+.carrusel-tarjetas .item .views-field img {
+  display: block;
+  width: 100%;
+  height: 400px;
+  object-fit: cover; /* La imagen cubre el espacio sin deformarse */
+  transition: transform 0.3s ease;
+}
+
+/* Efecto sutil de zoom en la imagen al hacer hover */
+.carrusel-tarjetas .item .views-field a:hover img {
+  transform: scale(1.03);
+}
+
+/* Ajuste para los controles de navegación del carrusel */
+.carrusel-tarjetas .carousel-control {
+  background-image: none !important; /* Elimina el gradiente por defecto de Bootstrap 3 */
+  width: 5%;
+}
+
+
+
+/*
+ * ==========================================================================
+ *   ESTILOS PARA EL VIDEO HERO A PANTALLA COMPLETA (VERSIÓN MEJORADA)
+ *   Fuerza que TODO el contenido del slideshow (videos, imágenes, iframes)
+ *   ocupe el ancho total de la pantalla.
+ * ==========================================================================
+*/
+
+/* Selector para el bloque principal (sin cambios, ya funciona) */
+#block-slideudgvideo {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  padding: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 1.5rem; 
+}
+
+/* 
+ * REGLA MEJORADA Y EXPANDIDA:
+ * Aseguramos que el carrusel, y CUALQUIER TIPO de contenido visual dentro,
+ * ocupe el 100% de su nuevo contenedor de ancho completo.
+*/
+#block-slideudgvideo .carousel-inner,
+#block-slideudgvideo video,
+#block-slideudgvideo img,
+#block-slideudgvideo iframe {
+  display: block; /* Asegura un comportamiento de bloque consistente */
+  width: 100% !important; /* Fuerza el ancho al 100% del contenedor */
+  height: auto !important; /* Mantiene la proporción original para evitar distorsión */
+  object-fit: cover; /* Asegura que la imagen/video cubra todo el espacio (puede recortar un poco si las proporciones no coinciden) */
+}

@@ -5,6 +5,7 @@ namespace Drupal\entity_print\Plugin\EntityPrint\PrintEngine;
 use Dompdf\Dompdf as DompdfLib;
 use Dompdf\Exception as DompdfLibException;
 use Dompdf\Options as DompdfLibOptions;
+use Drupal\Core\File\FileSystemInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\entity_print\Plugin\ExportTypeInterface;
@@ -69,17 +70,18 @@ class DomPdf extends PdfEngineBase implements ContainerFactoryPluginInterface {
   /**
    * {@inheritdoc}
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, ExportTypeInterface $export_type, Request $request) {
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, ExportTypeInterface $export_type, Request $request, FileSystemInterface $file_system) {
     parent::__construct($configuration, $plugin_id, $plugin_definition, $export_type);
 
     $this->request = $request;
 
     $this->dompdfOptions = new DompdfLibOptions($this->configuration);
 
-    $this->dompdfOptions->setTempDir(\Drupal::service('file_system')->getTempDirectory());
-    $this->dompdfOptions->setFontCache(\Drupal::service('file_system')->getTempDirectory());
-    $this->dompdfOptions->setFontDir(\Drupal::service('file_system')->getTempDirectory());
-    $this->dompdfOptions->setLogOutputFile(\Drupal::service('file_system')->getTempDirectory() . DIRECTORY_SEPARATOR . self::LOG_FILE_NAME);
+    $temp_dir = $file_system->getTempDirectory();
+    $this->dompdfOptions->setTempDir($temp_dir);
+    $this->dompdfOptions->setFontCache($temp_dir);
+    $this->dompdfOptions->setFontDir($temp_dir);
+    $this->dompdfOptions->setLogOutputFile($temp_dir . DIRECTORY_SEPARATOR . self::LOG_FILE_NAME);
     $this->dompdfOptions->setIsRemoteEnabled($this->configuration['enable_remote']);
     $this->dompdfOptions->setIsFontSubsettingEnabled($this->configuration['font_subsetting']);
     $this->dompdfOptions->setIsPhpEnabled($this->configuration['embedded_php']);
@@ -103,7 +105,8 @@ class DomPdf extends PdfEngineBase implements ContainerFactoryPluginInterface {
       $plugin_id,
       $plugin_definition,
       $container->get('plugin.manager.entity_print.export_type')->createInstance($plugin_definition['export_type']),
-      $container->get('request_stack')->getCurrentRequest()
+      $container->get('request_stack')->getCurrentRequest(),
+      $container->get('file_system')
     );
   }
 
@@ -204,6 +207,8 @@ class DomPdf extends PdfEngineBase implements ContainerFactoryPluginInterface {
     // entire document.
     $this->html .= (string) $content;
     $this->dompdf->loadHtml($this->html);
+
+    return $this;
   }
 
   /**

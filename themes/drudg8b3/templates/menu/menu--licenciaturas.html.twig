@@ -1,0 +1,39 @@
+{{ attach_library('drudg8b3/menu_toggle') }}
+<div class="sidebar-menu card-list-container"> {# <<< CAMBIO CLAVE: Clase 'sidebar-menu' añadida aquí #}
+  <ul class="card-list">
+    {% for item in items %}
+      {# Si tiene hijos, renderizamos toggle + link sin navegación inmediata #}
+      {% if item.below %}
+        <li class="has-children">
+          <div class="item-wrapper">
+            <button type="button"
+                    class="toggle-btn"
+                    aria-expanded="false"
+                    aria-label="Expandir {{ item.title }}">
+              <span class="icon">►</span>
+            </button>
+            <a href="{{ item.url }}" class="menu-parent-link">
+              {{ item.title }}
+            </a>
+          </div>
+          <ul class="card-list card-list--nested">
+            {% for child in item.below %}
+              <li>
+                <a href="{{ child.url }}">
+                  <span class="icon">►</span>{{ child.title }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </li>
+      {% else %}
+        {# Enlaces sin hijos normales #}
+        <li>
+          <a href="{{ item.url }}">
+            <span class="icon">►</span>{{ item.title }}
+          </a>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</div>

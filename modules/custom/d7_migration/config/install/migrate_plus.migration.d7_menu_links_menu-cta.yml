@@ -1,19 +1,45 @@
 id: d7_menu_links_menu-cta
 label: 'Menu links: menu-cta'
 migration_group: d7_migration_group
+
 source:
-  plugin: menu_link
-  key: drupal7
+  plugin: d7_menu_links
+  key: migrate
+  constants:
+    source_database: drupal7_copy
   menu_name: menu-cta
+
 process:
-  menu_name: menu_name
-  link_path: link_path
-  link_title: link_title
+  # El título del enlace ya venía en el campo “link_title”.
+  title: link_title
+
+  # Aquí es donde cambias para que la URI se lea de “link_path” y no de “url”.
+  # Si “link_path” está vacío, se usará "internal:<front>" en lugar de NULL.
+  link.uri:
+    plugin: default_value
+    source: link_path
+    default_value: 'internal:<front>'
+
+  # Mantenemos link.title por compatibilidad, pero realmente title ya lo sacamos arriba.
+  link.title: link_title
+
+  # No uses “options” a menos que en tu tabla Drupal 7 tengas algún campo “options” con
+  # configuraciones especiales (normalmente no es el caso en menu_links de D7).
+  # link.options: options
+
+  menu_name: 'menu-cta'
   weight: weight
+
+  # El parent (padre) ya quedó arreglado en la base: no hay plid inválidos.
   parent: parent
-  options: options
+
 destination:
-  plugin: entity:menu_link_content
+  plugin: 'entity:menu_link_content'
+  default_bundle: menu_link_content
+  # Si la URI termina siendo NULL (muy raro), salta ese registro:
+  skip_on_empty: true
+  skip_on_empty_message: 'Saltando item sin link'
+
 migration_dependencies:
   required: { }
   optional: { }

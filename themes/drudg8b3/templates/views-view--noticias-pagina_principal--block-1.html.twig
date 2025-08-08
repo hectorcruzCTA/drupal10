@@ -2,7 +2,10 @@
 /**
  * @file
  * Plantilla principal para la vista noticias_pagina_principal, display block_1.
- * Añade un div.container y el título.
+ * AÑADIDOS Y CORRECCIONES:
+ * - Se eliminó el título "NOTICIAS" que estaba escrito directamente en el código.
+ * - Se reactivó el código que imprime el título dinámico del bloque para que se pueda
+ *   controlar desde la interfaz de Drupal.
  */
 #}
 {%
@@ -14,21 +17,20 @@
 %}
 <div{{ attributes.addClass(classes) }}> {# Este es el div principal de la vista #}
   <div class="container"> {# <<< NUESTRO CONTENEDOR BOOTSTRAP 3 >>> #}
+    
+    {# --- CORRECCIÓN 1: Reactivado y corregido el código que imprime el título dinámico del bloque --- #}
     {{ title_prefix }}
-    {# No necesitamos imprimir view.title si lo ponemos manualmente abajo #}
-    {# {% if title %}
-      <h3>{{ title }}</h3>
-    {% endif %} #}
+    {% if title %}
+      <h2>{{ title }}</h2>
+    {% endif %}
     {{ title_suffix }}
 
-    {# Ponemos nuestro título personalizado aquí DENTRO del container #}
-    {% if rows or empty or header or footer %} {# Mostrar título si hay algo que mostrar #}
-      <h2 class="titulo-seccion-noticias">NOTICIAS</h2>
-    {% endif %}
+    {# --- CORRECCIÓN 2: Eliminada la sección que imprimía el título hardcodeado --- #}
+    {# El 'h2' que estaba aquí fue removido para evitar la duplicación. #}
 
     {% if header %}
       <div class="view-header section">
-        {{ header }} {# El contenido del "Global: Área de texto" del encabezado de la vista se imprime aquí #}
+        {{ header }}
       </div>
     {% endif %}
 
@@ -46,7 +48,7 @@
 
     {% if rows %}
       <div class="view-content section">
-        {{ rows }} {# AQUÍ ES DONDE SE RENDERIZAN TUS FILAS, CADA UNA USANDO views-view-fields--noticias_pagina_principal--block-1.html.twig #}
+        {{ rows }} {# AQUÍ ES DONDE SE RENDERIZAN TUS FILAS #}
       </div>
     {% elseif empty %}
       <div class="view-empty section">
@@ -70,7 +72,6 @@
 
     {% if footer %}
       <div class="view-footer section">
-         {# El contenido del "Global: Área de texto" del pie de la vista (botón "Ver todas") se imprime aquí #}
         {{ footer }}
       </div>
     {% endif %}

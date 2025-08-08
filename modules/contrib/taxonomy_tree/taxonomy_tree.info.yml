@@ -1,0 +1,10 @@
+name: Taxonomy tree
+type: module
+description: Taxonomy tree
+package: Custom
+core_version_requirement: ^9 || ^10
+
+# Information added by Drupal.org packaging script on 2023-05-29
+version: '1.0.0'
+project: 'taxonomy_tree'
+datestamp: 1685366783

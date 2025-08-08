@@ -3,7 +3,6 @@ global-styling:
     theme:
       css/style.css: {}
       css/noticias.css: {}
-      # Asumiendo que udg_menu es una librería del tema o un subdirectorio:
       libraries/udg_menu/udg-menu2.css: {}
 Banner:
   js:
@@ -32,8 +31,8 @@ global-scripts:
     js/scripts.js: {}
   dependencies:
     - core/jquery
+    - core/jquery.once
     - core/drupal
-    - core/drupal.once
 
 bootstrap:
   version: 3.4.1
@@ -54,7 +53,6 @@ Smove:
   dependencies:
     - core/jquery
     - core/drupal
-    - core/once
 
 bootstrap-carousel:
   version: 1.x
@@ -62,7 +60,16 @@ bootstrap-carousel:
     js/init-carousel.js: {} # ¡ASEGÚRATE DE QUE ESTE ARCHIVO EXISTA en themes/drug8b3/js/!
   dependencies:
     - core/jquery
-    - core/once
+    - core/jquery.once
     - core/drupal
     - core/drupalSettings
     - drudg8b3/bootstrap # Depende de la biblioteca 'bootstrap' de arriba
+
+menu_toggle:
+  js:
+    js/menu-toggle.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupal
+    

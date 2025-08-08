@@ -1,0 +1,12 @@
+{# field--field-liston.html.twig #}
+{% set image_uri  = file_url(row._entity.field_liston.0.entity.uri.value) %}
+{% set image_alt  = row._entity.field_liston.0.alt %}
+{% set link_url   = row._entity.field_link.0.uri %}
+
+{% if link_url %}
+  <a href="{{ link_url }}">
+    <img src="{{ image_uri }}" alt="{{ image_alt }}" class="img-responsive">
+  </a>
+{% else %}
+  <img src="{{ image_uri }}" alt="{{ image_alt }}" class="img-responsive">
+{% endif %}

@@ -1,35 +1,27 @@
+(function ($, Drupal) {
+  Drupal.behaviors.smoveConf = {
+    attach: function (context, settings) {
+      // Ejecutar sólo una vez al cargar (marcamos en <body>)
+      if (!$('body').data('smove-initialized')) {
+        $('body').data('smove-initialized', true);
 
-(function($) {
-Drupal.behaviors.Smove = {
-  attach: function (context, settings) {
-    $('#main-container').once().addClass("animacion");
-    $('#content2').once().addClass("animacion");
-   	$('#content2').once().addClass("animacion");
-   	$('#content3').once().addClass("animacion");
-   	$('#content4').once().addClass("animacion");
-   	$('#content5').once().addClass("animacion");
-   	$('#content6').once().addClass("animacion");
-   	$('#content7').once().addClass("animacion");
-   	$('#content8').once().addClass("animacion");
-   	$('#content9').once().addClass("animacion");
-   	$('#content10').once().addClass("animacion");
-   	$('#content11').once().addClass("animacion");
-  	$('.animacion').smoove({offset:'20%'});
-  	}
+        // Añadir clase animación a todos los contenedores
+        $('#main-container, #content2, #content3, #content4, #content5, #content6, #content7, #content8, #content9, #content10, #content11')
+          .addClass('animacion');
+
+        // Inicializar smove
+        $('.animacion', context).smoove({ offset: '20%' });
+
+        // Scroll suave para anclas del menú principal
+        $('#block-drudg8b3-main-menu a').on('click', function (e) {
+          var hash = this.hash || $(this).attr('href');
+          var $target = $(hash);
+          if ($target.length) {
+            e.preventDefault();
+            $('html, body').animate({ scrollTop: $target.offset().top }, 1000);
+          }
+        });
+      }
+    }
   };
-  //anclas
-  	$('#block-drudg8b3-main-menu a').click(function(e){
-  			//evitar el eventos del enlace normal
-  		var strAncla=$(this).attr('href'); //id del ancla
-  			$('body,html').stop(true,true).animate({
-  				scrollTop: $(strAncla).offset().top
-  			},1000);
-  	});
-
-
-})(jQuery);
-
-
-
-
-
+})(jQuery, Drupal);

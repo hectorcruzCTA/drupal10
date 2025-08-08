@@ -1,0 +1,7 @@
+field.value.taxonomy_tree:
+  type: mapping
+  label: Default value
+  mapping:
+    value:
+      type: label
+      label: Value

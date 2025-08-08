@@ -3,7 +3,7 @@
 
 # 1) Push de cambios a GitHub (ya está hecho anteriormente por Codex)
 # 2) Conectar vía SSH y correr Drush en servidor
-ssh drupal10@TU_SERVIDOR <<'EOSSH'
+
   cd /var/www/html/drupal100
   drush cr
   # Importar cada migración de menú por separado en orden alfabético:
@@ -91,4 +91,4 @@ ssh drupal10@TU_SERVIDOR <<'EOSSH'
   drush migrate:import d7_menu_links_shortcut-set-2
   drush migrate:import d7_menu_links_user-menu
   drush cr
-EOSSH
+

@@ -1,0 +1,26 @@
+id: noticias_csv
+label: 'Importar noticias desde CSV'
+migration_group: migrate_noticias
+
+source:
+  plugin: csv
+  path: 'public://migrate/noticias.csv'
+  header_row_count: 1
+  ids:
+    nid:
+      type: integer
+
+process:
+  title:        title
+  body/value:   body
+  body/format:  body_format
+  body/summary: body_summary
+  field_sinopsis:               sinopsis
+  field_imagen_noticia/0/target_id: image_fid
+  field_archivo/0/target_id:        archivo_fid
+
+destination:
+  plugin: entity:node
+  default_bundle: noticia
+
+migration_dependencies: {  }

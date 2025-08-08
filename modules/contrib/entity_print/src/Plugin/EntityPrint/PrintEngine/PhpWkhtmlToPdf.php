@@ -292,6 +292,7 @@ class PhpWkhtmlToPdf extends PdfEngineBase implements AlignableHeaderFooterInter
    */
   public function addPage($content) {
     $this->pdf->addPage($content);
+    return $this;
   }
 
   /**
