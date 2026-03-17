@@ -1,122 +1,330 @@
-{# themes/drudg8b3/templates/page.html.twig #}
+{#
+/**
+* @file
+* Default theme implementation to display a single page.
+*
+* (comentarios originales omitidos por brevedad)
+*/
+#}
+{% set container = theme.settings.fluid_container ? 'container-fluid' : 'container' %}
 
-{# Librerías globales #}
-{{ attach_library('drudg8b3/global-scripts') }}
-{{ attach_library('drudg8b3/bootstrap-carrusel') }}
-
-{# Menú principal UDG (Colapsable) #}
-{% if page.udg_menu_principal %}
-  <div id="udg_menu_principal_ul" class="container-fluid">
-    <button id="menu-toggle" class="btn btn-primary">Menú Principal UDG</button>
-    <div id="menu-content" class="menu-collapsed">
-      {{ page.udg_menu_principal }}
-    </div>
-  </div>
-{% endif %}
-
-{# Listón UDG (Menú superior) #}
-{% if page.liston %}
-  <div id="liston" class="container-fluid">
-    {{ page.liston }}
-  </div>
-{% endif %}
-
-{# Barra de administración #}
-{% if page.toolbar %}
-  <div id="toolbar-administration">
-    {{ page.toolbar }}
-  </div>
-{% endif %}
-
-{# Header con logo, título y buscador #}
+{# Navbar #}
+{% if page.navigation or page.navigation_collapsible %}
+{% block navbar %}
+{%
+set navbar_classes = [
+  'navbar',
+  theme.settings.navbar_inverse ? 'navbar-inverse' : 'navbar-default',
+  theme.settings.navbar_position ? 'navbar-' ~ theme.settings.navbar_position|clean_class : container,
+]
+%}
 <header class="navbar navbar-default" id="navbar">
-  <div id="header-navigation-wrapper" class="container">
-    <div class="container header">
-      <div class="header-content">
-        <div id="logo-buscador" class="logo-buscador">
-          <div class="logo">
-            {{ page.logo_udg }}
-          </div>
-          <div class="buscador">
-            {{ page.buscador }}
-          </div>
+  {# Header #}
+  {% block header %}
+  <div id="header" class="{{ container }}">
+    <div class="header">
+      {# ➜ Fila agregada para alinear columnas del header #}
+      <div class="row content-title">
+        <div class="button menu col-sm-2 col-xs-2">
+          {# .btn-navbar is used as the toggle for collapsed navbar content #}
+          {% if page.navigation_collapsible %}
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+              <span class="sr-only">{{ 'Toggle navigation'|t }}</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          {% endif %}
         </div>
-        <div id="titulo-cuaad" class="titulo">
-          {{ page.titulo_cuaad }}
+
+        <div class="align-center escudo col-sm-8">
+          <a href="http://www.udg.mx/">
+            <img alt="Universidad de Guadalajara" src="{{ base_path ~ directory }}/images/BG_escudo-header-01.svg" class="logog">
+          </a>
+        </div>
+
+        <div class="escudoch col-sm-8 col-xs-8">
+          <a href="http://www.udg.mx">
+            <img alt="Universidad de Guadalajara" src="{{ base_path ~ directory }}/images/logo_udg_web_cads.svg" class="logoch">
+          </a>
+        </div>
+
+        <div class="col-sm-2 col-xs-12">
+          {{ drupal_block('search_form_block') }}
+        </div>
+
+        <div>
+          {{ page.header }}
         </div>
       </div>
     </div>
   </div>
-</header>
+  {% endblock %}
 
-{# Menú principal debajo del Listón #}
-{% if page.navigation %}
-  <nav id="menu-principal" class="container-fluid">
-    <div class="container navigation">
-      {{ page.navigation }}
+  {% if page.liston %}
+    {% block liston %}
+      <div id="liston" class="{{ container }}">
+        {# ➜ Centrado del listón #}
+        <div class="row">
+          <div class="col-sm-12 text-center">
+            {{ page.liston }}
+          </div>
+        </div>
+      </div>
+    {% endblock %}
+  {% endif %}
+
+{# precontent #}
+{% if page.precontent %}
+  {% block precontent %}
+    {% if breadcrumb %}
+      {% block breadcrumb %}
+        {{ breadcrumb }}
+      {% endblock %}
+    {% endif %}
+
+    {# ⬇⬇  FORZAR FULL WIDTH  ⬇⬇ #}
+    <div id="precontent" class="container-fluid">
+      <div class="precontent">
+        {{ page.precontent }}
+      </div>
     </div>
-  </nav>
-{% elseif page.navigation_collapsible %}
-  <nav id="menu-principal" class="container-fluid">
-    <div class="container navigation">
-      {{ page.navigation_collapsible }}
-    </div>
-  </nav>
+  {% endblock %}
 {% endif %}
 
-{# --- Slideshow siempre visible con fallback basado en contenido del view --- #}
-{% set slideshow_html = page.slideshow|render %}
-<div id="slideshow" class="section-slideshow-wrapper full-width-region">
-  {# Si el view tiene items (clase views-row), muestro el carrusel #}
-  {% if slideshow_html matches '/views-row/' %}
-    {{ slideshow_html|raw }}
-  {% else %}
+  {% if not navbar_attributes.hasClass(container) %}
+    <div id="navigation" class="{{ container }}">
+      <div class="container navigation">
   {% endif %}
-</div>
 
-{# --- Secciones contenidas adicionales --- #}
-{% set contained_sections = [
-  'precontent2','precontent3',
-  'content2','content3','content5','content6','content7','content8','content9','content10','content11'
-] %}
-{% for section_name in contained_sections %}
-  {% if attribute(page, section_name) %}
-    <div id="{{ section_name | clean_class }}" class="container section-{{ section_name | clean_class }}-wrapper">
-      <div class="container section-content-inner">
-        {{ attribute(page, section_name) }}
+      <div class="navbar-header">
+        {{ page.navigation }}
+      </div>
+
+      {# Navigation (collapsible) #}
+      {% if page.navigation_collapsible %}
+        <div id="navbar-collapse" class="navbar-collapse collapse">
+          {{ page.navigation_collapsible }}
+        </div>
+      {% endif %}
+
+  {% if not navbar_attributes.hasClass(container) %}
       </div>
     </div>
   {% endif %}
-{% endfor %}
+</header>
+{% endblock %}
+{% endif %}
 
-{# Contenedor principal de contenido y sidebar #}
-<div class="container">
-  <div class="row">
-    {% if page.content %}
-      <main class="col-md-8" id="main-content">
-        {{ page.content }}
-      </main>
-    {% endif %}
-    {% if page.sidebar_second %}
-      <aside class="col-md-4" id="sidebar-second">
-        {{ page.sidebar_second }}
-      </aside>
-    {% endif %}
+{# Precontent2  #}
+{% if page.precontent2 %}
+{% block precontent2 %}
+<div id="precontent2" class="{{ container }}">
+  <div class="precontent2 container">
+    {{ page.precontent2 }}
   </div>
 </div>
+{% endblock %}
+{% endif %}
 
-{# Footer #}
-<footer id="footer" class="footer-wrapper">
-  <div id="footer1-wrapper">
-    <div id="footer1-info">
-      {{ page.footer1 }}
-    </div>
-    <div id="footer1-extras">
-      {{ page.redes_sociales }}
-      {{ page.footer_menu }}
+{# slideshow #}
+{% if page.slideshow %}
+{% block slideshow %}
+<div id="slideshow" class="{{ container }}">
+  <div class="slideshow">
+    {{ page.slideshow }}
+  </div>
+</div>
+{% endblock %}
+{% endif %}
+
+{# Precontent3  #}
+{% if page.precontent3 %}
+{% block precontent3 %}
+<div id="precontent3" class="{{ container }}">
+  <div class="precontent3 container">
+    {{ page.precontent3 }}
+  </div>
+</div>
+{% endblock %}
+{% endif %}
+
+{# Main #}
+{% block main %}
+<div role="main" id="main-container" class="{{ container }} js-quickedit-main-content">
+  <div class="container main-container">
+    <div class="row">
+      {# Sidebar First #}
+      {% if page.sidebar_first %}
+        {% block sidebar_first %}
+          <aside class="col-sm-3" role="complementary">
+            {{ page.sidebar_first }}
+          </aside>
+        {% endblock %}
+      {% endif %}
+
+      {# Content #}
+      {%
+        set content_classes = [
+          page.sidebar_first and page.sidebar_second ? 'col-sm-6',
+          page.sidebar_first and page.sidebar_second is empty ? 'col-sm-9',
+          page.sidebar_second and page.sidebar_first is empty ? 'col-sm-9',
+          page.sidebar_first is empty and page.sidebar_second is empty ? 'col-sm-12'
+        ]
+      %}
+      <section{{ content_attributes.addClass(content_classes) }}>
+        {% if page.highlighted %}
+          {% block highlighted %}
+            <div class="highlighted">{{ page.highlighted }}</div>
+          {% endblock %}
+        {% endif %}
+
+        {% if page.help %}
+          {% block help %}
+            {{ page.help }}
+          {% endblock %}
+        {% endif %}
+
+        {% block content %}
+          <a id="main-content"></a>
+          {{ page.content }}
+        {% endblock %}
+      </section>
+
+      {# Sidebar Second #}
+      {% if page.sidebar_second %}
+        {% block sidebar_second %}
+          <aside class="col-sm-3" role="complementary">
+            {{ page.sidebar_second }}
+          </aside>
+        {% endblock %}
+      {% endif %}
     </div>
   </div>
-  <div id="footer2-wrapper">
-    {{ page.footer2 }}
+</div>
+{% endblock %}
+
+{% if page.content2 %}
+{% block content2 %}
+<div id="content2" class="{{ container }}">
+  <div class="container content2">
+    {{ page.content2 }}
+  </div>
+</div>
+{% endblock %}
+{% endif %}
+
+{% if page.content3 %}
+{% block content3 %}
+<div id="content3" class="{{ container }}">
+  <div class="container content3">
+    {{ page.content3 }}
+  </div>
+</div>
+{% endblock %}
+{% endif %}
+
+{% if page.content4 %}
+{% block content4 %}
+<div id="content4" class="{{ container }}">
+  <div class="container content4">
+    {{ page.content4 }}
+  </div>
+</div>
+{% endblock %}
+{% endif %}
+
+{% if page.content5 %}
+{% block content5 %}
+<div id="content5" class="{{ container }}">
+  <div class="container content5">
+    {{ page.content5 }}
+  </div>
+</div>
+{% endblock %}
+{% endif %}
+
+{% if page.content6 %}
+{% block content6 %}
+<div id="content6" class="{{ container }}">
+  <div class="container content6">
+    {{ page.content6 }}
+  </div>
+</div>
+{% endblock %}
+{% endif %}
+
+{% if page.content7 %}
+{% block content7 %}
+<div id="content7" class="{{ container }}">
+  <div class="container content7">
+    {{ page.content7 }}
+  </div>
+</div>
+{% endblock %}
+{% endif %}
+
+{% if page.content8 %}
+{% block content8 %}
+<div id="content8" class="{{ container }}">
+  <div class="container content8">
+    {{ page.content8 }}
+  </div>
+</div>
+{% endblock %}
+{% endif %}
+
+{% if page.content9 %}
+{% block content9 %}
+<div id="content9" class="{{ container }}">
+  <div class="container content9">
+    {{ page.content9 }}
+  </div>
+</div>
+{% endblock %}
+{% endif %}
+
+{% if page.content10 %}
+{% block content10 %}
+<div id="content10" class="{{ container }}">
+  <div class="container content10">
+    {{ page.content10 }}
+  </div>
+</div>
+{% endblock %}
+{% endif %}
+
+{% if page.content11 %}
+{% block content11 %}
+<div id="content11" class="{{ container }}">
+  <div class="content11">
+    {{ page.content11 }}
+  </div>
+</div>
+{% endblock %}
+{% endif %}
+
+{% if page.footer1 or page.footer_menu or page.footer2 %}
+<footer id="footer" class="{{ container }}">
+  <div class="footer">
+    {% if page.footer1 or page.footer_menu %}
+      <div class="row footer-top">
+        {% if page.footer1 %}
+          <div class="col-sm-8 col-md-9">{{ page.footer1 }}</div>
+        {% endif %}
+        {% if page.footer_menu %}
+          <div class="col-sm-4 col-md-3 footer-menu-right">
+            {{ page.footer_menu }}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {% if page.footer2 %}
+      <div class="row footer-bottom">
+        <div class="col-sm-12">{{ page.footer2 }}</div>
+      </div>
+    {% endif %}
   </div>
 </footer>
+{% endif %}

@@ -38,12 +38,10 @@ udg_banner:
       css/udg_banner.css: {} 
 
 accesibilidadUdg:
-  js:
-    js/accesibilityUdg.js: {}
-  dependencies:
+    js:
+        js/accesibilityUdg.js: {}
+    dependencies:
     - core/jquery
-    - core/once
-    - core/drupal.once
-       
+    - core/once            
       
             

@@ -1,0 +1,433 @@
+/* ==========================================================================
+   1. FUNDAMENTOS Y VARIABLES GLOBALES
+   ========================================================================== */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;700&display=swap");
+
+
+:root {
+  /* Estrategia de fuentes */
+  --font-heading: "Montserrat", Arial, sans-serif;
+  --font-body: "Poppins", Arial, sans-serif;
+
+  /* Paleta de colores */
+  --color-dark: #13445A;
+  --color-midtone: #3a8293;
+  --color-light-cream: #fceddb; 
+  --color-accent: #970747;
+  --color-white: #ffffff;
+  --color-gray: #f0f0f0;
+  --color-light-gray: #e9e9e9;
+
+  /* Asignación semántica */
+  --color-background: var(--color-white);
+  --color-text: var(--color-dark);
+  --color-heading: var(--color-dark);
+  --color-link: var(--color-accent);
+  --color-decorative-border: var(--color-midtone);
+  --line-height-base: 1.6;
+}
+
+/* ==========================================================================
+   2. ESTILOS BASE (RESET Y TIPOGRAFÍA)
+   ========================================================================== */
+html { font-size: 112.5%; }
+body { margin: 0; font-family: var(--font-body); font-size: 1rem; line-height: var(--line-height-base); color: var(--color-text); background-color: var(--color-background); }
+h1, h2, h3, h4, h5, h6 { margin: 1.5em 0 0.5em; font-family: var(--font-heading); font-weight: 600; line-height: 1.2; color: var(--color-heading); }
+h1, .h1 { font-size: 2.125rem; font-weight: 700; }
+h2, .h2 { font-size: 1.6875rem; }
+h3, .h3 { font-size: 1.25rem; }
+h4, .h4 { font-size: 1.125rem; }
+h5, .h5 { font-size: 1rem; }
+h6, .h6 { font-size: .875rem; }
+p, ul, ol { margin-top: 0; margin-bottom: 1.25rem; }
+ul, ol { padding-left: 1.5rem; }
+a, a:link, a:visited { color: var(--color-link); font-weight: 500; text-decoration: none; transition: all 0.2s ease-in-out; }
+a:hover, a:focus { text-decoration: underline; color: var(--color-text); }
+strong, b, dt { font-weight: 700; color: var(--color-heading); }
+dd { margin: 0 0 1rem 1.5rem; }
+blockquote { margin: 1.5em 0; padding: 1em 1.5em; border-left: 5px solid var(--color-decorative-border); background-color: var(--color-gray); font-style: italic; color: var(--color-text); }
+code, pre { font-family: Menlo, Consolas, monospace; font-size: .875rem; background-color: var(--color-gray); padding: .1em .3em; border-radius: 4px; }
+
+/* ==========================================================================
+   3. MAQUETACIÓN Y COMPONENTES DE DRUPAL
+   ========================================================================== */
+#titulo-cuaad { 
+  width: 100vw !important; max-width: 100vw !important; margin-left: calc(-50vw + 50%); margin-right: calc(-50vw + 50%); 
+  box-sizing: border-box; display: flex; align-items: center; justify-content: center; height: 54px;
+  background-color: var(--color-accent) !important; color: var(--color-white) !important; 
+  font-family: var(--font-heading); font-weight: 600; text-transform: uppercase; font-size: 1.25rem;
+}
+
+#menu-principal {
+  width: 100vw !important; max-width: 100vw !important; margin-left: calc(-50vw + 50%); margin-right: calc(-50vw + 50%);
+  box-sizing: border-box; background-color: var(--color-dark) !important;
+  display: flex; justify-content: center; align-items: center; height: 54px;
+
+  /* === NUEVO: sobreescribe variables SOLO en el menú === */
+  --color-link: var(--color-white);
+  --color-text: var(--color-white); /* evita que el :hover global ponga el texto oscuro */
+}
+
+
+#menu-principal > ul.menu { display:flex; align-items:center; list-style:none; padding:0; margin:0; height:100%; }
+#menu-principal > ul.menu > li { display:flex; align-items:stretch; height:100%; position:relative; }
+#menu-principal > ul.menu > li > a { display:flex; align-items:center; justify-content:center; height:100%; padding:0 1rem; color: var(--color-white);font-family: var(--font-heading); }
+
+#menu-principal ul.menu li a:hover, #menu-principal ul.menu li.active > a { background-color: var(--color-midtone) !important; }
+#menu-principal .dropdown-menu, #menu-principal ul.menu li ul { background-color: var(--color-dark) !important; }
+#menu-principal .dropdown-menu li a, #menu-principal ul.menu li ul li a { color: var(--color-white) !important; font-family: var(--font-body); font-weight: 400; text-transform: none; padding: 0.5rem 1rem; height: auto; }
+#menu-principal .dropdown-menu li a:hover, #menu-principal ul.menu li ul li a:hover { background-color: var(--color-midtone) !important; }
+.titulo-oculto h2.block-title { display: none !important; }
+.titulo-con-linea h2.block-title { font-family: var(--font-heading); font-size: 1.6rem; font-weight: 700; color: var(--color-heading); margin-bottom: 2rem; display: flex; flex-direction: column; align-items: flex-start; text-align: left; border-bottom: none; padding-bottom: 0; }
+.titulo-con-linea h2.block-title::after { content: ''; display: block; width: 200px; height: 3px; margin-top: 0.75rem; background: linear-gradient(to right, var(--color-accent), transparent); }
+
+/* --- Footer --- */
+#footer1-wrapper {
+  background-color: var(--color-dark); color: var(--color-white); padding: 2rem 1.5rem;
+  display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;
+}
+#footer1-wrapper #footer1-info { flex: 2; min-width: 320px; padding-right: 2rem; }
+#footer1-wrapper #footer1-extras { flex: 1; min-width: 280px; text-align: right; }
+#footer1-wrapper #footer1-info img { max-height: 45px; margin-bottom: 1rem; }
+#footer1-wrapper #footer1-info p { font-size: 0.8rem; line-height: 1.5; font-weight: 400; margin-bottom: 0.75rem; }
+#footer1-wrapper #footer1-extras ul { list-style: none; padding: 0; margin: 0; }
+#footer1-wrapper #footer1-extras .region-redes-sociales ul { margin-bottom: 1rem; }
+#footer1-wrapper #footer1-extras .region-redes-sociales li { display: inline-block; margin-left: 0.7rem; }
+#footer1-wrapper #footer1-extras .region-redes-sociales li a { font-size: 1.2rem; }
+#footer1-wrapper #footer1-extras .menu a { font-size: 0.85rem; font-weight: 400; padding: 0.15rem 0; display: block; }
+#footer2-wrapper { background-color: var(--color-accent); color: var(--color-white); text-align: center; font-size: 0.85rem; line-height: 1.4; display: flex; align-items: center; justify-content: center; padding: 0.8rem 1.5rem; }
+#footer a { color: var(--color-white); }
+#footer h1, #footer h2, #footer h3, #footer h4, #footer h5, #footer h6 { color: var(--color-white); font-family: var(--font-heading); }
+
+/* --- Ajustes Finales --- */
+#header, #navbar, #header-navigation-wrapper, #titulo-cuaad, #menu-principal { margin: 0 !important; padding: 0 !important; border: none !important; box-shadow: none !important; }
+#header .container, #navbar .container, #navbar .container-fluid { width: 100% !important; max-width: 100% !important; padding: 0 !important; margin: 0 !important; }
+#titulo-cuaad p, #titulo-cuaad div, #footer2-wrapper .block, #footer2-wrapper p { margin-top: 0 !important; margin-bottom: 0 !important; }
+
+/* --- Circulares --- */
+.circulares-block .view-content { border-top: 1px solid var(--color-light-gray); }
+.circulares-block .views-row { position: relative; padding: 1.5rem 1.5rem 1.5rem 2.5rem; border-bottom: 1px solid var(--color-light-gray); transition: background-color 0.3s ease; }
+.circulares-block .views-row::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 6px; background-color: var(--color-light-gray); transition: background-color 0.3s ease; }
+.circulares-block .views-row:hover { background-color: var(--color-gray); }
+.circulares-block .views-row:hover::before { background-color: var(--color-accent); }
+.circulares-block .views-field-title a { font-family: var(--font-heading); font-size: 1.1rem; font-weight: 600; color: var(--color-text); text-decoration: none; transition: color 0.3s ease; }
+.circulares-block .views-row:hover .views-field-title a { color: var(--color-accent); }
+.circulares-block .views-field-created { font-family: var(--font-body); font-size: 0.9rem; color: var(--color-midtone); margin-top: 0.25rem; display: block; }
+
+/* --- Banners de Interés --- */
+.bloque-banners-interes .views-field { display: block; background-color: var(--color-white); border: 1px solid var(--color-light-gray); border-radius: 8px; box-shadow: 0 4px 8px rgba(19, 68, 90, 0.08); overflow: hidden; text-decoration: none !important; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+.bloque-banners-interes .views-field:hover { transform: translateY(-6px); border-color: var(--color-accent); box-shadow: 0 10px 20px rgba(19, 68, 90, 0.15); }
+.bloque-banners-interes .views-field img { display: block; width: 100%; height: auto; transition: transform 0.3s ease-out; }
+.bloque-banners-interes .views-field:hover img { transform: scale(1.05); }
+
+/*
+ * ==========================================================================
+ *   ESTILOS FINALES Y DEFINITIVOS PARA CARRUSEL
+ *   Selectores corregidos según la estructura del archivo .html.twig
+ * ==========================================================================
+*/
+
+/* 
+ * El espaciado entre tarjetas lo manejan las columnas de Bootstrap (.col-md-3),
+ * por lo que aplicamos los estilos a la tarjeta 'a' que vive DENTRO de esa columna.
+*/
+
+/* Hacemos que la "tarjeta" sea el propio enlace 'a' */
+.carrusel-tarjetas .item .views-field a {
+  display: block; /* Para que ocupe todo el espacio y podamos darle dimensiones */
+  border: 2px solid transparent; /* Borde invisible que se coloreará con el hover */
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(19, 68, 90, 0.1);
+  transition: all 0.3s ease-in-out;
+  text-decoration: none !important;
+}
+
+/* Efecto al pasar el ratón por encima del enlace (la tarjeta) */
+.carrusel-tarjetas .item .views-field a:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-accent);
+  box-shadow: 0 12px 25px rgba(19, 68, 90, 0.2);
+}
+
+/* Estilo para la imagen para asegurar consistencia de altura */
+.carrusel-tarjetas .item .views-field img {
+  display: block;
+  width: 100%;
+  height: 400px;
+  object-fit: cover; /* La imagen cubre el espacio sin deformarse */
+  transition: transform 0.3s ease;
+}
+
+/* Efecto sutil de zoom en la imagen al hacer hover */
+.carrusel-tarjetas .item .views-field a:hover img {
+  transform: scale(1.03);
+}
+
+/* Ajuste para los controles de navegación del carrusel */
+.carrusel-tarjetas .carousel-control {
+  background-image: none !important; /* Elimina el gradiente por defecto de Bootstrap 3 */
+  width: 5%;
+}
+
+
+
+/*
+ * ==========================================================================
+ *   ESTILOS PARA EL VIDEO HERO A PANTALLA COMPLETA (VERSIÓN MEJORADA)
+ *   Fuerza que TODO el contenido del slideshow (videos, imágenes, iframes)
+ *   ocupe el ancho total de la pantalla.
+ * ==========================================================================
+*/
+
+/* Selector para el bloque principal (sin cambios, ya funciona) */
+#block-slideudgvideo {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  padding: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 1.5rem; 
+}
+
+/* 
+ * REGLA MEJORADA Y EXPANDIDA:
+ * Aseguramos que el carrusel, y CUALQUIER TIPO de contenido visual dentro,
+ * ocupe el 100% de su nuevo contenedor de ancho completo.
+*/
+#block-slideudgvideo .carousel-inner,
+#block-slideudgvideo video,
+#block-slideudgvideo img,
+#block-slideudgvideo iframe {
+  display: block; /* Asegura un comportamiento de bloque consistente */
+  width: 100% !important; /* Fuerza el ancho al 100% del contenedor */
+  height: auto !important; /* Mantiene la proporción original para evitar distorsión */
+  object-fit: cover; /* Asegura que la imagen/video cubra todo el espacio (puede recortar un poco si las proporciones no coinciden) */
+}
+
+
+/*
+ * =====================================================================
+ * ESTILOS AVANZADOS PARA MENÚ LATERAL
+ * (v3 – con submenús desplegables y pseudo-flechas)
+ * =====================================================================
+*/
+
+/* --- Contenedor Principal --- */
+.sidebar-menu {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-light-gray);
+  border-radius: 8px;
+  padding: 0;
+  box-shadow: 0 4px 12px rgba(19, 68, 90, 0.08);
+  overflow: hidden;
+}
+
+/* --- Título del Bloque --- */
+.sidebar-menu .block-title {
+  padding: 1.2rem 1.5rem 0.8rem;
+  margin: 0;
+  font-size: 1.25rem;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-heading);
+  border-bottom: 1px solid var(--color-light-gray);
+}
+
+/* --- Reset de marcadores de lista (elimina “.”) --- */
+.sidebar-menu ul.card-list li,
+.sidebar-menu ul.card-list--nested li {
+  list-style: none !important;
+  margin: 0;
+  padding: 0;
+}
+
+/* --- Estilo de cada Enlace (+ hover) --- */
+.sidebar-menu li a {
+  display: flex;
+  align-items: center;
+  padding: 0.6rem 1.5rem;
+  color: var(--color-text);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  border-left: 4px solid transparent;
+  transition: all 0.2s ease-in-out;
+}
+.sidebar-menu li a:hover {
+  background-color: var(--color-gray);
+  color: var(--color-accent);
+  border-left-color: var(--color-midtone);
+}
+
+/* --- Elemento activo (página actual) --- */
+.sidebar-menu li.is-active > a,
+.sidebar-menu li.is-active > .item-wrapper > a {
+  background-color: #f7e6ef;
+  color: var(--color-accent);
+  font-weight: 700;
+  border-left-color: var(--color-accent) !important;
+}
+
+/* --- Oculta el toggle-btn original --- */
+.sidebar-menu .toggle-btn {
+  display: none !important;
+}
+
+/* --- Contenedor de ítems con hijos --- */
+.sidebar-menu .item-wrapper {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  border-left: 4px solid transparent;
+  position: relative;      /* para la pseudo-flecha */
+  padding-left: 1.5rem;    /* espacio para la flecha */
+}
+.sidebar-menu .item-wrapper:hover {
+  background-color: var(--color-gray);
+  border-left-color: var(--color-midtone);
+}
+.sidebar-menu .item-wrapper > a {
+  flex-grow: 1;
+  padding-left: 0;
+}
+
+/* --- Pseudo-flecha en ítems padre --- */
+.sidebar-menu li.has-children .item-wrapper::before {
+  content: '▶';             /* flecha inicial */
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%) rotate(0deg);
+  color: var(--color-midtone);
+  font-size: 0.8rem;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+/* gira cuando está expandido */
+.sidebar-menu li.has-children.is-expanded .item-wrapper::before {
+  transform: translateY(-50%) rotate(90deg);
+  color: var(--color-accent);
+}
+
+/* --- Submenú (anidado) --- */
+.sidebar-menu .card-list--nested {
+  display: none;             /* lo muestra el JS al hacer toggle */
+  padding: 0.2rem 0 0.5rem;
+  background-color: #fafafa;
+}
+.sidebar-menu .card-list--nested li a {
+  padding-left: 2rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-midtone);
+  border-left: none;
+}
+.sidebar-menu .card-list--nested li a:hover {
+  color: var(--color-accent);
+  background-color: transparent;
+}
+.sidebar-menu .card-list--nested li.is-active > a {
+  background-color: #fceef6;
+}
+
+/* Submenús (2º nivel) */
+#menu-principal ul.menu li ul {
+  display:none; position:absolute; top:100%; left:0; min-width:220px;
+  z-index:1000; padding:0; margin:0; list-style:none;
+  background-color: var(--color-dark) !important;
+}
+#menu-principal ul.menu li:hover > ul { display:block; }
+
+/* Normaliza items internos (evita flex/height heredados) */
+#menu-principal ul.menu li ul li { display:block; height:auto; position:relative; }
+#menu-principal ul.menu li ul li a { height:auto; padding:0.5rem 1rem; text-transform:none; font-family:var(--font-body); font-weight:400; }
+
+/* Tercer nivel hacia la derecha */
+#menu-principal ul.menu li ul li ul { top:0; left:100%; }
+
+/* Asegura que el menú quede por encima del slider/video */
+#menu-principal { position:relative; z-index:1000; }
+
+
+/* ===== Tipografía y colores SOLO para páginas básicas ===== */
+.node--type-page, .page-node-type-page {
+  /* Paleta local (neutros, sin azules) */
+  --text-body: #2B2F33;      /* gris oscuro legible */
+  --text-heading: #121416;   /* casi negro para títulos */
+  --text-muted: #5A646B;     /* notas/fechas si las usas */
+  --link-color: #7A0E45;     /* acento borgoña (coherente con --color-accent, sin azul) */
+  --link-hover: #5E0B35;     /* hover más oscuro del mismo tono */
+  color: var(--text-body);
+}
+
+/* Párrafos y listas del contenido */
+.node--type-page .field--name-body p,
+.node--type-page .field--name-body li {
+  font-weight: 300;      /* más ligero */
+  line-height: 1.65;     /* un poco más de aire */
+  font-size: 0.95rem;    /* ~15px, más pequeño que títulos */
+  color: #2B2F33;
+  margin-bottom: 1rem;   /* buen ritmo vertical */
+}
+
+
+
+/* Ancho de lectura y ritmo vertical */
+.node--type-page .field--name-body {
+  max-width: 68ch;      /* columna cómoda */
+  line-height: 1.7;
+  font-size: 1.0625rem; /* 17px aprox. */
+}
+
+/* Títulos dentro de la página básica */
+.node--type-page h1,
+.node--type-page h2,
+.node--type-page h3,
+.node--type-page h4,
+.node--type-page h5,
+.node--type-page h6 {
+  color: var(--text-heading);
+}
+
+/* Párrafos, listas y definiciones */
+.node--type-page p,
+.node--type-page li,
+.node--type-page dt,
+.node--type-page dd {
+  color: var(--text-body);
+}
+
+/* Enlaces del contenido (sin azules) */
+.node--type-page a,
+.node--type-page a:link,
+.node--type-page a:visited {
+  color: var(--link-color);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.node--type-page a:hover,
+.node--type-page a:focus {
+  color: var(--link-hover);
+  text-decoration-thickness: 2px;
+}
+
+/* Bloques de cita y detalles secundarios */
+.node--type-page blockquote {
+  border-left-color: #D4D8DB;
+  background-color: #F7F8F9;
+  color: var(--text-muted);
+}
+
+
+/* Reducir grosor tipográfico en párrafos */
+/* Quita esta o súbela a 400 para no afectar otros lugares */
+p,
+.node__content p,
+.field--name-body p {
+  font-weight: 300;
+}
+
+

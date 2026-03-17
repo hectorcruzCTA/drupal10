@@ -7,12 +7,9 @@ description: 'Tema para la distribución Drupal UDG 8 con Bootstrap 3'
 package: 'Bootstrap'
 
 regions:
-  udg_menu_principal: 'Menú UDG Principal'  # 🔹 MOVIDO AL INICIO (ANTES DEL LISTÓN)
-  logo_buscador: 'Logo y Buscador'          # Nueva región para el logo y buscador (ubicada al inicio)
-  titulo_cuaad: 'Título CUAAD'              # Nueva región para el título CUAAD (ubicada al inicio)
-  liston: 'Listón'
-  navigation: 'Navegación'
-  navigation_collapsible: 'Navegación (Collapsible)'
+  liston: 'Liston'  
+  navigation: 'Navigation'
+  navigation_collapsible: 'Navigation (Collapsible)'
   header: 'Top Bar'
   precontent: 'Title'
   precontent2: 'Pre content'
@@ -20,13 +17,9 @@ regions:
   precontent3: 'Pre content 2'
   highlighted: 'Highlighted'
   help: 'Help'
-  content: 'Content'
   sidebar_first: 'barra lateral izquierda'
   sidebar_second: 'barra lateral derecha'
-  footer1: 'Footer 1'
-  footer2: 'Footer 2'
-  footer_menu: 'Menú del Footer'
-  redes_sociales: 'Redes Sociales'
+  content1: 'Content 1'
   content2: 'Content 2'
   content3: 'Content 3'
   content4: 'Content 4'
@@ -36,7 +29,11 @@ regions:
   content8: 'Content 8'
   content9: 'Content 9'
   content10: 'Content 10'
-  content11: 'Content 1'
+  content: 'Content'
+  footer1: 'Footer 1'
+  footer2: 'Footer 2'
+  footer_menu: 'Menú del Footer'
+  redes_sociales: 'Redes Sociales'
 
 paths:
   - templates
@@ -48,6 +45,4 @@ libraries:
   - drudg8b3/global-styling
   - drudg8b3/Smove
   - drudg8b3/bootstrap
-  - drudg8b3/barraudg
-  - drudg8b3/menu_toggle
   

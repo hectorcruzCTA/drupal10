@@ -1,75 +1,168 @@
-<img alt="Drupal Logo" src="https://www.drupal.org/files/Wordmark_blue_RGB.png" height="60px">
+# CUAAD — Sitio Web Drupal 10
 
-Drupal is an open source content management platform supporting a variety of
-websites ranging from personal weblogs to large community-driven websites. For
-more information, visit the Drupal website, [Drupal.org][Drupal.org], and join
-the [Drupal community][Drupal community].
+**Centro Universitario de Arte, Arquitectura y Diseño — Universidad de Guadalajara**
 
-## Contributing
+Sitio oficial del CUAAD desarrollado en Drupal 10 con tema Bootstrap 3 personalizado (`drudg8b3`).
 
-Drupal is developed on [Drupal.org][Drupal.org], the home of the international
-Drupal community since 2001!
+---
 
-[Drupal.org][Drupal.org] hosts Drupal's [GitLab repository][GitLab repository],
-its [issue queue][issue queue], and its [documentation][documentation]. Before
-you start working on code, be sure to search the [issue queue][issue queue] and
-create an issue if your aren't able to find an existing issue.
+## 🧰 Requisitos previos
 
-Every issue on Drupal.org automatically creates a new community-accessible fork
-that you can contribute to. Learn more about the code contribution process on
-the [Issue forks & merge requests page][issue forks].
+| Herramienta | Versión mínima |
+|-------------|---------------|
+| PHP | 8.2+ (con extensiones: `mbstring`, `pdo_mysql`, `xml`, `gd`) |
+| MySQL / MariaDB | 8.0+ |
+| Composer | 2.x |
+| Git | 2.x |
 
-## Usage
+---
 
-For a brief introduction, see [USAGE.txt](/core/USAGE.txt). You can also find
-guides, API references, and more by visiting Drupal's [documentation
-page][documentation].
+## 🚀 Instalación local
 
-You can quickly extend Drupal's core feature set by installing any of its
-[thousands of free and open source modules][modules]. With Drupal and its
-module ecosystem, you can often build most or all of what your project needs
-before writing a single line of code.
+### 1. Clonar el repositorio
 
-## Changelog
+```bash
+git clone git@github.com:hectorcruzCTA/drupal10.git drupal100
+cd drupal100
+```
 
-Drupal keeps detailed [change records][changelog]. You can search Drupal's
-changes for a record of every notable breaking change and new feature since
-2011.
+### 2. Instalar dependencias PHP
 
-## Security
+```bash
+composer install
+```
 
-For a list of security announcements, see the [Security advisories
-page][Security advisories] (available as [an RSS feed][security RSS]). This
-page also describes how to subscribe to these announcements via email.
+> Esto descargará Drupal core, módulos contrib, temas contrib y otras librerías.
+> Puede tardar varios minutos la primera vez.
 
-For information about the Drupal security process, or to find out how to report
-a potential security issue to the Drupal security team, see the [Security team
-page][security team].
+### 3. Configurar settings.php
 
-## Need a helping hand?
+```bash
+cp sites/default/settings.php.example sites/default/settings.php
+```
 
-Visit the [Support page][support] or browse [over a thousand Drupal
-providers][service providers] offering design, strategy, development, and
-hosting services.
+Edita `sites/default/settings.php` y configura:
+- Credenciales de tu base de datos local
+- Un `hash_salt` único (ejecuta: `vendor/bin/drush php-eval 'echo Drupal\Component\Utility\Crypt::randomBytesBase64(55);'`)
+- Tu `trusted_host_patterns` (ej. `localhost`)
 
-## Legal matters
+### 4. Crear la base de datos
 
-Know your rights when using Drupal by reading Drupal core's
-[license](/core/LICENSE.txt).
+```bash
+mysql -u root -p -e "CREATE DATABASE drupal100 CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;"
+mysql -u root -p -e "GRANT ALL ON drupal100.* TO 'drupal_user'@'localhost' IDENTIFIED BY 'tu_password';"
+```
 
-Learn about the [Drupal trademark and logo policy here][trademark].
+### 5. Importar el dump de base de datos
 
-[Drupal.org]: https://www.drupal.org
-[Drupal community]: https://www.drupal.org/community
-[GitLab repository]: https://git.drupalcode.org/project/drupal
-[issue queue]: https://www.drupal.org/project/issues/drupal
-[issue forks]: https://www.drupal.org/drupalorg/docs/gitlab-integration/issue-forks-merge-requests
-[documentation]: https://www.drupal.org/documentation
-[changelog]: https://www.drupal.org/list-changes/drupal
-[modules]: https://www.drupal.org/project/project_module
-[security advisories]: https://www.drupal.org/security
-[security RSS]: https://www.drupal.org/security/rss.xml
-[security team]: https://www.drupal.org/drupal-security-team
-[service providers]: https://www.drupal.org/drupal-services
-[support]: https://www.drupal.org/support
-[trademark]: https://www.drupal.com/trademark
+Solicita al equipo el dump actualizado de producción e impórtalo:
+
+```bash
+mysql -u drupal_user -p drupal100 < dump_produccion_YYYYMMDD.sql
+```
+
+### 6. Crear directorios necesarios
+
+```bash
+mkdir -p sites/default/files sites/default/files/config_sync private
+chmod -R 775 sites/default/files
+chmod -R 775 private
+```
+
+### 7. Limpiar caché y verificar
+
+```bash
+vendor/bin/drush cr
+vendor/bin/drush status
+```
+
+Abre `http://localhost/drupal100` en el navegador.
+
+---
+
+## 📁 Estructura del proyecto
+
+```
+drupal100/
+├── core/                     # Drupal core (gestionado por Composer, NO editar)
+├── modules/
+│   ├── contrib/              # Módulos de la comunidad (Composer, NO editar)
+│   └── custom/               # Módulos propios del CUAAD ← editar aquí
+│       ├── udg_liston/       # Bloques de la homepage ("listones")
+│       ├── d7_migration/     # Migración desde Drupal 7
+│       └── migrate_noticias/ # Migración de noticias D7 → D10
+├── themes/
+│   ├── contrib/              # Temas contrib (Bootstrap 3, Composer, NO editar)
+│   └── drudg8b3/             # Tema activo del CUAAD (hijo de Bootstrap 3) ← editar aquí
+│       ├── css/              # Estilos personalizados
+│       ├── js/               # Scripts personalizados
+│       └── templates/        # Templates Twig
+├── sites/default/
+│   ├── settings.php          # ⚠️ NO en git — configurar desde settings.php.example
+│   ├── settings.php.example  # Plantilla de configuración para devs
+│   └── files/                # Archivos subidos (NO en git)
+├── composer.json             # Dependencias del proyecto
+└── vendor/                   # Librerías PHP (NO en git, generado por Composer)
+```
+
+---
+
+## 🔄 Flujo de trabajo Git
+
+Usamos la rama `main` como base. Para cada tarea:
+
+```bash
+# 1. Actualizar tu rama local
+git pull origin main
+
+# 2. Crear rama para tu feature o fix
+git checkout -b feat/nombre-descriptivo
+# o: git checkout -b fix/nombre-del-bug
+
+# 3. Desarrollar y hacer commits descriptivos
+git add modules/custom/mi_modulo/
+git commit -m "feat: descripción del cambio"
+
+# 4. Limpiar caché después de cambios PHP/Twig
+vendor/bin/drush cr
+
+# 5. Subir tu rama y crear Pull Request
+git push origin feat/nombre-descriptivo
+```
+
+**Tipos de commit:** `feat:`, `fix:`, `style:`, `docs:`, `refactor:`
+
+---
+
+## ⚙️ Comandos útiles Drush
+
+```bash
+vendor/bin/drush cr                    # Limpiar caché
+vendor/bin/drush cex -y                # Exportar configuración
+vendor/bin/drush cim -y                # Importar configuración
+vendor/bin/drush updb -y               # Actualizar base de datos
+vendor/bin/drush sql:dump > dump.sql   # Exportar BD
+
+# Migraciones (solo cuando sea necesario)
+vendor/bin/drush migrate:status
+vendor/bin/drush migrate:import [id]
+```
+
+---
+
+## 🏗️ Tipos de contenido principales
+
+| Tipo | Machine name | Uso |
+|------|-------------|-----|
+| Noticia | `noticia` | Noticias institucionales |
+| Página | `page` | Páginas estáticas |
+| Directorio | `directorio` | Directorio de personal |
+| Evento | `evento_de_agenda` | Agenda de eventos |
+| Galería | `galeria_de_imagenes` | Galerías fotográficas |
+
+---
+
+## 📞 Contacto
+
+**Administrador:** hector.cruz@cuaad.udg.mx
+**Servidor producción:** 148.202.102.216

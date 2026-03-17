@@ -1,151 +1,111 @@
-/* === ESTILOS PARA EL BLOQUE DE NOTICIAS (NUEVA ESTRUCTURA) === */
+/* === NOTICIAS — Montserrat + paleta UDG ================================== */
 
-/* === Título Principal "NOTICIAS" === */
-/* Aplicado al <h2 class="titulo-seccion-noticias"> en views-view--...html.twig */
-.titulo-seccion-noticias {
-  font-size: 28px;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 20px; /* Reducido desde 30px, ajusta según necesites */
+/* Título de la sección (H2) — 18pt Bold, mayúsculas */
+.titulo-seccion-noticias{
+  font-family: var(--font-family-base, "Montserrat", sans-serif);
+  font-weight: 700;                       /* Bold */
+  font-size: var(--font-pt-18, 1.5rem);   /* ≈ 18pt */
+  line-height: 1.3;
+  color: var(--udg-head);
   text-transform: uppercase;
-  border-bottom: 3px solid #970747; /* Color dorado */
+  margin: 30px 0 20px;
   padding-bottom: 10px;
+  border-bottom: 3px solid var(--udg-accent);
   display: inline-block;
-  margin-top: 30px; /* Espacio arriba del título */
 }
 
-/* === Estilos para los Paneles de Noticias Individuales === */
-/* Aplicado a <div class="panel panel-default noticia-panel"> en views-view-fields--...html.twig */
-.view-id-noticias_pagina_principal.view-display-id-block_1 .view-content .noticia-panel {
-  width: 100%; /* Asegurar ancho completo dentro del .view-content */
-  float: none;   /* Eliminar cualquier flotante */
-  clear: both;   /* Empezar en una nueva línea */
-  margin-left: 0;
-  margin-right: 0;
-  margin-bottom: 25px; /* Espacio entre noticias, aumentado ligeramente */
-  border: 1px solid #ddd;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-  border-radius: 4px;
+/* Contenedor de cada noticia */
+.view-id-noticias_pagina_principal.view-display-id-block_1 .view-content .noticia-panel{
+  width: 100%;
+  clear: both;
+  margin: 0 0 25px;
+  border: 1px solid var(--udg-light);
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.05);
   overflow: hidden;
+  background: #fff;
 }
+.noticia-panel .panel-body{ padding: 20px; }
 
-.noticia-panel .panel-body {
-  padding: 20px; /* Aumentado padding interno del panel */
-}
-
-.noticia-panel .noticia-imagen-col img.img-responsive {
+/* Imagen */
+.noticia-panel .noticia-imagen-col img.img-responsive{
   width: 100%;
   height: auto;
-  margin-bottom: 15px; /* Espacio si imagen está arriba en móvil */
+  margin-bottom: 15px;
+}
+.noticia-destacada .noticia-imagen-col img.img-responsive{
+  max-height: 350px; object-fit: cover; width: 100%;
 }
 
-.noticia-destacada .noticia-imagen-col img.img-responsive {
-  max-height: 350px;
-  object-fit: cover;
-  width: 100%;
+/* Título de noticia — Semibold/Medium según guía */
+.noticia-panel .noticia-titulo{
+  font-family: var(--font-family-base, "Montserrat", sans-serif);
+  font-weight: 600;          /* Semibold para buen contraste */
+  color: var(--udg-text);
+  margin: 0 0 10px;
+  line-height: 1.35;
 }
-
-.noticia-panel .noticia-titulo {
-  font-family: "Camber Medium Regular", sans-serif; /* Manteniendo tu fuente */
-  color: #222;
-  margin-top: 0;
-  margin-bottom: 10px;
-  line-height: 1.3;
-}
-.noticia-panel .noticia-titulo a {
-  color: #222;
+.noticia-panel .noticia-titulo a{
+  color: var(--udg-text);
   text-decoration: none;
 }
 .noticia-panel .noticia-titulo a:hover,
-.noticia-panel .noticia-titulo a:focus {
-  color: #970747
-;
+.noticia-panel .noticia-titulo a:focus{
+  color: var(--udg-accent);
   text-decoration: underline;
 }
 
-.noticia-panel .noticia-resumen {
-  font-size: 14px;
+/* Resumen — cuerpo 12pt */
+.noticia-panel .noticia-resumen{
+  font-family: var(--font-family-base, "Montserrat", sans-serif);
+  font-weight: 400;
+  font-size: var(--font-pt-12, 1rem);  /* ≈ 12pt */
   color: #555;
   line-height: 1.6;
-  margin-bottom: 15px; /* Aumentado espacio antes de fecha/leer más */
+  margin-bottom: 15px;
 }
 
-.noticia-panel .noticia-fecha {
-  font-size: 12px;
+/* Fecha — más tenue */
+.noticia-panel .noticia-fecha{
+  font-size: .9rem;
   color: #777;
   margin-bottom: 10px;
 }
 
-.noticia-panel .noticia-leer-mas {
-  font-size: 13px;
-  font-weight: bold;
+/* Leer más — botón/enlace en acento */
+.noticia-panel .noticia-leer-mas{
+  font-family: var(--font-family-base, "Montserrat", sans-serif);
+  font-weight: 600;                 /* Semibold */
+  font-size: .95rem;
   text-transform: uppercase;
-  color: #333;
-  padding-left: 0;
-  padding-right: 0;
+  color: var(--udg-accent);
+  padding-left: 0; padding-right: 0;
 }
-.noticia-panel .noticia-leer-mas .glyphicon {
-  color: #970747;
-  margin-left: 5px;
-}
+.noticia-panel .noticia-leer-mas .glyphicon{ color: var(--udg-accent); margin-left: 6px; }
 .noticia-panel .noticia-leer-mas:hover,
-.noticia-panel .noticia-leer-mas:focus {
-  color: #970747;
+.noticia-panel .noticia-leer-mas:focus{
+  color: var(--udg-head);
   text-decoration: none;
 }
-.noticia-panel .noticia-leer-mas:hover .glyphicon {
-  color: #333;
+.noticia-panel .noticia-leer-mas:hover .glyphicon{ color: var(--udg-head); }
+
+/* Tamaños por tipo */
+.noticia-destacada .noticia-titulo{ font-size: 1.35rem; } /* ~22px */
+.noticia-destacada .noticia-resumen{ font-size: 1.0625rem; } /* ~17px (13pt) */
+.noticia-estandar  .noticia-titulo{ font-size: 1.125rem; } /* ~18px */
+
+/* Footer del view (botón Ver más) */
+.view-display-id-block_1 .view-footer{
+  text-align: center;
+  padding: 20px 0 30px;
 }
+.view-display-id-block_1 .view-footer .view-footer-button-container{ text-align: right; }
 
-/* === Específicos para Noticia Destacada === */
-.noticia-destacada .noticia-titulo {
-  font-size: 22px; /* Ligeramente reducido desde 24px */
-}
-.noticia-destacada .noticia-resumen {
-  font-size: 15px;
-}
-
-/* === Específicos para Noticia Estándar === */
-.noticia-estandar .noticia-titulo {
-  font-size: 18px;
-}
-
-/* === Ajustes Responsivos para Bootstrap 3 === */
-@media (max-width: 767px) {
-  .noticia-panel .noticia-imagen-col img.img-responsive {
-    margin-bottom: 15px;
-  }
-  .noticia-destacada .noticia-imagen-col img.img-responsive {
-    max-height: 220px; /* Reducida altura máxima en móvil */
-  }
-
-  .noticia-destacada .noticia-titulo {
-    font-size: 18px; /* Reducido */
-  }
-  .noticia-estandar .noticia-titulo {
-    font-size: 16px;
-  }
-  .noticia-panel .noticia-resumen {
-    font-size: 13px; /* Reducido */
-  }
-
-  .titulo-seccion-noticias {
-    font-size: 20px; /* Reducido */
-    margin-top: 20px;
-    margin-bottom: 15px;
-  }
-
-
-}
-
-.view-display-id-block_1 .view-footer { /* Asumiendo que el display es block_1 */
-  text-align: center; /* Centra el contenido del pie de página */
-  padding-top: 20px;
-  padding-bottom: 30px; /* Un poco más de espacio abajo */
-}
-
-.view-display-id-block_1 .view-footer .view-footer-button-container {
-  text-align: right; /* Intenta de nuevo con CSS directo */
-  /* Si lo anterior no funciona, puedes usar float para el botón: */
-  /* overflow: hidden; */ /* Para contener el float si lo usas */
+/* Responsivo */
+@media (max-width: 767px){
+  .noticia-destacada .noticia-imagen-col img.img-responsive{ max-height: 220px; }
+  .noticia-destacada .noticia-titulo{ font-size: 1.125rem; } /* ~18px */
+  .noticia-estandar  .noticia-titulo{ font-size: 1rem; }     /* ~16px */
+  .noticia-panel .noticia-resumen{ font-size: .95rem; }      /* ~15px */
+  .titulo-seccion-noticias{ font-size: 1.25rem; margin: 20px 0 15px; } /* ~20px */
 }

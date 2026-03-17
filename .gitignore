@@ -1,22 +1,79 @@
-# Dependencias PHP instaladas por composer
+# ============================================================
+# .gitignore para drupal100 — CUAAD (Drupal 10)
+# ============================================================
+
+# ------------------------------------
+# Dependencias PHP (Composer)
+# ------------------------------------
 /vendor/
 
-# Núcleo y contrib que composer puede volver a bajar
-/web/core/
-/web/modules/contrib/
-/web/profiles/contrib/
-/web/themes/contrib/
+# ------------------------------------
+# Módulos, perfiles y temas de Drupal
+# que Composer puede volver a instalar
+# ------------------------------------
+/core/
+/modules/contrib/
+/profiles/contrib/
+/themes/contrib/
 
-# Archivos generados por Drupal (subidos o privados)
-#/web/sites/*/files/           # descomenta si NO necesitas subir nada de files
-/web/sites/*/private/
-
-# Configuración sensible
-/web/sites/*/settings.php
-
-# Basura de IDE o sistema
-.DS_Store
-.idea/
+# ------------------------------------
+# Archivos generados/subidos por usuarios
+# ------------------------------------
 /sites/default/files/
 /sites/default/files_d7_tmp/
-backup_drupal100_2025-06-11.sql
+/private/
+
+# ------------------------------------
+# Configuración SENSIBLE (credenciales)
+# NO subir al repositorio — usar settings.php.example
+# ------------------------------------
+/sites/default/settings.php
+/sites/default/services.yml
+
+# ------------------------------------
+# Archivos de respaldo locales
+# ------------------------------------
+*.sql
+backup_*.sql
+backup_before_delete.sql
+
+# ------------------------------------
+# Archivos "copia de respaldo" del tema
+# (se identifican por patrón de nombre)
+# ------------------------------------
+*copia*.css
+*copia*.twig
+*copia*.yml
+*copia*.theme
+*copia*.php
+# Archivos con fechas en el nombre (backups manuales)
+themes/drudg8b3/css/style[0-9]*.css
+themes/drudg8b3/css/noticias*.css
+themes/drudg8b3/css/directorio.css
+
+# ------------------------------------
+# Herramientas e IDEs
+# ------------------------------------
+.DS_Store
+.idea/
+*.swp
+*.swo
+.vscode/
+
+# ------------------------------------
+# Agente AI (no debe subirse)
+# ------------------------------------
+.agent/
+.gemini/
+
+# ------------------------------------
+# Archivos adicionales del proyecto
+# ------------------------------------
+/a
+/a:focus,
+"/a:hover{"
+/found
+estructura_drupal100.txt
+composer.json.bak
+*.bak
+*.old

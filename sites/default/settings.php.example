@@ -1,0 +1,74 @@
+<?php
+
+/**
+ * @file
+ * settings.php.example — Configuración de ejemplo para desarrollo local
+ *
+ * INSTRUCCIONES:
+ * 1. Copia este archivo: cp sites/default/settings.php.example sites/default/settings.php
+ * 2. Rellena los valores de BD con tus credenciales locales
+ * 3. Genera un hash_salt único (ver abajo)
+ * 4. NUNCA subas settings.php al repositorio (está en .gitignore)
+ */
+
+// ============================================================
+// BASE DE DATOS
+// ============================================================
+$databases['default']['default'] = [
+  'database'  => 'drupal100',       // Nombre de tu BD local
+  'username'  => 'drupal_user',     // Usuario MySQL local
+  'password'  => 'tu_contrasena',   // Contraseña MySQL local
+  'host'      => 'localhost',
+  'port'      => '3306',
+  'driver'    => 'mysql',
+  'prefix'    => '',
+  'collation' => 'utf8mb4_general_ci',
+];
+
+// ============================================================
+// HASH SALT
+// Genera uno único con: drush php-eval 'echo Drupal\Component\Utility\Crypt::randomBytesBase64(55)'
+// ============================================================
+$settings['hash_salt'] = 'REEMPLAZA_ESTE_VALOR_CON_TU_PROPIO_HASH_SALT';
+
+// ============================================================
+// TRUSTED HOST PATTERNS (ajusta a tu dominio local)
+// ============================================================
+$settings['trusted_host_patterns'] = [
+  '^localhost$',
+  '^127\.0\.0\.1$',
+  // En producción: '^cuaad\.udg\.mx$',
+];
+
+// ============================================================
+// SYNC DE CONFIGURACIÓN
+// ============================================================
+$settings['config_sync_directory'] = 'sites/default/files/config_sync';
+
+// ============================================================
+// ARCHIVOS PRIVADOS
+// ============================================================
+$settings['file_private_path'] = '/var/www/html/drupal100/private';
+
+// ============================================================
+// MODO DEBUG (solo en desarrollo local)
+// ============================================================
+// Descomenta las siguientes líneas para debug:
+// $config['system.logging']['error_level'] = 'verbose';
+// $settings['cache']['bins']['render'] = 'cache.backend.null';
+// $settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.null';
+// $settings['cache']['bins']['page'] = 'cache.backend.null';
+
+/**
+ * Para instalación desde cero:
+ *
+ * 1. Crea la BD:
+ *    mysql -u root -p -e "CREATE DATABASE drupal100 CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;"
+ *    mysql -u root -p -e "GRANT ALL ON drupal100.* TO 'drupal_user'@'localhost' IDENTIFIED BY 'tu_contrasena';"
+ *
+ * 2. Importa el dump de BD provisto por el equipo:
+ *    mysql -u drupal_user -p drupal100 < dump_produccion.sql
+ *
+ * 3. Limpia caché:
+ *    vendor/bin/drush cr
+ */
