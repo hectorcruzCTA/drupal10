@@ -161,8 +161,3 @@ vendor/bin/drush migrate:import [id]
 | Galería | `galeria_de_imagenes` | Galerías fotográficas |
 
 ---
-
-## 📞 Contacto
-
-**Administrador:** hector.cruz@cuaad.udg.mx
-**Servidor producción:** 148.202.102.216
